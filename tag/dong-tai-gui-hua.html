@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>简庐 - 动态规划</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">简庐 </a></h1>
+                <nav><ul>
+                    <li><a href="../pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>
+                    <li><a href="../category/ao-you-kai-yuan.html">遨游开源</a></li>
+                    <li><a href="../category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+                    <li><a href="../category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+                    <li><a href="../category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+                    <li><a href="../category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+                    <li><a href="../category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+                    <li><a href="../category/shi-juan-you-huai.html">释卷有怀</a></li>
+                    <li><a href="../category/shu-fa-rong-ma.html">束发戎马</a></li>
+                    <li><a href="../category/shui-lai-tu-tun.html">水來土屯</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="../2009/ting-ghostjiang-guan-yu-shu-xing-dong-tai-gui-hua-de-yi-dian-xiao-jing-yan.html">听ghost讲关于树型动态规划的一点小经验</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2009-06-14T00:00:00+02:00">
+                Published: 日 14 六月 2009
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
+        </address>
+<p>In <a href="../category/shu-fa-rong-ma.html">束发戎马</a>. </p>
+<p>tags: <a href="../tag/noip.html">NOIP</a> <a href="../tag/dong-tai-gui-hua.html">动态规划</a> <a href="../tag/shu-xing-dong-gui.html">树型动归</a> </p>
+</footer><!-- /.post-info --><h2>1.</h2>
+<p>To 自底向顶 or 自顶向底.This is a question.两种不同的动规方法，应该已经为大家所熟悉了吧？为了for beginers,我就再罗嗦两句：自底向顶，就是先行着眼于处理动态规划中的子问题，再把问题规模不断扩大，最终解决最终问题；自顶向底，就是先行着眼于最终目标，然后探索要达到这个目的需要哪些“次级子问题”，再看每个“次级子问题”需要哪些“次次级子问题”……最终总能找到那些非常好解决的“子问题基元（在打这个词的时候竟然出现了那么HXE（HX+XE）的东西…………）”，然后逐级回溯（就像hitman47在巨菜阶段时辛辛苦苦找那些deb包的依赖关系一样），类似于深度优先搜索的代码印象。两种方法各有千秋，也各有不足。雪知遥神牛喜欢用自顶向底的方法，思考复杂度比较底，但是如果用最易编码的过程（函数）递归来写，每次调用过程就要比自底向顶时数组寻址的时间长一点，浪费了宝贵的N飞秒，所以她一般用数组模拟栈，进行模拟递归（数组模拟栈的方法应该不用再说了吧？），稍稍快了一些；但是这种方法就需要记录每个节点的所有子节点，用（模拟）邻接表储存也需要比自底向顶多开两三个数组，耗费空间。本人(Hitman47)比较喜欢使用自底向顶的动规方法，这种方法比较方便储存（下面一条要说到储存的问题）整个树型关系，比较省空间；不过这种方法的缺点有二：第一，（据雪知遥神牛说）比较不容易想，因为每个问题需要什么往往是一目了然的，但是基元子问题，或者叫边缘值，是什么，从哪里开始处理子问题，子问题与父问题的有向联系究竟怎么实现，都需要爆发一下小宇宙，思索一番，第二：在极限优化方面，由于将要操作的节点所储存的队列（日程表队列）与每个节点的父节点这两个数组储存在内存的不同位置，每完成一个节点就要再转向那个父节点储存单元，这样浪费了时间。</p>
+<h2>2.</h2>
+<p>有 planty of 同志s 都曾提到过树型的东东没有很好的储存方法，于是整了一个邻接matrix(膜拜一下matrix67大牛，就用了E文，严重声明，非ZB!)存储所有单向边，结果是既浪费了时间又浪费了空间，其实大可不必这样麻烦。如果你比较习惯自底向上来进行动规，只存储每个节点的父节点就可以，每次处理当前节点后，向它的父节点“汇报”一下自己的结果，当哪个节点的所有子节点都被处理过了（或子节点个数就是0），就把它加进队列，以备未来进行处理；如果你比较习惯自顶向底完成动态规划，就可以用（模拟）邻接表储存各条边，又省时又省电，为共产主义作贡献……扯远了……咳咳……总之，就是空间和时间复杂度都比邻接矩阵要底很多。</p>
+<h2>3.</h2>
+<p>以后想起来再说吧……</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="#">尊贵的客人哟</a></li>
+                            <li><a href="#">如果你想</a></li>
+                            <li><a href="#">和咱建立友链的话</a></li>
+                            <li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
+                            <li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
+                            <li><a href="#">恭候您的大驾</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
+                            <li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
+                            <li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

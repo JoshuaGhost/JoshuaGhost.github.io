@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>听ghost讲那字典树（trie）与AC自动机的事情</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">简庐 </a></h1>
+                <nav><ul>
+                    <li><a href="../pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>
+                    <li><a href="../category/ao-you-kai-yuan.html">遨游开源</a></li>
+                    <li><a href="../category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+                    <li><a href="../category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+                    <li><a href="../category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+                    <li><a href="../category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+                    <li><a href="../category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+                    <li><a href="../category/shi-juan-you-huai.html">释卷有怀</a></li>
+                    <li class="active"><a href="../category/shu-fa-rong-ma.html">束发戎马</a></li>
+                    <li><a href="../category/shui-lai-tu-tun.html">水來土屯</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="../2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html" rel="bookmark"
+           title="Permalink to 听ghost讲那字典树（trie）与AC自动机的事情">听ghost讲那字典树（trie）与AC自动机的事情</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2009-10-09T00:00:00+02:00">
+                Published: 五 09 十月 2009
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
+        </address>
+<p>In <a href="../category/shu-fa-rong-ma.html">束发戎马</a>. </p>
+<p>tags: <a href="../tag/noip.html">NOIP</a> <a href="../tag/shu-ju-jie-gou.html">数据结构</a> <a href="../tag/zi-dong-ji.html">自动机</a> </p>
+</footer><!-- /.post-info -->      <p>吐个槽先：名字好长！为什么那么长！保持用一格式就那么重要吗！</p>
+<h2>1.字典树：</h2>
+<p>字典树，顾名思义，就是把一坨单词以某种树型结构储存起来，当你在这棵树中找寻某个单词的时候，就像查字典一样，一个字母一个字母地筛除不需要的序列。</p>
+<p>要实现字典树的这个功能，就需要将有相同前缀的单词存在同一条树枝上，这样一来，字典树除根以外的每个节点都是一个字母（根为空节点），分别以它们为结尾，均可以从树的根开始走出一条字符序列。再标记每个可被视为单词的序列的结束节点，一棵香喷喷的字典树就新鲜出炉啦！这种储存减少了冗余数据的存储，节省空间；查找的时候减少了重复子串的查找，降低了时间复杂度（有种动态规划的感觉）。</p>
+<p>字典树有这两大好处，个人觉得这种数据结构的魅力还是很大的。怎么实现它呢？曾经有名小菜（我就不告诉你那是我……）曾经想过这个东西只能用链表存，每多一个节点开一个内存空间，加一条边。因为如果用数组的话，第一个字母有26种可能，第二个字母又有26种可能……这个数组就要开到（26^（L＋1）－26）／25那么大（L是最长单词的长度，这个数——算不出来的去翻高中课本——如果有一个单词像'catastrophe'这么长，那可真是内存的catastrophe……），其实这种想法不用我说您也应该知道这是错误的……因为这样存相当于无视字典树不储存相同前缀的特征，写了一个超费内存的字符串统计排序，如果您有幸看到这种trie树的话……恭喜您，您是9315年第200位到火星旅游的地球人……言归正传，trie的储存方式可以是这样的，据SRC250牛所言，定义“儿子列表”：a[i,ch]，它记录的是编号为i的节点的字母为ch的儿子的节点编号，当然对邻接表比较有爱的同志可以用邻接表存，只不过边权可以设为char类型，即把本应该节点记录的字母转移到边上来（别忘了设成单向边，本hitman47小菜就在这里被死循环过，悲剧……），与那种儿子列表的储存方式各有千秋：儿子列表容易实现层间的转移，查询一个序列是不是单词的时候可以使用；邻接表尽最大力度精简了储存的东西，在需要进行广度优先遍历的时候提倡使用。</p>
+<h2>2.AC自动机</h2>
+<p>别误解，这个东西可不能顾名思义想成“自动把程序改到AC的机器”（如果有这种机器的话，我noip2008就不至于那么惨了……）。如果类比的话，我更愿意把它视为二维KMP算法，KMP算法同志们都应该明白了吧，不明白的话可以看我空间的KMP专讲以及网络上浩如烟海的介绍文章。AC自动机的用途就是进行模式匹配。只不过这次模式串的数量大幅度提升，由原来的1个变为现在的n个，一个一个地进行KMP就要n*[l(主串长度)＋li(模式串平均长度)]一般来说，出题的人都喜欢出卡这些山寨算法的数据，n特别大什么的，这个时候就要用到ac自动机了ac自动机的前身就是trie树，前期的建树方法也和trie树一模一样，只不过在树建立起来以后，树的每个节点新加入了一个附加数据，不妨叫这个数据为“失败指针”，听到这个名字，您可千万不要认为这个指针能把你指向失败的道路，而是说这个指针的作用是‘万一你失败了，该从哪里爬起来’，这个指针的作用就有点类似KMP算法的Pre数组，当前位置无法再进行模式匹配了，从哪里继续新的模式匹配。建造失败指针的方法如下：</p>
+<div class="highlight"><pre>    1.根节点的失败指针指向自己
+
+    2.根的儿子们的失败指针指向根
+
+    3.其它节点的失败指针取决于其父亲的失败指针指向的节点，不妨设其父节点的失败指针指向的那个节点为p：
+
+        3.1.p的儿子们中有一个儿子（记为ps）附加的字母和当前节点的字母相等，当前节点的失败
+</pre></div>
+
+
+<p>指针就指向ps</p>
+<div class="highlight"><pre>        3.2.p的儿子们中没有一个儿子附加的字母和当前节点的字母相等，则进入一个递归过程，p成为p的失败指针指向的节点，进行3.1的可行性判断，如果3.1不成立，则p再成为当前p的失败指针指向的节点，直到3.1的匹配完成或p成为根节点。
+</pre></div>
+
+
+<p>以上就是ac自动机的精华——失败指针的建立方法，然后把trie……哦不……ac自动机上所有可以作为一个单词结尾的节点标记上，接下来就是ac自动机的使用：</p>
+<div class="highlight"><pre>1.起始的时候主串指针指向主串的“0”号位置，trie树指针指向树的根节点
+
+2.匹配的任意时刻：
+
+    2.1如果当前节点的儿子们中有一个节点的字母等于主串里面的下一个字母，那么主串指针与ac自动机指针均＋1，到达的节点的访问标志置为“true”。
+
+    2.2如果当前节点的儿子们中任一节点的字母都不等于主串里面的下一个字母，则主串指针不变，ac自动机的节点指针指向当前节点的失败指针指向的节点，继续进行步骤2.1的可行性判断，
+</pre></div>
+
+
+<p>如果1成立，则按照步骤2.1的做法继续，如果2.1不成立，进行递归，ac自动机的节点指针成为</p>
+<p>当前节点的失败指针指向的节点，继续2.1判断或2.2过程。直到2.1成立或当前节点为根节点</p>
+<div class="highlight"><pre>3.在匹配的时候，我们要把访问过的所有节点按访问顺序单独记录在一个表里面（用途下面讲）。
+
+4.当主串指针移到主串末尾的时候，停止匹配。
+</pre></div>
+
+
+<p>这时候ac自动机的使用还没有结束，我们还要考虑这样的情况：如果模式串中有一串a是另一串b的后缀字串（b串的末尾几位与a串相等），那么在访问的时候如果能访问到完整的b串，那么a串也一定在主串里面出现过，但是你的访问标志只是b串那一支的结尾有，统计的时候就丢了个a，这个时候就要用到匹配的3里面记录的访问顺序表。按照访问顺续表的逆序，将所有在表中出现的访问过的节点的失败指针指向的节点、失败指针指向的节点的失败指针指向的节点、失败指针指向的节点的失败指针指向的节点的失败指针指向的节点…………这一串的访问标志都置为“true”。最后再把所有的单词结尾节点审查一遍，该节点上访问标志为“true”,则主串里面一定出现过这个单词。</p>
+<p>ac自动机的代码正在编写中，应该很快就能发到我空间里了。</p>
+<p>大家的转栽是对我工作的肯定，欢迎大家踊跃转载，</p>
+<p>hitman47 原创</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="#">尊贵的客人哟</a></li>
+                            <li><a href="#">如果你想</a></li>
+                            <li><a href="#">和咱建立友链的话</a></li>
+                            <li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
+                            <li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
+                            <li><a href="#">恭候您的大驾</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
+                            <li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
+                            <li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>简庐 - trubleshooting</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">简庐 </a></h1>
+                <nav><ul>
+                    <li><a href="../pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>
+                    <li><a href="../category/ao-you-kai-yuan.html">遨游开源</a></li>
+                    <li><a href="../category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+                    <li><a href="../category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+                    <li><a href="../category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+                    <li><a href="../category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+                    <li><a href="../category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+                    <li><a href="../category/shi-juan-you-huai.html">释卷有怀</a></li>
+                    <li><a href="../category/shu-fa-rong-ma.html">束发戎马</a></li>
+                    <li><a href="../category/shui-lai-tu-tun.html">水來土屯</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="../2011/metaexploitan-zhuang-shi-wen-ti-jie-jue.html">metaexploit安装时问题解决</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2011-07-23T00:00:00+02:00">
+                Published: 六 23 七月 2011
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
+        </address>
+<p>In <a href="../category/pi-jian-zhi-rui.html">披坚执锐</a>. </p>
+<p>tags: <a href="../tag/metasploit.html">metasploit</a> <a href="../tag/trubleshooting.html">trubleshooting</a> </p>
+</footer><!-- /.post-info --><p>metasploit 中文系统安装失败问题</p>
+<p>windows中文系统在安装metasploit时会报postgresql错误，这是由于postgresql对中文支持问题导致。</p>
+<p>解决方法：控制面板-区域和语言选项-将标准与格式，改为英语（美国），在安装即可</p>
+<p>或可以安装metasploit framework的mini版，该版本不安装postgresql自然也无上述错误了。但无法使用GUI界面和一些相关功能</p>
+<div class="highlight"><pre>On 11/29/2010 11:21 PM, Yuping Li wrote: hi, guyswhen i was installing the metasploit framework 3.5 on XP, I come across with the following error message again and again.There has been an error. Unknown error while running C:\framework/postgresql/bin/psql.exe -U postgres -p 8448 -h localhost -c &quot;ALTER USER postgresql PASSWORD &#39;********&#39;&quot; The application will exit now. We have seen this on some non-english versions of the install - the cause is the default locale in PostgreSQL is not compatible with the SQL_ASCII statements. We need to override the installation locale of PostgreSQL to resolve this and have an open ticket to resolve it.-HD
+</pre></div>
+
+
+<p><a href="http://seclists.org/metasploit/2010/q4/27">问题解答原文出处</a></p>
+<p>转载自<a href="http://hi.baidu.com/heyiblog/blog/item/60edb9867413462d67096e59.html/cmtid/3303d1fc0402a88db901a02e">此处</a></p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

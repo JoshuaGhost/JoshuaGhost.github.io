@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>简庐 - 韩光</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">简庐 </a></h1>
+                <nav><ul>
+                    <li><a href="../pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>
+                    <li><a href="../category/ao-you-kai-yuan.html">遨游开源</a></li>
+                    <li><a href="../category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+                    <li><a href="../category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+                    <li><a href="../category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+                    <li><a href="../category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+                    <li><a href="../category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+                    <li><a href="../category/shi-juan-you-huai.html">释卷有怀</a></li>
+                    <li><a href="../category/shu-fa-rong-ma.html">束发戎马</a></li>
+                    <li><a href="../category/shui-lai-tu-tun.html">水來土屯</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="5">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../2011/ting-ghostjiang-na-zui-duan-lu-de-shi-qing-zhi-dijkstrasuan-fa.html" rel="bookmark"
+                           title="Permalink to 听ghost讲那最短路的事情之dijkstra算法">听ghost讲那最短路的事情之dijkstra算法</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-02-01T00:00:00+01:00">
+                Published: 二 01 二月 2011
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
+        </address>
+<p>In <a href="../category/shu-fa-rong-ma.html">束发戎马</a>. </p>
+<p>tags: <a href="../tag/noip.html">NOIP</a> <a href="../tag/zui-duan-lu.html">最短路</a> <a href="../tag/suan-fa.html">算法</a> <a href="../tag/dijkstra.html">Dijkstra</a> </p>
+</footer><!-- /.post-info -->                <p>图论中的最短路算法，应该是每个进入图论的oier的入门课吧，虽然可能讲一节这个多此一举，但（为了凑数）还是说一说吧~</p>
+<h2>名称</h2>
+<p>dijkstra算法</p>
+<h2>属性</h2>
+<p>单源最短路算法、巨R眼镜（喂喂喂好像稍稍跑偏了啊……）</p>
+<h2>来历</h2>
+<p>在很久很久以前，互联网的规模还没发展到惊天地泣鬼神的时候，网络上的路由器依照静态路由表计算从一个节点（或网络）到另一个节点（或网络）的最短传包路径，就是用的dijkstra算法</p>
+<h2>思想</h2>
+<p>首先根据图的情况建立邻接矩阵，从出发点到各个节点的路径都有一个权值（没有道路直接相连置为+∞）如下图：
+<img alt="啊咧图片好像没有加载出来" src="../2011/dijkstra.jpg" /></p>
+<p>可建立邻接矩阵如下：</p>
+<div class="highlight"><pre>0   11  53  +∞
+11  0   1   +∞
+53  1   0   6
++∞  +∞  6   0
+</pre></div>
+
+
+<p>接下来，寻找从节点1出发到各个其他节点的最短直连路，也就是从上面矩阵的第一行中找出（除了从一到一的那个0权回路以外的）最小值，当然，根据我超人的智慧已经提前你们找出来了，就是那个53！哇嘎嘎嘎……咳咳，言归正传 ...</p>
+                <a class="readmore" href="../2011/ting-ghostjiang-na-zui-duan-lu-de-shi-qing-zhi-dijkstrasuan-fa.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../2010/kai-shi-liao-xin-de-zheng-cheng.html" rel="bookmark"
+                           title="Permalink to 开始了，新的征程">开始了，新的征程</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-06-19T00:00:00+02:00">
+                Published: 六 19 六月 2010
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
+        </address>
+<p>In <a href="../category/jie-sheng-ke-shi.html">结绳刻石</a>. </p>
+<p>tags: <a href="../tag/ri-ji.html">日记</a> </p>
+</footer><!-- /.post-info -->                <h1>开始了，新的征程</h1>
+<p>终于放假了，期盼已久的假期终于到了……虽然刚放假的时候堕落了两个星期，但是终于……假期生活走上正轨了，上两个星期费尽千辛万苦终于c++入了点门……我的意思是说知道基本的语句结构是个怎么个玩意，今天开始学java了。</p>
+<p>学Java就要配好java的开发环境，为了不让自己养成IDE以来的毛病，我只用了sun的jdk，在java.sun.com上下软件倒是不麻烦，麻烦的是安装好了以后环境变量的设置，这方面我要特别感谢我买的那本教程的编者。不愧是清华出的书，把环境变量可能出现的问题都列举出来了，这里为了以后不忘记，也为了帮助更多的同我一样的java小白们解决可能遇到的问题，特把书上介绍的方法公布如下：</p>
+<p>安装好jdk以后，你可能会迫不及待地拿破旧的notepad写一个（或抄一个）Hello World来试验，需要注意的是，jdk没有图形化界面的，所以如果你用的是Windows系统，要打开命令提示符，cd到你存.java文件的那个目录，接下来是恶心了我一整天的环境变量的设置了，首先在cmd里面输入以下内容：</p>
+<div class="highlight"><pre>path <span class="nv">%path%</span>;[你的java的安装路径]\bin
+</pre></div>
+
+
+<p>因为在Windows的cmd里面，延续了dos环境的一个惯例，那就是如果你输入哪个应用程序的名字要运行它，那么系统会现在系统变量的path栏中定义的路径里面去找，如果那里找不到，这个程序就会被认为不存在，用linux习惯了的同学们要特别注意这一点，上面命令的意思就是在环境变量的path栏中再添一个你的Java.exe的所在路径 ...</p>
+                <a class="readmore" href="../2010/kai-shi-liao-xin-de-zheng-cheng.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../2009/kuo-zhan-kmp.html" rel="bookmark"
+                           title="Permalink to 扩展kmp">扩展kmp</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2009-10-28T00:00:00+01:00">
+                Published: 三 28 十月 2009
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
+        </address>
+<p>In <a href="../category/shu-fa-rong-ma.html">束发戎马</a>. </p>
+<p>tags: <a href="../tag/noip.html">NOIP</a> <a href="../tag/suan-fa.html">算法</a> <a href="../tag/kmp.html">KMP</a> <a href="../tag/extended-kmp.html">Extended KMP</a> </p>
+</footer><!-- /.post-info -->                <p>教程的话……我理解了以后会发上来的……</p>
+<div class="highlight"><pre><span class="k">program</span> <span class="n">extended_kmp</span><span class="p">(</span><span class="n">input</span><span class="o">,</span><span class="n">output</span><span class="p">)</span><span class="o">;</span> 
+<span class="k">var</span> 
+    <span class="nb">max</span><span class="o">,</span><span class="nb">now</span><span class="o">,</span><span class="n">x</span><span class="o">,</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">,</span><span class="n">k</span><span class="o">,</span><span class="n">m</span><span class="o">,</span><span class="n">n</span><span class="o">,</span><span class="n">w</span><span class="o">:</span><span class="kt">longint</span><span class="o">;</span> 
+    <span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">:</span><span class="k">array</span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">200001</span><span class="p">]</span> <span class="k">of</span> <span class="kt">char</span><span class="o">;</span> 
+    <span class="n">f</span><span class="o">,</span><span class="n">p</span><span class="o">,</span><span class="n">ans</span><span class="o">:</span><span class="k">array</span><span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">200000</span><span class="p">]</span> <span class="k">of</span> <span class="kt">longint</span><span class="o">;</span> 
+<span class="k">begin</span> 
+    <span class="n">assign</span><span class="p">(</span><span class="n">input</span><span class="o">,</span><span class="err">&quot;</span><span class="nb">str</span><span class="o">.</span><span class="k">in</span><span class="err">&quot;</span><span class="p">)</span><span class="o">;</span> 
+    <span class="n">assign</span><span class="p">(</span><span class="n">output</span><span class="o">,</span><span class="err">&quot;</span><span class="nb">str</span><span class="o">.</span><span class="n">out</span><span class="err">&quot;</span><span class="p">)</span><span class="o">;</span> 
+    <span class="nb">reset</span><span class="p">(</span><span class="n">input</span><span class="p">)</span><span class="o">;</span> 
+    <span class="nb">rewrite</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">;</span> 
+    <span class="nb">readln</span><span class="p">(</span><span class="n">n</span><span class="o">,</span><span class="n">m</span><span class="o">,</span><span class="n">w</span><span class="p">)</span><span class="o">;</span> 
+    <span class="k">for ...</span></pre></div>
+                <a class="readmore" href="../2009/kuo-zhan-kmp.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html" rel="bookmark"
+                           title="Permalink to 听ghost讲那字典树（trie）与AC自动机的事情">听ghost讲那字典树（trie）与AC自动机的事情</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2009-10-09T00:00:00+02:00">
+                Published: 五 09 十月 2009
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
+        </address>
+<p>In <a href="../category/shu-fa-rong-ma.html">束发戎马</a>. </p>
+<p>tags: <a href="../tag/noip.html">NOIP</a> <a href="../tag/shu-ju-jie-gou.html">数据结构</a> <a href="../tag/zi-dong-ji.html">自动机</a> </p>
+</footer><!-- /.post-info -->                <p>吐个槽先：名字好长！为什么那么长！保持用一格式就那么重要吗！</p>
+<h2>1.字典树：</h2>
+<p>字典树，顾名思义，就是把一坨单词以某种树型结构储存起来，当你在这棵树中找寻某个单词的时候，就像查字典一样，一个字母一个字母地筛除不需要的序列。</p>
+<p>要实现字典树的这个功能，就需要将有相同前缀的单词存在同一条树枝上，这样一来，字典树除根以外的每个节点都是一个字母（根为空节点），分别以它们为结尾，均可以从树的根开始走出一条字符序列。再标记每个可被视为单词的序列的结束节点，一棵香喷喷的字典树就新鲜出炉啦！这种储存减少了冗余数据的存储，节省空间；查找的时候减少了重复子串的查找，降低了时间复杂度（有种动态规划的感觉）。</p>
+<p>字典树有这两大好处，个人觉得这种数据结构的魅力还是很大的。怎么实现它呢？曾经有名小菜（我就不告诉你那是我……）曾经想过这个东西只能用链表存，每多一个节点开一个内存空间，加一条边。因为如果用数组的话，第一个字母有26种可能，第二个字母又有26种可能……这个数组就要开到（26^（L＋1）－26）／25那么大（L是最长单词的长度，这个数——算不出来的去翻高中课本——如果有一个单词像'catastrophe'这么长，那可真是内存的catastrophe ...</p>
+                <a class="readmore" href="../2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html" rel="bookmark"
+                           title="Permalink to md5加密算法c语言实现">md5加密算法c语言实现</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2009-09-13T00:00:00+02:00">
+                Published: 日 13 九月 2009
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
+        </address>
+<p>In <a href="../category/pi-jian-zhi-rui.html">披坚执锐</a>. </p>
+<p>tags: <a href="../tag/mi-ma-xue.html">密码学</a> <a href="../tag/xin-xi-an-quan.html">信息安全</a> </p>
+</footer><!-- /.post-info -->                <p>从网上找的md5信息摘要算法的c语言实现，因为我不会用Pascal语言一二进制形式打开文件，就只能把这个c语言的代码原封不动地（其实还是我自己抄了一遍，把编码风格改得比较像自己的）粘到qq空间上来，以做珍藏，具体的实现原理我就不再赘述了，总结起来就是补位，加长度，分组，位运算，反向输出这么几步。
+所谓md5信息摘要算法，当然比他的前身md4信息摘要要先进，升级的地方主要有这么几点：
+    1.定义的宏里面，I函数由原来的(x ^ y^ z)，也就是Pascal中的(x xor y xor z)改为(y^x|(~z))，也就是Pascal中的
+     (x xor y or (not z))，增加了算法的不对称性，使得md5更难破译
+    2.md5在加密的 md5() 函数中，使用了四轮加密，比md4多出一轮
+    3.md5函数中，每个双写大写字母命名的函数都有唯一的加法常数参量 ...</p>
+                <a class="readmore" href="../2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../2009/zoj1013.html" rel="bookmark"
+                           title="Permalink to zoj1013">zoj1013</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2009-09-06T00:00:00+02:00">
+                Published: 日 06 九月 2009
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
+        </address>
+<p>In <a href="../category/shu-fa-rong-ma.html">束发戎马</a>. </p>
+<p>tags: <a href="../tag/noip.html">NOIP</a> <a href="../tag/zoj.html">ZOJ</a> <a href="../tag/fan-yi.html">翻译</a> </p>
+</footer><!-- /.post-info -->                <p>哈哈，第二道题的翻译……寂寞……新鲜出炉了！</p>
+<p>改了一些题目背景，但是要写的东西还是一样的。</p>
+<p>很久很久以前，恩洛斯王国住着一位女王，她的名字叫作Sylvanas Windrunner(希尔瓦娜斯.追风者)。有一天，女王得知她的父亲去世的噩耗，万般悲痛之中，她踏上了参加父亲葬礼的航程。以防万一，她征集了一支禁卫舰队来护航。当她到达目的地－－艾拉西亚的时候，她发现了联盟的一座防御塔，那座塔已被战火焚毁。希尔瓦娜斯女王从秘密渠道得知：她的父亲是被一位死亡骑士用毒酒害死的，这使得希尔瓦娜斯女王开始了复仇行动。她一方面追击敌人，一方面纠集当地武装，同时向已被叛军占领的艾拉西亚主城进军，沿途收复失地，慢慢积蓄力量。</p>
+<p>在作战的过程中，英明的希尔瓦娜斯女王发现她军队中的士兵极缺武器装备，同时她也知道铁炉堡战争矮人制作的武器装备是世界数一数二的，他们的军备商店出产的军械以牢固耐用与品质优越而远近闻名。其中“不死族王者披风（拾取后绑定，增加携带者智力10000点，魔法最大值10000点）”、“咒怨铠甲（拾取后绑定，增加携带者防御力10000点，附冰霜护甲）”、“炽天使之盔（拾取后绑定，永久性增加佩戴者生命最大值10000点）”更是无人能及。不过不幸的是，他们开的这座军备商店恰恰坐落在艾拉西亚主城内部，处于敌人的层层包围之中 ...</p>
+                <a class="readmore" href="../2009/zoj1013.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="../author/han-guang3.html">&laquo;</a>
+    Page 4 / 5
+        <a href="../author/han-guang5.html">&raquo;</a>
+</p>
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="#">尊贵的客人哟</a></li>
+                            <li><a href="#">如果你想</a></li>
+                            <li><a href="#">和咱建立友链的话</a></li>
+                            <li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
+                            <li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
+                            <li><a href="#">恭候您的大驾</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
+                            <li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
+                            <li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

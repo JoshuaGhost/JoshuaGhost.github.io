@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>简庐 - 最短路</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">简庐 </a></h1>
+                <nav><ul>
+                    <li><a href="../pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>
+                    <li><a href="../category/ao-you-kai-yuan.html">遨游开源</a></li>
+                    <li><a href="../category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+                    <li><a href="../category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+                    <li><a href="../category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+                    <li><a href="../category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+                    <li><a href="../category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+                    <li><a href="../category/shi-juan-you-huai.html">释卷有怀</a></li>
+                    <li><a href="../category/shu-fa-rong-ma.html">束发戎马</a></li>
+                    <li><a href="../category/shui-lai-tu-tun.html">水來土屯</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="../2011/ting-ghostjiang-na-zui-duan-lu-de-shi-qing-zhi-dijkstrasuan-fa.html">听ghost讲那最短路的事情之dijkstra算法</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2011-02-01T00:00:00+01:00">
+                Published: 二 01 二月 2011
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
+        </address>
+<p>In <a href="../category/shu-fa-rong-ma.html">束发戎马</a>. </p>
+<p>tags: <a href="../tag/noip.html">NOIP</a> <a href="../tag/zui-duan-lu.html">最短路</a> <a href="../tag/suan-fa.html">算法</a> <a href="../tag/dijkstra.html">Dijkstra</a> </p>
+</footer><!-- /.post-info --><p>图论中的最短路算法，应该是每个进入图论的oier的入门课吧，虽然可能讲一节这个多此一举，但（为了凑数）还是说一说吧~</p>
+<h2>名称</h2>
+<p>dijkstra算法</p>
+<h2>属性</h2>
+<p>单源最短路算法、巨R眼镜（喂喂喂好像稍稍跑偏了啊……）</p>
+<h2>来历</h2>
+<p>在很久很久以前，互联网的规模还没发展到惊天地泣鬼神的时候，网络上的路由器依照静态路由表计算从一个节点（或网络）到另一个节点（或网络）的最短传包路径，就是用的dijkstra算法</p>
+<h2>思想</h2>
+<p>首先根据图的情况建立邻接矩阵，从出发点到各个节点的路径都有一个权值（没有道路直接相连置为+∞）如下图：
+<img alt="啊咧图片好像没有加载出来" src="../2011/dijkstra.jpg" /></p>
+<p>可建立邻接矩阵如下：</p>
+<div class="highlight"><pre>0   11  53  +∞
+11  0   1   +∞
+53  1   0   6
++∞  +∞  6   0
+</pre></div>
+
+
+<p>接下来，寻找从节点1出发到各个其他节点的最短直连路，也就是从上面矩阵的第一行中找出（除了从一到一的那个0权回路以外的）最小值，当然，根据我超人的智慧已经提前你们找出来了，就是那个53！哇嘎嘎嘎……咳咳，言归正传，是那个从节点1到节点2的权为11的路径，此时，第一轮路径优化开始：把11那条路练的节点2当做从节点1侵略其他节点的“中继站”，看看“是从节点1直接到节点3权值（53）小呢”还是“以2为中继站倒一趟车再到节点3权值（12）小呢？”当然是12&lt;53，现在把第一行第三列的53更新为12，也就是现在已知的从节点1到节点3的道路权值最小的是12；然后看能不能同理更新节点1到节点4的权值，不过可惜啊，两条路径都是正无穷权值，到节点4的权值没法更新了。接下来是第一轮路径优化的善后处理：把节点2置一个“已使用”标志，这样下一轮找中继站的时候就不会再找到节点2，这样的路径优化进行三遍后，临街矩阵的第一行就变了样子，也就是列出了从节点1到各个节点的最小权值：</p>
+<div class="highlight"><pre>0 11 12 18
+</pre></div>
+
+
+<p>这就是求最小权值的问题，如果要求再提高一点，想要求最短权值路径，就要在路径优化的时候多记一个数据，就是从节点1到被更新的点本轮使用的“中继站”是哪个节点，等输出的时候递归输出即可。</p>
+<h2>点评</h2>
+<p>dijkstra可谓图论最短路问题中资格最老也是最眼镜娘（循规蹈矩）的算法了，整个算法透着一股明显的贪心气息，是每个学习图论的oier居家旅行必备良方……</p>
+<h2>时间复杂度</h2>
+<p>O(n^2)因为路径优化进行了n-1（n是节点数）次，每次检查了n-1个节点是否能被更新路径。</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="#">尊贵的客人哟</a></li>
+                            <li><a href="#">如果你想</a></li>
+                            <li><a href="#">和咱建立友链的话</a></li>
+                            <li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
+                            <li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
+                            <li><a href="#">恭候您的大驾</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
+                            <li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
+                            <li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
