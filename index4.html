@@ -1,283 +1,296 @@
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>简庐</title>
-  <meta name="author" content="韩光">
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>简庐</title>
+		<meta name="description" content="">
+		<meta name="author" content="韩光">
+
+		<link rel="stylesheet" href="/theme/css/foundation.css" />
+		<link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="/theme/css/custom.css" />
+
+
+		<script src="/theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+		<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="简庐 Atom Feed" />
+
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">简庐</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="/category/ao-you-kai-yuan.html">遨游开源</a></li>
+							<li ><a href="/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+							<li ><a href="/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+							<li ><a href="/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+							<li ><a href="/category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+							<li ><a href="/category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+							<li ><a href="/category/shi-juan-you-huai.html">释卷有怀</a></li>
+							<li ><a href="/category/shu-fa-rong-ma.html">束发戎马</a></li>
+							<li ><a href="/category/shui-lai-tu-tun.html">水來土屯</a></li>
+
+						<li><label>Links</label></li>
+							<li><a href="http://renchusong.github.io/portfolio/">宋壬初</a></li>
+							<li><a href="http://wrfly.kfd.me/">Wrfly's blog</a></li>
+							<li><a href="#">尊敬的客人哟，如果你想和咱建立血之契约的话</a></li>
+							<li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
+							<li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
+							<li><a href="#">咱就在此地恭候您的大驾</a></li>
 
 
 
+						<li><label>Social</label></li>
+							<li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
+							<li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
+							<li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
+					</ul>	
+				</aside>
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="/">简庐</a></h1>
+						</li>
+					</ul>
 
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="/category/ao-you-kai-yuan.html">遨游开源</a></li>
+								<li ><a href="/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+								<li ><a href="/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+								<li ><a href="/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+								<li ><a href="/category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+								<li ><a href="/category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+								<li ><a href="/category/shi-juan-you-huai.html">释卷有怀</a></li>
+								<li ><a href="/category/shu-fa-rong-ma.html">束发戎马</a></li>
+								<li ><a href="/category/shui-lai-tu-tun.html">水來土屯</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                          
+····                                                                                                                                       
+                                     <li><a href="/pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>                                    
+                                                                                                                                          
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
 
-    <link href="./favicon.png" rel="icon">
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
 
-  <link href="./theme/css/main.css" media="screen, projection"
-        rel="stylesheet" type="text/css">
-
-  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
-        rel="stylesheet" type="text/css">
-  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
-        rel="stylesheet" type="text/css">
-</head>
-
-<body>
-  <header role="banner"><hgroup>
-  <h1><a href="./">简庐</a></h1>
-</hgroup></header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-</ul>
-
-
-<ul class="main-navigation">
-      <li><a href="./pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>
-      <li >
-        <a href="./category/ao-you-kai-yuan.html">遨游开源</a>
-      </li>
-      <li >
-        <a href="./category/feng-chui-piao-xu.html">风吹飘絮</a>
-      </li>
-      <li >
-        <a href="./category/jia-hai-fu-chen.html">贾海浮沉</a>
-      </li>
-      <li >
-        <a href="./category/jie-sheng-ke-shi.html">结绳刻石</a>
-      </li>
-      <li >
-        <a href="./category/pi-jian-zhi-rui.html">披坚执锐</a>
-      </li>
-      <li >
-        <a href="./category/qian-tan-shi-bei.html">浅滩拾贝</a>
-      </li>
-      <li >
-        <a href="./category/shi-juan-you-huai.html">释卷有怀</a>
-      </li>
-      <li >
-        <a href="./category/shu-fa-rong-ma.html">束发戎马</a>
-      </li>
-      <li >
-        <a href="./category/shui-lai-tu-tun.html">水來土屯</a>
-      </li>
-</ul></nav>
-  <div id="main">
-    <div id="content">
-<div class="blog-index">
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="./2010/kai-shi-liao-xin-de-zheng-cheng.html">开始了，新的征程</a>
-      </h1>
-    <p class="meta">
-<time datetime="2010-06-19T00:00:00+02:00" pubdate>六 19 六月 2010</time>    </p>
-</header>
-
-  <div class="entry-content"><h1>开始了，新的征程</h1>
+<article>
+	<h3><a href="/2011/ting-ghostjiang-na-oide-shi-qing.html">听ghost讲那oi的事情</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/shu-fa-rong-ma.html">束发戎马</a> on Tue 01 February 2011. Tags: <a href="/tag/noip.html">NOIP</a>, </h6>
+	<p>本人，Joshua Ghost，乃一早就退役的信息学竞赛老鸟是也，本来三次考竞赛成绩都不咋地，本来想忘记这段痛苦的回忆的，但是转念一想，又觉得这样做太不低碳了，以往对我的培训都成了沉没成本，自己也什么都没落下，怪可惜的，所以我下定决心要让自己至少要在oi界留下点什么“我来过”的痕迹……当然不是爪印咯……也就是，打算进行一个“听ghost讲那oi的事情”系列活动！鼓掌！(^o^)/~……诶诶诶，别走别走，也就是在这一系列《听 ...</p>
+		<p class="continue"><a href="/2011/ting-ghostjiang-na-oide-shi-qing.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/2011/ting-ghostjiang-na-zui-duan-lu-de-shi-qing-zhi-dijkstrasuan-fa.html">听ghost讲那最短路的事情之dijkstra算法</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/shu-fa-rong-ma.html">束发戎马</a> on Tue 01 February 2011. Tags: <a href="/tag/noip.html">NOIP</a>, <a href="/tag/zui-duan-lu.html">最短路</a>, <a href="/tag/suan-fa.html">算法</a>, <a href="/tag/dijkstra.html">Dijkstra</a>, </h6>
+	<p>图论中的最短路算法，应该是每个进入图论的oier的入门课吧，虽然可能讲一节这个多此一举，但（为了凑数）还是说一说吧~</p>
+<h2>名称</h2>
+<p>dijkstra算法</p>
+<h2>属性</h2>
+<p>单源最短路算法、巨R眼镜（喂喂喂好像稍稍跑偏了啊……）</p>
+<h2>来历</h2>
+<p>在很久很久以前，互联网的规模还没发展到惊天地泣鬼神的时候，网络上的路由器依照静态路由表计算从一个节点（或网络）到另一个节点（或网络）的最短传包路径，就是用的dijkstra算法</p>
+<h2>思想</h2>
+<p>首先根据图的情况建立邻接矩阵，从出发点到各个节点的路径都有一个权值（没有道路直接相连置为 ...</p>
+		<p class="continue"><a href="/2011/ting-ghostjiang-na-zui-duan-lu-de-shi-qing-zhi-dijkstrasuan-fa.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/2010/kai-shi-liao-xin-de-zheng-cheng.html">开始了，新的征程</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/jie-sheng-ke-shi.html">结绳刻石</a> on Sat 19 June 2010. Tags: <a href="/tag/ri-ji.html">日记</a>, </h6>
+	<h1>开始了，新的征程</h1>
 <p>终于放假了，期盼已久的假期终于到了……虽然刚放假的时候堕落了两个星期，但是终于……假期生活走上正轨了，上两个星期费尽千辛万苦终于c++入了点门……我的意思是说知道基本的语句结构是个怎么个玩意，今天开始学java了。</p>
 <p>学Java就要配好java的开发环境，为了不让自己养成IDE以来的毛病，我只用了sun的jdk，在java.sun.com上下软件倒是不麻烦，麻烦的是安装好了以后环境变量的设置，这方面我要特别感谢我买的那本教程的编者。不愧是清华出的书，把环境变量可能出现的问题都列举出来了，这里为了以后不忘记，也为了帮助更多的同我一样的java小白们解决可能遇到的问题，特把书上介绍的方法公布如下：</p>
-<p>安装好jdk以后，你可能会迫不及待地拿破旧的notepad写一个（或抄一个）Hello World来试验，需要注意的是，jdk没有图形化界面的，所以如果你用的是Windows系统，要打开命令提示符，cd到你存.java文件的那个目录，接下来是恶心了我一整天的环境变量的设置了，首先在cmd里面输入以下内容：</p>
-<div class="highlight"><pre>path <span class="nv">%path%</span>;[你的java的安装路径]\bin
-</pre></div>
-
-
-<p>因为在Windows的cmd里面，延续了dos环境的一个惯例，那就是如果你输入哪个应用程序的名字要运行它，那么系统会现在系统变量的path栏中定义的路径里面去找，如果那里找不到，这个程序就会被认为不存在，用linux习惯了的同学们要特别注意这一点，上面命令的意思就是在环境变量的path栏中再添一个你的Java.exe的所在路径 ...</p></div>
-  <footer>
-    <a rel="full-article" href="./2010/kai-shi-liao-xin-de-zheng-cheng.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="./2009/kuo-zhan-kmp.html">扩展kmp</a>
-      </h1>
-    <p class="meta">
-<time datetime="2009-10-28T00:00:00+01:00" pubdate>三 28 十月 2009</time>    </p>
-</header>
-
-  <div class="entry-content"><p>教程的话……我理解了以后会发上来的……</p>
+<p>安装好jdk以后 ...</p>
+		<p class="continue"><a href="/2010/kai-shi-liao-xin-de-zheng-cheng.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/2009/kuo-zhan-kmp.html">扩展kmp</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/shu-fa-rong-ma.html">束发戎马</a> on Wed 28 October 2009. Tags: <a href="/tag/noip.html">NOIP</a>, <a href="/tag/suan-fa.html">算法</a>, <a href="/tag/kmp.html">KMP</a>, <a href="/tag/extended-kmp.html">Extended KMP</a>, </h6>
+	<p>教程的话……我理解了以后会发上来的……</p>
 <div class="highlight"><pre><span class="k">program</span> <span class="n">extended_kmp</span><span class="p">(</span><span class="n">input</span><span class="o">,</span><span class="n">output</span><span class="p">)</span><span class="o">;</span> 
 <span class="k">var</span> 
     <span class="nb">max</span><span class="o">,</span><span class="nb">now</span><span class="o">,</span><span class="n">x</span><span class="o">,</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">,</span><span class="n">k</span><span class="o">,</span><span class="n">m</span><span class="o">,</span><span class="n">n</span><span class="o">,</span><span class="n">w</span><span class="o">:</span><span class="kt">longint</span><span class="o">;</span> 
     <span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">:</span><span class="k">array</span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">200001</span><span class="p">]</span> <span class="k">of</span> <span class="kt">char</span><span class="o">;</span> 
-    <span class="n">f</span><span class="o">,</span><span class="n">p</span><span class="o">,</span><span class="n">ans</span><span class="o">:</span><span class="k">array</span><span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">200000</span><span class="p">]</span> <span class="k">of</span> <span class="kt">longint</span><span class="o">;</span> 
-<span class="k">begin</span> 
-    <span class="n">assign</span><span class="p">(</span><span class="n">input</span><span class="o">,</span><span class="err">&quot;</span><span class="nb">str</span><span class="o">.</span><span class="k">in</span><span class="err">&quot;</span><span class="p">)</span><span class="o">;</span> 
-    <span class="n">assign</span><span class="p">(</span><span class="n">output</span><span class="o">,</span><span class="err">&quot;</span><span class="nb">str</span><span class="o">.</span><span class="n">out</span><span class="err">&quot;</span><span class="p">)</span><span class="o">;</span> 
-    <span class="nb">reset</span><span class="p">(</span><span class="n">input</span><span class="p">)</span><span class="o">;</span> 
-    <span class="nb">rewrite</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">;</span> 
-    <span class="nb">readln</span><span class="p">(</span><span class="n">n</span><span class="o">,</span><span class="n">m</span><span class="o">,</span><span class="n">w</span><span class="p">)</span><span class="o">;</span> 
-    <span class="k">for ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="./2009/kuo-zhan-kmp.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="./2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html">听ghost讲那字典树（trie）与AC自动机的事情</a>
-      </h1>
-    <p class="meta">
-<time datetime="2009-10-09T00:00:00+02:00" pubdate>五 09 十月 2009</time>    </p>
-</header>
-
-  <div class="entry-content"><p>吐个槽先：名字好长！为什么那么长！保持用一格式就那么重要吗！</p>
+    <span class="n">f ...</span></pre></div>
+		<p class="continue"><a href="/2009/kuo-zhan-kmp.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html">听ghost讲那字典树（trie）与AC自动机的事情</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/shu-fa-rong-ma.html">束发戎马</a> on Fri 09 October 2009. Tags: <a href="/tag/noip.html">NOIP</a>, <a href="/tag/shu-ju-jie-gou.html">数据结构</a>, <a href="/tag/zi-dong-ji.html">自动机</a>, </h6>
+	<p>吐个槽先：名字好长！为什么那么长！保持用一格式就那么重要吗！</p>
 <h2>1.字典树：</h2>
 <p>字典树，顾名思义，就是把一坨单词以某种树型结构储存起来，当你在这棵树中找寻某个单词的时候，就像查字典一样，一个字母一个字母地筛除不需要的序列。</p>
-<p>要实现字典树的这个功能，就需要将有相同前缀的单词存在同一条树枝上，这样一来，字典树除根以外的每个节点都是一个字母（根为空节点），分别以它们为结尾，均可以从树的根开始走出一条字符序列。再标记每个可被视为单词的序列的结束节点，一棵香喷喷的字典树就新鲜出炉啦！这种储存减少了冗余数据的存储，节省空间；查找的时候减少了重复子串的查找，降低了时间复杂度（有种动态规划的感觉）。</p>
-<p>字典树有这两大好处，个人觉得这种数据结构的魅力还是很大的。怎么实现它呢？曾经有名小菜（我就不告诉你那是我……）曾经想过这个东西只能用链表存，每多一个节点开一个内存空间，加一条边。因为如果用数组的话，第一个字母有26种可能，第二个字母又有26种可能……这个数组就要开到（26^（L＋1）－26）／25那么大（L是最长单词的长度，这个数——算不出来的去翻高中课本——如果有一个单词像'catastrophe'这么长，那可真是内存的catastrophe ...</p></div>
-  <footer>
-    <a rel="full-article" href="./2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="./2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html">md5加密算法c语言实现</a>
-      </h1>
-    <p class="meta">
-<time datetime="2009-09-13T00:00:00+02:00" pubdate>日 13 九月 2009</time>    </p>
-</header>
-
-  <div class="entry-content"><p>从网上找的md5信息摘要算法的c语言实现，因为我不会用Pascal语言一二进制形式打开文件，就只能把这个c语言的代码原封不动地（其实还是我自己抄了一遍，把编码风格改得比较像自己的）粘到qq空间上来，以做珍藏，具体的实现原理我就不再赘述了，总结起来就是补位，加长度，分组，位运算，反向输出这么几步。
+<p>要实现字典树的这个功能，就需要将有相同前缀的单词存在同一条树枝上，这样一来，字典树除根以外的每个节点都是一个字母（根为空节点），分别以它们为结尾，均可以从树的根开始走出一条字符序列。再标记每个可被视为单词的序列的结束节点，一棵香喷喷的字典树就新鲜出炉啦！这种储存减少了冗余数据的存储，节省空间；查找的时候减少了重复子串的查找，降低了时间复杂度 ...</p>
+		<p class="continue"><a href="/2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html">md5加密算法c语言实现</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/pi-jian-zhi-rui.html">披坚执锐</a> on Sun 13 September 2009. Tags: <a href="/tag/mi-ma-xue.html">密码学</a>, <a href="/tag/xin-xi-an-quan.html">信息安全</a>, </h6>
+	<p>从网上找的md5信息摘要算法的c语言实现，因为我不会用Pascal语言一二进制形式打开文件，就只能把这个c语言的代码原封不动地（其实还是我自己抄了一遍，把编码风格改得比较像自己的）粘到qq空间上来，以做珍藏，具体的实现原理我就不再赘述了，总结起来就是补位，加长度，分组，位运算，反向输出这么几步。
 所谓md5信息摘要算法，当然比他的前身md4信息摘要要先进，升级的地方主要有这么几点：
-    1.定义的宏里面，I函数由原来的(x ^ y^ z)，也就是Pascal中的(x xor y xor z)改为(y^x|(~z))，也就是Pascal中的
-     (x xor y or (not z))，增加了算法的不对称性，使得md5更难破译
-    2.md5在加密的 md5() 函数中，使用了四轮加密，比md4多出一轮
-    3.md5函数中，每个双写大写字母命名的函数都有唯一的加法常数参量 ...</p></div>
-  <footer>
-    <a rel="full-article" href="./2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="./2009/zoj1013.html">zoj1013</a>
-      </h1>
-    <p class="meta">
-<time datetime="2009-09-06T00:00:00+02:00" pubdate>日 06 九月 2009</time>    </p>
-</header>
+    1.定义的宏里面，I函数由原来的(x ^ y^ z)，也就是Pascal中的(x xor ...</p>
+		<p class="continue"><a href="/2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
 
-  <div class="entry-content"><p>哈哈，第二道题的翻译……寂寞……新鲜出炉了！</p>
-<p>改了一些题目背景，但是要写的东西还是一样的。</p>
-<p>很久很久以前，恩洛斯王国住着一位女王，她的名字叫作Sylvanas Windrunner(希尔瓦娜斯.追风者)。有一天，女王得知她的父亲去世的噩耗，万般悲痛之中，她踏上了参加父亲葬礼的航程。以防万一，她征集了一支禁卫舰队来护航。当她到达目的地－－艾拉西亚的时候，她发现了联盟的一座防御塔，那座塔已被战火焚毁。希尔瓦娜斯女王从秘密渠道得知：她的父亲是被一位死亡骑士用毒酒害死的，这使得希尔瓦娜斯女王开始了复仇行动。她一方面追击敌人，一方面纠集当地武装，同时向已被叛军占领的艾拉西亚主城进军，沿途收复失地，慢慢积蓄力量。</p>
-<p>在作战的过程中，英明的希尔瓦娜斯女王发现她军队中的士兵极缺武器装备，同时她也知道铁炉堡战争矮人制作的武器装备是世界数一数二的，他们的军备商店出产的军械以牢固耐用与品质优越而远近闻名。其中“不死族王者披风（拾取后绑定，增加携带者智力10000点，魔法最大值10000点）”、“咒怨铠甲（拾取后绑定，增加携带者防御力10000点，附冰霜护甲）”、“炽天使之盔（拾取后绑定，永久性增加佩戴者生命最大值10000点）”更是无人能及。不过不幸的是，他们开的这座军备商店恰恰坐落在艾拉西亚主城内部，处于敌人的层层包围之中 ...</p></div>
-  <footer>
-    <a rel="full-article" href="./2009/zoj1013.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="./2009/zoj1011.html">zoj1011</a>
-      </h1>
-    <p class="meta">
-<time datetime="2009-09-05T00:00:00+02:00" pubdate>六 05 九月 2009</time>    </p>
-</header>
+<div class="row" style="margin-bottom: -1.25em;">
+	<div class="small-12 columns text-center">
+		<div class="pagination-centered">
+			<ul class="pagination">
+				<li class="arrow"><a href="/index3.html">&larr; Previous</a></li>
+				<li class=""><a href="/index.html">1</a></li>
+				<li class=""><a href="/index2.html">2</a></li>
+				<li class=""><a href="/index3.html">3</a></li>
+				<li class="current"><a href="/index4.html">4</a></li>
+				<li class=""><a href="/index5.html">5</a></li>
+				<li class="arrow"><a href="/index5.html">Next &rarr;</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 
-  <div class="entry-content"><p>老师让做zoj1011上的题，苦于那里都是英文题目，有的大牛用在线翻译站点翻译了一下，让我们更深刻地感觉到“翻译即背叛”……尤其是用电脑翻译……………………</p>
-<p>为了使背叛的程度尽可能地减小，咱小菜来人工翻译了一遍，应该还是能读通的把，不通顺或者对题意不明的童鞋，可以留言或者与我qq联系。</p>
-<p>我翻译的不是试题，是寂寞…………</p>
-<p>非判断性树型自动机（NTA）是一种由多个树型结构组成的设备。每种设备在自己的一种特定的规则下运行，依据这种规则设备中的每个树型结构可以产生一系列的信号，这些信号可以组成一个信号系统。在这个系统里面，其中一个信号叫做“开始信号”，还有一些信号叫做“可接受信号”，其他的信号叫做“辅助信号”。一对“可接受信号”可以组成一个“可接受对”。</p>
-<p>我们现在说的这些树都是二叉树，即所有的非叶子节点都有两个儿子，每个节点都有一种叫做“信号传输管理器”的装置，当这个节点接受到一个信号的时候，信号接触到这个节点的信号传输管理器，信号传输管理器产生一系列的信号对，然后节点随机地选择出其中的一对信号并将其传送给节点的左右儿子，信号对中第一个送到左儿子，第二个送给右儿子。</p>
-<p>非判断性树型自动机的工作全过程如下所述：</p>
-<p>设备首先向根节点发送一个信号，接着根据根节点的信号传送管理器的内建规则在规则允许的范围内随机地生成一对信号，并把第一个信号送给左儿子，第二个送给右儿子。之后每一个信号都分别生成两个信号，这样的传送路线一直传送到叶子节点。</p>
-<p>如果一个信号达到了叶子节点并且叶子节点产生了两个可接受信号，我们就说这个叶子节点是shakable ...</p></div>
-  <footer>
-    <a rel="full-article" href="./2009/zoj1011.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
-    <a class="prev" href="./index5.html">&larr; Older</a>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="http://renchusong.github.io/portfolio/">宋壬初</a></li>
+									<li><a href="http://wrfly.kfd.me/">Wrfly's blog</a></li>
+									<li><a href="#">尊敬的客人哟，如果你想和咱建立血之契约的话</a></li>
+									<li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
+									<li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
+									<li><a href="#">咱就在此地恭候您的大驾</a></li>
+								</ul>
+							</div>
 
-    <a class="next" href="./index3.html">Newer &rarr;</a>
-  <br />
-</div></div>
-<aside class="sidebar">
-  <section>
-    <h1>Recent Posts</h1>
-    <ul id="recent_posts">
-      <li class="post">
-          <a href="./2015/48ou-ji.html">4.8偶记</a>
-      </li>
-      <li class="post">
-          <a href="./2015/heng-zhong-xian-xiang-zhi-wo-jian.html">“衡中现象”之我见</a>
-      </li>
-      <li class="post">
-          <a href="./2015/38ou-ji.html">3.8偶记</a>
-      </li>
-      <li class="post">
-          <a href="./2015/lun-you-mo.html">论幽默</a>
-      </li>
-      <li class="post">
-          <a href="./2013/ji-yi-ci-guan-yu-ipv4wu-fa-lian-jie-ipv6que-ke-yi-shang-wang-de-jie-jue-guo-cheng.html">记一次关于IPv4无法连接IPv6却可以上网的解决过程</a>
-      </li>
-    </ul>
-  </section>
-  <section>
-      
-    <h1>Categories</h1>
-    <ul id="recent_posts">
-        <li><a href="./category/ao-you-kai-yuan.html">遨游开源</a></li>
-        <li><a href="./category/feng-chui-piao-xu.html">风吹飘絮</a></li>
-        <li><a href="./category/jia-hai-fu-chen.html">贾海浮沉</a></li>
-        <li><a href="./category/jie-sheng-ke-shi.html">结绳刻石</a></li>
-        <li><a href="./category/pi-jian-zhi-rui.html">披坚执锐</a></li>
-        <li><a href="./category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
-        <li><a href="./category/shi-juan-you-huai.html">释卷有怀</a></li>
-        <li><a href="./category/shu-fa-rong-ma.html">束发戎马</a></li>
-        <li><a href="./category/shui-lai-tu-tun.html">水來土屯</a></li>
-    </ul>
-  </section>
- 
-
-  <section>
-  <h1>Tags</h1>
-    <a href="./tag/fo-xue.html">佛学</a>,    <a href="./tag/you-xi.html">游戏</a>,    <a href="./tag/dijkstra.html">Dijkstra</a>,    <a href="./tag/troubleshooting.html">troubleshooting</a>,    <a href="./tag/zheng-quan-tou-zi.html">证券投资</a>,    <a href="./tag/linux.html">linux</a>,    <a href="./tag/fa-lao-sao.html">发牢骚</a>,    <a href="./tag/tui-hou-gan.html">推后感</a>,    <a href="./tag/ri-ji.html">日记</a>,    <a href="./tag/zui-duan-lu.html">最短路</a>,    <a href="./tag/zhong-er-hei-li-shi.html">中二黑历史</a>,    <a href="./tag/noip.html">NOIP</a>,    <a href="./tag/zoj.html">ZOJ</a>,    <a href="./tag/zhai-chao.html">摘抄</a>,    <a href="./tag/ipv4.html">IPv4</a>,    <a href="./tag/ipv6.html">IPv6</a>,    <a href="./tag/ia-32.html">IA-32</a>,    <a href="./tag/extended-kmp.html">Extended KMP</a>,    <a href="./tag/mi-ma-xue.html">密码学</a>,    <a href="./tag/shu-ju-jie-gou.html">数据结构</a>,    <a href="./tag/kmp.html">KMP</a>,    <a href="./tag/suan-fa.html">算法</a>,    <a href="./tag/windowsjia-gou.html">Windows架构</a>,    <a href="./tag/bi-ji.html">笔记</a>,    <a href="./tag/metasploit.html">metasploit</a>,    <a href="./tag/netlink.html">netlink</a>,    <a href="./tag/zuo-ye-zhan-shi.html">作业展示</a>,    <a href="./tag/za-wen.html">杂文</a>,    <a href="./tag/xin-xi-an-quan-jing-sai.html">信息安全竞赛</a>,    <a href="./tag/fan-yi.html">翻译</a>,    <a href="./tag/xiao-hua.html">笑话</a>,    <a href="./tag/er-ci-yuan.html">二次元</a>,    <a href="./tag/xiao-huang-you.html">小黄油</a>,    <a href="./tag/xin-xi-an-quan.html">信息安全</a>,    <a href="./tag/shu-xing-dong-gui.html">树型动归</a>,    <a href="./tag/zi-dong-ji.html">自动机</a>,    <a href="./tag/dong-tai-gui-hua.html">动态规划</a>  </section>
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+									<li><a href="/tag/zoj.html" class="tag-3">ZOJ</a></li>
+									<li><a href="/tag/动态规划.html" class="tag-4">动态规划</a></li>
+									<li><a href="/tag/ia-32.html" class="tag-4">IA-32</a></li>
+									<li><a href="/tag/信息安全竞赛.html" class="tag-4">信息安全竞赛</a></li>
+									<li><a href="/tag/树型动归.html" class="tag-4">树型动归</a></li>
+									<li><a href="/tag/中二黑历史.html" class="tag-3">中二黑历史</a></li>
+									<li><a href="/tag/netlink.html" class="tag-4">netlink</a></li>
+									<li><a href="/tag/翻译.html" class="tag-3">翻译</a></li>
+									<li><a href="/tag/extended-kmp.html" class="tag-4">Extended KMP</a></li>
+									<li><a href="/tag/读书笔记.html" class="tag-4">读书笔记</a></li>
+									<li><a href="/tag/哲学.html" class="tag-4">哲学</a></li>
+									<li><a href="/tag/作业展示.html" class="tag-4">作业展示</a></li>
+									<li><a href="/tag/日记.html" class="tag-1">日记</a></li>
+									<li><a href="/tag/自动机.html" class="tag-4">自动机</a></li>
+									<li><a href="/tag/ipv6.html" class="tag-4">IPv6</a></li>
+									<li><a href="/tag/小黄油.html" class="tag-4">小黄油</a></li>
+									<li><a href="/tag/发牢骚.html" class="tag-4">发牢骚</a></li>
+									<li><a href="/tag/科学方法论.html" class="tag-4">科学方法论</a></li>
+									<li><a href="/tag/linux.html" class="tag-4">linux</a></li>
+									<li><a href="/tag/推后感.html" class="tag-4">推后感</a></li>
+									<li><a href="/tag/dijkstra.html" class="tag-4">Dijkstra</a></li>
+									<li><a href="/tag/游戏.html" class="tag-4">游戏</a></li>
+									<li><a href="/tag/二次元.html" class="tag-4">二次元</a></li>
+									<li><a href="/tag/kmp.html" class="tag-3">KMP</a></li>
+									<li><a href="/tag/ipv4.html" class="tag-4">IPv4</a></li>
+									<li><a href="/tag/最短路.html" class="tag-4">最短路</a></li>
+									<li><a href="/tag/数据结构.html" class="tag-4">数据结构</a></li>
+									<li><a href="/tag/证券投资.html" class="tag-4">证券投资</a></li>
+									<li><a href="/tag/杂文.html" class="tag-2">杂文</a></li>
+									<li><a href="/tag/noip.html" class="tag-1">NOIP</a></li>
+									<li><a href="/tag/杂感.html" class="tag-4">杂感</a></li>
+									<li><a href="/tag/jekyll.html" class="tag-4">jekyll</a></li>
+									<li><a href="/tag/metasploit.html" class="tag-4">metasploit</a></li>
+									<li><a href="/tag/密码学.html" class="tag-4">密码学</a></li>
+									<li><a href="/tag/troubleshooting.html" class="tag-2">troubleshooting</a></li>
+									<li><a href="/tag/信息安全.html" class="tag-3">信息安全</a></li>
+									<li><a href="/tag/笑话.html" class="tag-4">笑话</a></li>
+									<li><a href="/tag/佛学.html" class="tag-4">佛学</a></li>
+									<li><a href="/tag/摘抄.html" class="tag-2">摘抄</a></li>
+									<li><a href="/tag/windows架构.html" class="tag-4">Windows架构</a></li>
+									<li><a href="/tag/笔记.html" class="tag-4">笔记</a></li>
+									<li><a href="/tag/算法.html" class="tag-2">算法</a></li>
+								</ul>
+							</div>
 
 
-    <section>
-        <h1>Social</h1>
-        <ul>
-            <li><a href="http://github.com/JoshuaGhost" target="_blank">Fork me on GitHub!</a></li>
-            <li><a href="http://twitter.com/Joshua_Ghost/" target="_blank">Twitt me!</a></li>
-            <li><a href="mailto:sniperstriker@gmail.com" target="_blank">Mail me!</a></li>
-        </ul>
-    </section>
-    <section>
-        <h1>Blogroll</h1>
-        <ul>
-            <li><a href="http://renchusong.github.io/portfolio/" target="_blank">宋壬初</a></li>
-            <li><a href="http://wrfly.kfd.me/" target="_blank">Wrfly's blog</a></li>
-            <li><a href="#" target="_blank">尊敬的客人哟，如果你想和咱建立血之契约的话</a></li>
-            <li><a href="mailto:sniperstriker@163.com" target="_blank">就mail我吧</a></li>
-            <li><a href="http://t.qq.com/JoshuaGhost" target="_blank">或者用QQ：五七八六零三九一八</a></li>
-            <li><a href="#" target="_blank">咱就在此地恭候您的大驾</a></li>
-        </ul>
-    </section>
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
+									<li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
+									<li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
 
-</aside>    </div>
-  </div>
-  <footer role="contentinfo"><p>
-    Copyright &copy;  2008&ndash;2015  韩光 &mdash;
-  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
-</p></footer>
-  <script src="./theme/js/modernizr-2.0.js"></script>
-  <script src="./theme/js/ender.js"></script>
-  <script src="./theme/js/octopress.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    var disqus_shortname = 'joshuaghost';
-    (function() {
-      console.log('.');
-      console.log(disqus_url);
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
-  </script>
-</body>
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="/theme/js/jquery.js"></script>
+		<script src="/theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>

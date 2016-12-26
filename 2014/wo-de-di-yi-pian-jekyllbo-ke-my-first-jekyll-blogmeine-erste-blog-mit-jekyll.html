@@ -1,51 +1,124 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-        <meta charset="utf-8" />
-        <title>"我的第一篇Jekyll博客/My first Jekyll blog/Meine erste Blog mit Jekyll"</title>
-        <link rel="stylesheet" href="../theme/css/main.css" />
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-</head>
+		<title>简庐</title>
+		<meta name="description" content="">
+		<meta name="author" content="韩光">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="../">简庐 </a></h1>
-                <nav><ul>
-                    <li><a href="../pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>
-                    <li><a href="../category/ao-you-kai-yuan.html">遨游开源</a></li>
-                    <li><a href="../category/feng-chui-piao-xu.html">风吹飘絮</a></li>
-                    <li><a href="../category/jia-hai-fu-chen.html">贾海浮沉</a></li>
-                    <li class="active"><a href="../category/jie-sheng-ke-shi.html">结绳刻石</a></li>
-                    <li><a href="../category/pi-jian-zhi-rui.html">披坚执锐</a></li>
-                    <li><a href="../category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
-                    <li><a href="../category/shi-juan-you-huai.html">释卷有怀</a></li>
-                    <li><a href="../category/shu-fa-rong-ma.html">束发戎马</a></li>
-                    <li><a href="../category/shui-lai-tu-tun.html">水來土屯</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="../2014/wo-de-di-yi-pian-jekyllbo-ke-my-first-jekyll-blogmeine-erste-blog-mit-jekyll.html" rel="bookmark"
-           title="Permalink to "我的第一篇Jekyll博客/My first Jekyll blog/Meine erste Blog mit Jekyll"">"我的第一篇Jekyll博客/My first Jekyll blog/Meine erste Blog mit Jekyll"</a></h1>
-    </header>
+		<link rel="stylesheet" href="/theme/css/foundation.css" />
+		<link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="/theme/css/custom.css" />
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-11-15T00:00:00+01:00">
-                Published: 六 15 十一月 2014
-        </abbr>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="../author/han-guang.html">韩光</a>
-        </address>
-<p>In <a href="../category/jie-sheng-ke-shi.html">结绳刻石</a>. </p>
-<p>tags: <a href="../tag/jekyll.html">jekyll</a> </p>
-</footer><!-- /.post-info -->      <h2>汉语</h2>
+		<script src="/theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+		<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="简庐 Atom Feed" />
+
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">简庐</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="/category/ao-you-kai-yuan.html">遨游开源</a></li>
+							<li ><a href="/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+							<li ><a href="/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+							<li class="active"><a href="/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+							<li ><a href="/category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+							<li ><a href="/category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+							<li ><a href="/category/shi-juan-you-huai.html">释卷有怀</a></li>
+							<li ><a href="/category/shu-fa-rong-ma.html">束发戎马</a></li>
+							<li ><a href="/category/shui-lai-tu-tun.html">水來土屯</a></li>
+
+						<li><label>Links</label></li>
+							<li><a href="http://renchusong.github.io/portfolio/">宋壬初</a></li>
+							<li><a href="http://wrfly.kfd.me/">Wrfly's blog</a></li>
+							<li><a href="#">尊敬的客人哟，如果你想和咱建立血之契约的话</a></li>
+							<li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
+							<li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
+							<li><a href="#">咱就在此地恭候您的大驾</a></li>
+
+
+
+						<li><label>Social</label></li>
+							<li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
+							<li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
+							<li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="/">简庐</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="/category/ao-you-kai-yuan.html">遨游开源</a></li>
+								<li ><a href="/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+								<li ><a href="/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+								<li class="active"><a href="/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+								<li ><a href="/category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+								<li ><a href="/category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+								<li ><a href="/category/shi-juan-you-huai.html">释卷有怀</a></li>
+								<li ><a href="/category/shu-fa-rong-ma.html">束发戎马</a></li>
+								<li ><a href="/category/shui-lai-tu-tun.html">水來土屯</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                          
+····                                                                                                                                       
+                                     <li><a href="/pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>                                    
+                                                                                                                                          
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+<article>
+	<h2>"我的第一篇Jekyll博客/My first Jekyll blog/Meine erste Blog mit Jekyll"</h2>
+	<h2>汉语</h2>
 <p>于是乎这就是第一篇相当于测试性质的Jekyll博客啦，之前搜索静态博客模板第一个就蹦出来的是这个，点进去看看样例还挺漂亮简洁的，就选了它。
 <!--break-->
 也不知道这次的博客能够坚持多久，总之先挂在github上，域名的事情还有博客本身的设计与内容以后再想，快速原型进行测试嘛</p>
@@ -58,40 +131,121 @@
 <p>Also hier ist meine erste Blog mit Jekyll Muster, die eigentlich ein Probe ist. Vorher habe ich nach 'statischer Muster der Blog' gesucht und dieses erste Link ausgewaehlt. Ich fuehrte es elegent und einfach, wenn ich die Splashbilden geguckt habe. Deswegen habe ich es gewahlt.</p>
 <p>Keine Achnung wie lange kann ich diese Blog unterstuetzen. Aber ich soll einfach es zu erst zu Github druecken. Danach kann ich mich um die Entwurf und die Inhaltung der Blog sorgen. d.h. fast prototype.</p>
 <p>So auch wie eine Probe. Es gibt herhier etwa meine Kontakte. Man kann mir durch <a href="http://t.qq.com/JoshuaGhost">Mikroblog des Tencents</a> im Hauptland des Chinas, sowohl auch durch <a href="https://twitter.com/Joshua_Ghost">Twitter</a> von ausserland kontakten. Nur eine kleine Erwerbung. Das ist alles.</p>
-    </div><!-- /.entry-content -->
+	<hr/>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/jie-sheng-ke-shi.html">结绳刻石</a> on Sat 15 November 2014. Tags: <a href="/tag/jekyll.html">jekyll</a>, </h6>
+</article>
 
-  </article>
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://renchusong.github.io/portfolio/">宋壬初</a></li>
-                            <li><a href="http://wrfly.kfd.me/">Wrfly's blog</a></li>
-                            <li><a href="#">尊敬的客人哟，如果你想和咱建立血之契约的话</a></li>
-                            <li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
-                            <li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
-                            <li><a href="#">咱就在此地恭候您的大驾</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'joshuaghost.disqus.com';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="http://renchusong.github.io/portfolio/">宋壬初</a></li>
+									<li><a href="http://wrfly.kfd.me/">Wrfly's blog</a></li>
+									<li><a href="#">尊敬的客人哟，如果你想和咱建立血之契约的话</a></li>
+									<li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
+									<li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
+									<li><a href="#">咱就在此地恭候您的大驾</a></li>
+								</ul>
+							</div>
 
-                            <li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
-                            <li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
-                            <li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+									<li><a href="/tag/zoj.html" class="tag-3">ZOJ</a></li>
+									<li><a href="/tag/动态规划.html" class="tag-4">动态规划</a></li>
+									<li><a href="/tag/ia-32.html" class="tag-4">IA-32</a></li>
+									<li><a href="/tag/信息安全竞赛.html" class="tag-4">信息安全竞赛</a></li>
+									<li><a href="/tag/树型动归.html" class="tag-4">树型动归</a></li>
+									<li><a href="/tag/中二黑历史.html" class="tag-3">中二黑历史</a></li>
+									<li><a href="/tag/netlink.html" class="tag-4">netlink</a></li>
+									<li><a href="/tag/翻译.html" class="tag-3">翻译</a></li>
+									<li><a href="/tag/extended-kmp.html" class="tag-4">Extended KMP</a></li>
+									<li><a href="/tag/读书笔记.html" class="tag-4">读书笔记</a></li>
+									<li><a href="/tag/哲学.html" class="tag-4">哲学</a></li>
+									<li><a href="/tag/作业展示.html" class="tag-4">作业展示</a></li>
+									<li><a href="/tag/日记.html" class="tag-1">日记</a></li>
+									<li><a href="/tag/自动机.html" class="tag-4">自动机</a></li>
+									<li><a href="/tag/ipv6.html" class="tag-4">IPv6</a></li>
+									<li><a href="/tag/小黄油.html" class="tag-4">小黄油</a></li>
+									<li><a href="/tag/发牢骚.html" class="tag-4">发牢骚</a></li>
+									<li><a href="/tag/科学方法论.html" class="tag-4">科学方法论</a></li>
+									<li><a href="/tag/linux.html" class="tag-4">linux</a></li>
+									<li><a href="/tag/推后感.html" class="tag-4">推后感</a></li>
+									<li><a href="/tag/dijkstra.html" class="tag-4">Dijkstra</a></li>
+									<li><a href="/tag/游戏.html" class="tag-4">游戏</a></li>
+									<li><a href="/tag/二次元.html" class="tag-4">二次元</a></li>
+									<li><a href="/tag/kmp.html" class="tag-3">KMP</a></li>
+									<li><a href="/tag/ipv4.html" class="tag-4">IPv4</a></li>
+									<li><a href="/tag/最短路.html" class="tag-4">最短路</a></li>
+									<li><a href="/tag/数据结构.html" class="tag-4">数据结构</a></li>
+									<li><a href="/tag/证券投资.html" class="tag-4">证券投资</a></li>
+									<li><a href="/tag/杂文.html" class="tag-2">杂文</a></li>
+									<li><a href="/tag/noip.html" class="tag-1">NOIP</a></li>
+									<li><a href="/tag/杂感.html" class="tag-4">杂感</a></li>
+									<li><a href="/tag/jekyll.html" class="tag-4">jekyll</a></li>
+									<li><a href="/tag/metasploit.html" class="tag-4">metasploit</a></li>
+									<li><a href="/tag/密码学.html" class="tag-4">密码学</a></li>
+									<li><a href="/tag/troubleshooting.html" class="tag-2">troubleshooting</a></li>
+									<li><a href="/tag/信息安全.html" class="tag-3">信息安全</a></li>
+									<li><a href="/tag/笑话.html" class="tag-4">笑话</a></li>
+									<li><a href="/tag/佛学.html" class="tag-4">佛学</a></li>
+									<li><a href="/tag/摘抄.html" class="tag-2">摘抄</a></li>
+									<li><a href="/tag/windows架构.html" class="tag-4">Windows架构</a></li>
+									<li><a href="/tag/笔记.html" class="tag-4">笔记</a></li>
+									<li><a href="/tag/算法.html" class="tag-2">算法</a></li>
+								</ul>
+							</div>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
+									<li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
+									<li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
 
-</body>
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="/theme/js/jquery.js"></script>
+		<script src="/theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>

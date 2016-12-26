@@ -1,534 +1,296 @@
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Author: 韩光 &mdash; 简庐</title>
-  <meta name="author" content="韩光">
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>简庐</title>
+		<meta name="description" content="">
+		<meta name="author" content="韩光">
+
+		<link rel="stylesheet" href="/theme/css/foundation.css" />
+		<link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="/theme/css/custom.css" />
+
+
+		<script src="/theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+		<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="简庐 Atom Feed" />
+
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">简庐</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="/category/ao-you-kai-yuan.html">遨游开源</a></li>
+							<li ><a href="/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+							<li ><a href="/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+							<li ><a href="/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+							<li ><a href="/category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+							<li ><a href="/category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+							<li ><a href="/category/shi-juan-you-huai.html">释卷有怀</a></li>
+							<li ><a href="/category/shu-fa-rong-ma.html">束发戎马</a></li>
+							<li ><a href="/category/shui-lai-tu-tun.html">水來土屯</a></li>
+
+						<li><label>Links</label></li>
+							<li><a href="http://renchusong.github.io/portfolio/">宋壬初</a></li>
+							<li><a href="http://wrfly.kfd.me/">Wrfly's blog</a></li>
+							<li><a href="#">尊敬的客人哟，如果你想和咱建立血之契约的话</a></li>
+							<li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
+							<li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
+							<li><a href="#">咱就在此地恭候您的大驾</a></li>
 
 
 
+						<li><label>Social</label></li>
+							<li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
+							<li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
+							<li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
+					</ul>	
+				</aside>
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="/">简庐</a></h1>
+						</li>
+					</ul>
 
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="/category/ao-you-kai-yuan.html">遨游开源</a></li>
+								<li ><a href="/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
+								<li ><a href="/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
+								<li ><a href="/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
+								<li ><a href="/category/pi-jian-zhi-rui.html">披坚执锐</a></li>
+								<li ><a href="/category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
+								<li ><a href="/category/shi-juan-you-huai.html">释卷有怀</a></li>
+								<li ><a href="/category/shu-fa-rong-ma.html">束发戎马</a></li>
+								<li ><a href="/category/shui-lai-tu-tun.html">水來土屯</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                          
+····                                                                                                                                       
+                                     <li><a href="/pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>                                    
+                                                                                                                                          
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
 
-    <link href="../favicon.png" rel="icon">
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
 
-  <link href="../theme/css/main.css" media="screen, projection"
-        rel="stylesheet" type="text/css">
+<article>
+	<h3><a href="/2011/zheng-quan-li-lun-yu-shi-wu-xuan-xiu-ke-da-zuo-ye-zhi-shang-zheng-a600006dong-feng-qi-che-ji-zhu-fen-xi.html">证券理论与实务选修课大作业之：上证A600006（东风汽车）技术分析</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/jia-hai-fu-chen.html">贾海浮沉</a> on Sat 17 December 2011. Tags: <a href="/tag/zheng-quan-tou-zi.html">证券投资</a>, <a href="/tag/zuo-ye-zhan-shi.html">作业展示</a>, </h6>
+	<p>上证A600006（东风汽车）近日k线图如下所示：
+<img alt="啊咧图片好像没有加载出来" src="/2011/a600006.png" /></p>
+<p>首先对历史k线图理论进行描述：</p>
+<p>9月20日与9月21日出现缺口阳线，且21日为长阳线，说明多头占一定优势，但是21日下影线过长，恐有下跌回转的风险，果然22日出现阴线切入线，表示买方力量已尽，且22日收盘价要低于21日开盘价以及从22日开始即出现连续阴线，同时成交量同步下降，这种下跌的态势一直持续到了29日。</p>
+<p>10月12、13、14日虽然是三条较长阳线，但涨幅日渐缩短，且影线日渐伸长，预示着反转的可能性，在10月17日出现了代表极大不确定性的十字线以后，果然出现了连续下跌，而此次下跌的态势与上述10月12、13、14日上涨的趋势极为相近 ...</p>
+		<p class="continue"><a href="/2011/zheng-quan-li-lun-yu-shi-wu-xuan-xiu-ke-da-zuo-ye-zhi-shang-zheng-a600006dong-feng-qi-che-ji-zhu-fen-xi.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/2011/yuan-zhi-kong-yi-zhou-mu-you-gan.html">《缘之空》一周目有感</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/shi-juan-you-huai.html">释卷有怀</a> on Sun 07 August 2011. Tags: <a href="/tag/er-ci-yuan.html">二次元</a>, <a href="/tag/tui-hou-gan.html">推后感</a>, <a href="/tag/xiao-huang-you.html">小黄油</a>, <a href="/tag/zhong-er-hei-li-shi.html">中二黑历史</a>, </h6>
+	<p>一个通宵，《缘之空》一周目总算是完成了，最大的感触就是《缘之空》真有点不像个正统的galgame，只有一开篇的三四个选项，之后就是剧情了，要说互动性的确不是很高（表拍我……&gt;&lt;）。</p>
+<p><img alt="啊咧图（妹）片（子）好像没有加载出来" src="/2011/yosuga0.jpg" /></p>
+<p>按照以往通avg的习惯，一周目的所有选项点都用了sl大发，之后就按照自己内心真正的想法来用过一周目（就是这个习惯让我在《壳之少女》里面hll地便当了……），之后才可能按照攻略来看其它路线的剧情，而本作开头的三大选项自然也是按照内心真实想法来选择，最终走到了她这条路线</p>
+<p>她有着阳光般的活泼与月光般的温柔，村子里面的人们都对她关爱有加，无论是来捉蝉的小孩子，还是令其它女生很头疼的“大孩子”亮平 ...</p>
+		<p class="continue"><a href="/2011/yuan-zhi-kong-yi-zhou-mu-you-gan.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html">段选择器 段描述符 段描述符表 线性地址形成</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/pi-jian-zhi-rui.html">披坚执锐</a> on Tue 26 July 2011. Tags: <a href="/tag/xin-xi-an-quan.html">信息安全</a>, <a href="/tag/ia-32.html">IA-32</a>, <a href="/tag/windowsjia-gou.html">Windows架构</a>, </h6>
+	<p>买了本罗老师的琢石成器,才看前3章就感觉晕晕忽忽，总体觉得要看懂这本书前提是必须DOS汇编,了解32位汇编基础.DOS汇编本人只看了王爽老师的汇编语言前11章，中断这块还没有看,看来不看还是不行的。转回来说,罗老师这本书前3章写的很乱，尤其是描述符这块，看了似懂非懂，通而不透。只能自己抽丝剥茧，捋清头绪，慢慢体会：</p>
+<h2>段选择器</h2>
+<p>32位汇编中16位段寄存器(CS、DS、ES、SS、FS、GS)中不再存放段基址,而是段描述符在段描述符表中的索引值 ...</p>
+		<p class="continue"><a href="/2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/2011/metaexploitan-zhuang-shi-wen-ti-jie-jue.html">metaexploit安装时问题解决</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/pi-jian-zhi-rui.html">披坚执锐</a> on Sat 23 July 2011. Tags: <a href="/tag/metasploit.html">metasploit</a>, <a href="/tag/troubleshooting.html">troubleshooting</a>, </h6>
+	<p>metasploit 中文系统安装失败问题</p>
+<p>windows中文系统在安装metasploit时会报postgresql错误，这是由于postgresql对中文支持问题导致。</p>
+<p>解决方法：控制面板-区域和语言选项-将标准与格式，改为英语（美国），在安装即可</p>
+<p>或可以安装metasploit framework的mini版，该版本不安装postgresql自然也无上述错误了。但无法使用GUI界面和一些相关功能</p>
+<div class="highlight"><pre>On 11/29/2010 11:21 PM, Yuping Li wrote: hi, guyswhen ...</pre></div>
+		<p class="continue"><a href="/2011/metaexploitan-zhuang-shi-wen-ti-jie-jue.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/2011/ai-shu-jia-bu-hui-jia-de-hai-zhi-shang-bu-qi-a.html">诶……暑假不回家的孩纸伤不起啊</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/jie-sheng-ke-shi.html">结绳刻石</a> on Thu 21 July 2011. Tags: <a href="/tag/ri-ji.html">日记</a>, </h6>
+	<p>如了个题的，咱今年暑假就不回家了，诶，家乡的爹娘还在盼儿归呢，过年再回家陪二老吧……</p>
+<p>当然今年不回家就得有不回家的收获，在学校忙活事可多了，比如去信息安全协会那边学习啊，跟着学习导师做综合业务网有关的项目啊，为了开源社区开学后的脚本大赛做准备啊，为了各个竞赛打基础什么什么的……</p>
+<p>不过当然啦，其中咱最喜欢的就是信息安全方向的学习咯，小时候咱曾经对病毒感兴趣，后来觉得杀毒软件太猖獗就玩起了免杀，不过发现自己文件结构还有汇编基础太弱，就又把目光投向了shellcode，这下应该没退路了吧，嘿嘿</p>
+<p>shellcode啊shellcode啊，怎么说也是和spellcard有着同样缩写的东东啊，这有着整个幻想乡的加护，再加上shellcode的精简性是咱一贯追求的，而且0day漏洞也是咱比较感兴趣的，这学起来才有动力的说 ...</p>
+		<p class="continue"><a href="/2011/ai-shu-jia-bu-hui-jia-de-hai-zhi-shang-bu-qi-a.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/2011/ha-ha-chao-jia-ye-yao-yue-fa-san-zhang.html">哈哈，吵架也要约法三章~</a></h3>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/qian-tan-shi-bei.html">浅滩拾贝</a> on Thu 30 June 2011. Tags: <a href="/tag/zhai-chao.html">摘抄</a>, </h6>
+	<h2>1</h2>
+<p>夫妻吵架不当着父母，亲戚，邻居的面吵，在公共场所给对方面子。(给面子的时候女方可以用手扭男方的手臂，以暗示此时是在给面子) </p>
+<h2>2</h2>
+<p>不管谁对谁错，只要一吵架，男方必须先轻声轻气哄女方五次，女方才能马上冷静下来，否则女方一看到男方哇啦哇啦,女方也忍不住哇啦哇啦，一旦造成严重后果，全部由男方负责，但如果男方已经哄了女方五次之后，女方还无理取闹的话，男方有权保持沉默直到女方不再发脾气为止。</p>
+<h2>3</h2>
+<p>在家里吵架不准一走了之，实在要走不得走出小区，不许不带手机和关机。(任何情况下不许关机，如果男方找到女方后要深情的拥抱 ...</p>
+		<p class="continue"><a href="/2011/ha-ha-chao-jia-ye-yao-yue-fa-san-zhang.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
 
-  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
-        rel="stylesheet" type="text/css">
-  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
-        rel="stylesheet" type="text/css">
-</head>
-
-<body>
-  <header role="banner"><hgroup>
-  <h1><a href="../">简庐</a></h1>
-</hgroup></header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-</ul>
-
-
-<ul class="main-navigation">
-      <li><a href="../pages/jian-yi-ming-zhi-long-wo-mao-lu.html">简以明志 龙卧茅庐</a></li>
-      <li >
-        <a href="../category/ao-you-kai-yuan.html">遨游开源</a>
-      </li>
-      <li >
-        <a href="../category/feng-chui-piao-xu.html">风吹飘絮</a>
-      </li>
-      <li >
-        <a href="../category/jia-hai-fu-chen.html">贾海浮沉</a>
-      </li>
-      <li >
-        <a href="../category/jie-sheng-ke-shi.html">结绳刻石</a>
-      </li>
-      <li >
-        <a href="../category/pi-jian-zhi-rui.html">披坚执锐</a>
-      </li>
-      <li >
-        <a href="../category/qian-tan-shi-bei.html">浅滩拾贝</a>
-      </li>
-      <li >
-        <a href="../category/shi-juan-you-huai.html">释卷有怀</a>
-      </li>
-      <li >
-        <a href="../category/shu-fa-rong-ma.html">束发戎马</a>
-      </li>
-      <li >
-        <a href="../category/shui-lai-tu-tun.html">水來土屯</a>
-      </li>
-</ul></nav>
-  <div id="main">
-    <div id="content">
-<div>
-	<article role="article">
-    	<header>
-    		<h1 class="entry-title">Author: 韩光</h1>
-    	</header>
-
-    	<div id="blog-archives">
-            <h2>2015</h2>
-                    <article>
-                        <h1><a href="../2015/48ou-ji.html">4.8偶记</a></h1>
-                        <time datetime="2015-04-08 00:00:00+02:00" pubdate>
-                            <span class="month">四月</span>
-                            <span class="day">08</span>
-                            <span class="year">2015</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/jie-sheng-ke-shi.html'>结绳刻石</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2015/heng-zhong-xian-xiang-zhi-wo-jian.html">“衡中现象”之我见</a></h1>
-                        <time datetime="2015-03-19 00:00:00+01:00" pubdate>
-                            <span class="month">三月</span>
-                            <span class="day">19</span>
-                            <span class="year">2015</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/feng-chui-piao-xu.html'>风吹飘絮</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2015/38ou-ji.html">3.8偶记</a></h1>
-                        <time datetime="2015-03-08 00:00:00+01:00" pubdate>
-                            <span class="month">三月</span>
-                            <span class="day">08</span>
-                            <span class="year">2015</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/jie-sheng-ke-shi.html'>结绳刻石</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2015/lun-you-mo.html">论幽默</a></h1>
-                        <time datetime="2015-03-08 00:00:00+01:00" pubdate>
-                            <span class="month">三月</span>
-                            <span class="day">08</span>
-                            <span class="year">2015</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/feng-chui-piao-xu.html'>风吹飘絮</a>
-                            </span>
-                        </footer>
-                    </article>
-            <h2>2013</h2>
-                    <article>
-                        <h1><a href="../2013/ji-yi-ci-guan-yu-ipv4wu-fa-lian-jie-ipv6que-ke-yi-shang-wang-de-jie-jue-guo-cheng.html">记一次关于IPv4无法连接IPv6却可以上网的解决过程</a></h1>
-                        <time datetime="2013-08-13 00:00:00+02:00" pubdate>
-                            <span class="month">八月</span>
-                            <span class="day">13</span>
-                            <span class="year">2013</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shui-lai-tu-tun.html'>水來土屯</a>
-                            </span>
-                        </footer>
-                    </article>
-            <h2>2012</h2>
-                    <article>
-                        <h1><a href="../2012/qing-nian-wen-shan-shi.html">青年问禅师</a></h1>
-                        <time datetime="2012-07-05 00:00:00+02:00" pubdate>
-                            <span class="month">七月</span>
-                            <span class="day">05</span>
-                            <span class="year">2012</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/qian-tan-shi-bei.html'>浅滩拾贝</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2012/fu-she-2kai-chang.html">辐射2开场</a></h1>
-                        <time datetime="2012-06-11 00:00:00+02:00" pubdate>
-                            <span class="month">六月</span>
-                            <span class="day">11</span>
-                            <span class="year">2012</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/qian-tan-shi-bei.html'>浅滩拾贝</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2012/shi-yong-netlinkyu-nei-he-tong-xin-shi-fa-xian-de-wen-ti-ji-lu.html">使用netlink与内核通信时发现的问题记录</a></h1>
-                        <time datetime="2012-05-14 00:00:00+02:00" pubdate>
-                            <span class="month">五月</span>
-                            <span class="day">14</span>
-                            <span class="year">2012</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/ao-you-kai-yuan.html'>遨游开源</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2012/zhen-xiang-yong-yuan-zhi-you-yi-ge-zhen-xiang-shi-shi-yao-zhen-xiang-ke-yi-chi.html">真相永远只有一个！真相是什么？真相可以吃。</a></h1>
-                        <time datetime="2012-02-09 00:00:00+01:00" pubdate>
-                            <span class="month">二月</span>
-                            <span class="day">09</span>
-                            <span class="year">2012</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/feng-chui-piao-xu.html'>风吹飘絮</a>
-                            </span>
-                        </footer>
-                    </article>
-            <h2>2011</h2>
-                    <article>
-                        <h1><a href="../2011/a-lai-ye-shi-xing-yun-da-shi-kai-shi.html">阿赖耶识(星云大师开示)</a></h1>
-                        <time datetime="2011-12-18 00:00:00+01:00" pubdate>
-                            <span class="month">十二月</span>
-                            <span class="day">18</span>
-                            <span class="year">2011</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/qian-tan-shi-bei.html'>浅滩拾贝</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2011/zheng-quan-li-lun-yu-shi-wu-xuan-xiu-ke-da-zuo-ye-zhi-shang-zheng-a600006dong-feng-qi-che-ji-zhu-fen-xi.html">证券理论与实务选修课大作业之：上证A600006（东风汽车）技术分析</a></h1>
-                        <time datetime="2011-12-17 00:00:00+01:00" pubdate>
-                            <span class="month">十二月</span>
-                            <span class="day">17</span>
-                            <span class="year">2011</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/jia-hai-fu-chen.html'>贾海浮沉</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2011/yuan-zhi-kong-yi-zhou-mu-you-gan.html">《缘之空》一周目有感</a></h1>
-                        <time datetime="2011-08-07 00:00:00+02:00" pubdate>
-                            <span class="month">八月</span>
-                            <span class="day">07</span>
-                            <span class="year">2011</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shi-juan-you-huai.html'>释卷有怀</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html">段选择器 段描述符 段描述符表 线性地址形成</a></h1>
-                        <time datetime="2011-07-26 00:00:00+02:00" pubdate>
-                            <span class="month">七月</span>
-                            <span class="day">26</span>
-                            <span class="year">2011</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/pi-jian-zhi-rui.html'>披坚执锐</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2011/metaexploitan-zhuang-shi-wen-ti-jie-jue.html">metaexploit安装时问题解决</a></h1>
-                        <time datetime="2011-07-23 00:00:00+02:00" pubdate>
-                            <span class="month">七月</span>
-                            <span class="day">23</span>
-                            <span class="year">2011</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/pi-jian-zhi-rui.html'>披坚执锐</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2011/ai-shu-jia-bu-hui-jia-de-hai-zhi-shang-bu-qi-a.html">诶……暑假不回家的孩纸伤不起啊</a></h1>
-                        <time datetime="2011-07-21 00:00:00+02:00" pubdate>
-                            <span class="month">七月</span>
-                            <span class="day">21</span>
-                            <span class="year">2011</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/jie-sheng-ke-shi.html'>结绳刻石</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2011/ha-ha-chao-jia-ye-yao-yue-fa-san-zhang.html">哈哈，吵架也要约法三章~</a></h1>
-                        <time datetime="2011-06-30 00:00:00+02:00" pubdate>
-                            <span class="month">六月</span>
-                            <span class="day">30</span>
-                            <span class="year">2011</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/qian-tan-shi-bei.html'>浅滩拾贝</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2011/ting-ghostjiang-na-oide-shi-qing.html">听ghost讲那oi的事情</a></h1>
-                        <time datetime="2011-02-01 00:00:00+01:00" pubdate>
-                            <span class="month">二月</span>
-                            <span class="day">01</span>
-                            <span class="year">2011</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shu-fa-rong-ma.html'>束发戎马</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2011/ting-ghostjiang-na-zui-duan-lu-de-shi-qing-zhi-dijkstrasuan-fa.html">听ghost讲那最短路的事情之dijkstra算法</a></h1>
-                        <time datetime="2011-02-01 00:00:00+01:00" pubdate>
-                            <span class="month">二月</span>
-                            <span class="day">01</span>
-                            <span class="year">2011</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shu-fa-rong-ma.html'>束发戎马</a>
-                            </span>
-                        </footer>
-                    </article>
-            <h2>2010</h2>
-                    <article>
-                        <h1><a href="../2010/kai-shi-liao-xin-de-zheng-cheng.html">开始了，新的征程</a></h1>
-                        <time datetime="2010-06-19 00:00:00+02:00" pubdate>
-                            <span class="month">六月</span>
-                            <span class="day">19</span>
-                            <span class="year">2010</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/jie-sheng-ke-shi.html'>结绳刻石</a>
-                            </span>
-                        </footer>
-                    </article>
-            <h2>2009</h2>
-                    <article>
-                        <h1><a href="../2009/kuo-zhan-kmp.html">扩展kmp</a></h1>
-                        <time datetime="2009-10-28 00:00:00+01:00" pubdate>
-                            <span class="month">十月</span>
-                            <span class="day">28</span>
-                            <span class="year">2009</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shu-fa-rong-ma.html'>束发戎马</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html">听ghost讲那字典树（trie）与AC自动机的事情</a></h1>
-                        <time datetime="2009-10-09 00:00:00+02:00" pubdate>
-                            <span class="month">十月</span>
-                            <span class="day">09</span>
-                            <span class="year">2009</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shu-fa-rong-ma.html'>束发戎马</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html">md5加密算法c语言实现</a></h1>
-                        <time datetime="2009-09-13 00:00:00+02:00" pubdate>
-                            <span class="month">九月</span>
-                            <span class="day">13</span>
-                            <span class="year">2009</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/pi-jian-zhi-rui.html'>披坚执锐</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2009/zoj1013.html">zoj1013</a></h1>
-                        <time datetime="2009-09-06 00:00:00+02:00" pubdate>
-                            <span class="month">九月</span>
-                            <span class="day">06</span>
-                            <span class="year">2009</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shu-fa-rong-ma.html'>束发戎马</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2009/zoj1011.html">zoj1011</a></h1>
-                        <time datetime="2009-09-05 00:00:00+02:00" pubdate>
-                            <span class="month">九月</span>
-                            <span class="day">05</span>
-                            <span class="year">2009</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shu-fa-rong-ma.html'>束发戎马</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2009/ting-ghostjiang-na-kmpsuan-fa-de-shi-qing.html">听ghost讲那kmp算法的事情</a></h1>
-                        <time datetime="2009-09-03 00:00:00+02:00" pubdate>
-                            <span class="month">九月</span>
-                            <span class="day">03</span>
-                            <span class="year">2009</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shu-fa-rong-ma.html'>束发戎马</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2009/ting-ghostjiang-na-xiong-ya-li-suan-fa-de-shi-qing.html">听ghost讲那匈牙利算法的事情</a></h1>
-                        <time datetime="2009-09-03 00:00:00+02:00" pubdate>
-                            <span class="month">九月</span>
-                            <span class="day">03</span>
-                            <span class="year">2009</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shu-fa-rong-ma.html'>束发戎马</a>
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="../2009/ting-ghostjiang-guan-yu-shu-xing-dong-tai-gui-hua-de-yi-dian-xiao-jing-yan.html">听ghost讲关于树型动态规划的一点小经验</a></h1>
-                        <time datetime="2009-06-14 00:00:00+02:00" pubdate>
-                            <span class="month">六月</span>
-                            <span class="day">14</span>
-                            <span class="year">2009</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/shu-fa-rong-ma.html'>束发戎马</a>
-                            </span>
-                        </footer>
-                    </article>
-            <h2>2008</h2>
-                    <article>
-                        <h1><a href="../2008/820ou-ji.html">8.20偶记</a></h1>
-                        <time datetime="2008-08-20 00:00:00+02:00" pubdate>
-                            <span class="month">八月</span>
-                            <span class="day">20</span>
-                            <span class="year">2008</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='../category/jie-sheng-ke-shi.html'>结绳刻石</a>
-                            </span>
-                        </footer>
-                    </article>
-	    </div>
-    </article>
+<div class="row" style="margin-bottom: -1.25em;">
+	<div class="small-12 columns text-center">
+		<div class="pagination-centered">
+			<ul class="pagination">
+				<li class="arrow"><a href="/author/han-guang2.html">&larr; Previous</a></li>
+				<li class=""><a href="/author/han-guang.html">1</a></li>
+				<li class=""><a href="/author/han-guang2.html">2</a></li>
+				<li class="current"><a href="/author/han-guang3.html">3</a></li>
+				<li class=""><a href="/author/han-guang4.html">4</a></li>
+				<li class=""><a href="/author/han-guang5.html">5</a></li>
+				<li class="arrow"><a href="/author/han-guang4.html">Next &rarr;</a></li>
+			</ul>
+		</div>
+	</div>
 </div>
-<aside class="sidebar">
-  <section>
-    <h1>Recent Posts</h1>
-    <ul id="recent_posts">
-      <li class="post">
-          <a href="../2015/48ou-ji.html">4.8偶记</a>
-      </li>
-      <li class="post">
-          <a href="../2015/heng-zhong-xian-xiang-zhi-wo-jian.html">“衡中现象”之我见</a>
-      </li>
-      <li class="post">
-          <a href="../2015/38ou-ji.html">3.8偶记</a>
-      </li>
-      <li class="post">
-          <a href="../2015/lun-you-mo.html">论幽默</a>
-      </li>
-      <li class="post">
-          <a href="../2013/ji-yi-ci-guan-yu-ipv4wu-fa-lian-jie-ipv6que-ke-yi-shang-wang-de-jie-jue-guo-cheng.html">记一次关于IPv4无法连接IPv6却可以上网的解决过程</a>
-      </li>
-    </ul>
-  </section>
-  <section>
-      
-    <h1>Categories</h1>
-    <ul id="recent_posts">
-        <li><a href="../category/ao-you-kai-yuan.html">遨游开源</a></li>
-        <li><a href="../category/feng-chui-piao-xu.html">风吹飘絮</a></li>
-        <li><a href="../category/jia-hai-fu-chen.html">贾海浮沉</a></li>
-        <li><a href="../category/jie-sheng-ke-shi.html">结绳刻石</a></li>
-        <li><a href="../category/pi-jian-zhi-rui.html">披坚执锐</a></li>
-        <li><a href="../category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
-        <li><a href="../category/shi-juan-you-huai.html">释卷有怀</a></li>
-        <li><a href="../category/shu-fa-rong-ma.html">束发戎马</a></li>
-        <li><a href="../category/shui-lai-tu-tun.html">水來土屯</a></li>
-    </ul>
-  </section>
- 
 
-  <section>
-  <h1>Tags</h1>
-    <a href="../tag/fo-xue.html">佛学</a>,    <a href="../tag/you-xi.html">游戏</a>,    <a href="../tag/dijkstra.html">Dijkstra</a>,    <a href="../tag/troubleshooting.html">troubleshooting</a>,    <a href="../tag/zheng-quan-tou-zi.html">证券投资</a>,    <a href="../tag/linux.html">linux</a>,    <a href="../tag/fa-lao-sao.html">发牢骚</a>,    <a href="../tag/tui-hou-gan.html">推后感</a>,    <a href="../tag/ri-ji.html">日记</a>,    <a href="../tag/zui-duan-lu.html">最短路</a>,    <a href="../tag/zhong-er-hei-li-shi.html">中二黑历史</a>,    <a href="../tag/noip.html">NOIP</a>,    <a href="../tag/zoj.html">ZOJ</a>,    <a href="../tag/zhai-chao.html">摘抄</a>,    <a href="../tag/ipv4.html">IPv4</a>,    <a href="../tag/ipv6.html">IPv6</a>,    <a href="../tag/ia-32.html">IA-32</a>,    <a href="../tag/extended-kmp.html">Extended KMP</a>,    <a href="../tag/mi-ma-xue.html">密码学</a>,    <a href="../tag/shu-ju-jie-gou.html">数据结构</a>,    <a href="../tag/kmp.html">KMP</a>,    <a href="../tag/suan-fa.html">算法</a>,    <a href="../tag/windowsjia-gou.html">Windows架构</a>,    <a href="../tag/bi-ji.html">笔记</a>,    <a href="../tag/metasploit.html">metasploit</a>,    <a href="../tag/netlink.html">netlink</a>,    <a href="../tag/zuo-ye-zhan-shi.html">作业展示</a>,    <a href="../tag/za-wen.html">杂文</a>,    <a href="../tag/xin-xi-an-quan-jing-sai.html">信息安全竞赛</a>,    <a href="../tag/fan-yi.html">翻译</a>,    <a href="../tag/xiao-hua.html">笑话</a>,    <a href="../tag/er-ci-yuan.html">二次元</a>,    <a href="../tag/xiao-huang-you.html">小黄油</a>,    <a href="../tag/xin-xi-an-quan.html">信息安全</a>,    <a href="../tag/shu-xing-dong-gui.html">树型动归</a>,    <a href="../tag/zi-dong-ji.html">自动机</a>,    <a href="../tag/dong-tai-gui-hua.html">动态规划</a>  </section>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="http://renchusong.github.io/portfolio/">宋壬初</a></li>
+									<li><a href="http://wrfly.kfd.me/">Wrfly's blog</a></li>
+									<li><a href="#">尊敬的客人哟，如果你想和咱建立血之契约的话</a></li>
+									<li><a href="mailto:sniperstriker@163.com">就mail我吧</a></li>
+									<li><a href="http://t.qq.com/JoshuaGhost">或者用QQ：五七八六零三九一八</a></li>
+									<li><a href="#">咱就在此地恭候您的大驾</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+									<li><a href="/tag/zoj.html" class="tag-3">ZOJ</a></li>
+									<li><a href="/tag/动态规划.html" class="tag-4">动态规划</a></li>
+									<li><a href="/tag/ia-32.html" class="tag-4">IA-32</a></li>
+									<li><a href="/tag/信息安全竞赛.html" class="tag-4">信息安全竞赛</a></li>
+									<li><a href="/tag/树型动归.html" class="tag-4">树型动归</a></li>
+									<li><a href="/tag/中二黑历史.html" class="tag-3">中二黑历史</a></li>
+									<li><a href="/tag/netlink.html" class="tag-4">netlink</a></li>
+									<li><a href="/tag/翻译.html" class="tag-3">翻译</a></li>
+									<li><a href="/tag/extended-kmp.html" class="tag-4">Extended KMP</a></li>
+									<li><a href="/tag/读书笔记.html" class="tag-4">读书笔记</a></li>
+									<li><a href="/tag/哲学.html" class="tag-4">哲学</a></li>
+									<li><a href="/tag/作业展示.html" class="tag-4">作业展示</a></li>
+									<li><a href="/tag/日记.html" class="tag-1">日记</a></li>
+									<li><a href="/tag/自动机.html" class="tag-4">自动机</a></li>
+									<li><a href="/tag/ipv6.html" class="tag-4">IPv6</a></li>
+									<li><a href="/tag/小黄油.html" class="tag-4">小黄油</a></li>
+									<li><a href="/tag/发牢骚.html" class="tag-4">发牢骚</a></li>
+									<li><a href="/tag/科学方法论.html" class="tag-4">科学方法论</a></li>
+									<li><a href="/tag/linux.html" class="tag-4">linux</a></li>
+									<li><a href="/tag/推后感.html" class="tag-4">推后感</a></li>
+									<li><a href="/tag/dijkstra.html" class="tag-4">Dijkstra</a></li>
+									<li><a href="/tag/游戏.html" class="tag-4">游戏</a></li>
+									<li><a href="/tag/二次元.html" class="tag-4">二次元</a></li>
+									<li><a href="/tag/kmp.html" class="tag-3">KMP</a></li>
+									<li><a href="/tag/ipv4.html" class="tag-4">IPv4</a></li>
+									<li><a href="/tag/最短路.html" class="tag-4">最短路</a></li>
+									<li><a href="/tag/数据结构.html" class="tag-4">数据结构</a></li>
+									<li><a href="/tag/证券投资.html" class="tag-4">证券投资</a></li>
+									<li><a href="/tag/杂文.html" class="tag-2">杂文</a></li>
+									<li><a href="/tag/noip.html" class="tag-1">NOIP</a></li>
+									<li><a href="/tag/杂感.html" class="tag-4">杂感</a></li>
+									<li><a href="/tag/jekyll.html" class="tag-4">jekyll</a></li>
+									<li><a href="/tag/metasploit.html" class="tag-4">metasploit</a></li>
+									<li><a href="/tag/密码学.html" class="tag-4">密码学</a></li>
+									<li><a href="/tag/troubleshooting.html" class="tag-2">troubleshooting</a></li>
+									<li><a href="/tag/信息安全.html" class="tag-3">信息安全</a></li>
+									<li><a href="/tag/笑话.html" class="tag-4">笑话</a></li>
+									<li><a href="/tag/佛学.html" class="tag-4">佛学</a></li>
+									<li><a href="/tag/摘抄.html" class="tag-2">摘抄</a></li>
+									<li><a href="/tag/windows架构.html" class="tag-4">Windows架构</a></li>
+									<li><a href="/tag/笔记.html" class="tag-4">笔记</a></li>
+									<li><a href="/tag/算法.html" class="tag-2">算法</a></li>
+								</ul>
+							</div>
 
 
-    <section>
-        <h1>Social</h1>
-        <ul>
-            <li><a href="http://github.com/JoshuaGhost" target="_blank">Fork me on GitHub!</a></li>
-            <li><a href="http://twitter.com/Joshua_Ghost/" target="_blank">Twitt me!</a></li>
-            <li><a href="mailto:sniperstriker@gmail.com" target="_blank">Mail me!</a></li>
-        </ul>
-    </section>
-    <section>
-        <h1>Blogroll</h1>
-        <ul>
-            <li><a href="http://renchusong.github.io/portfolio/" target="_blank">宋壬初</a></li>
-            <li><a href="http://wrfly.kfd.me/" target="_blank">Wrfly's blog</a></li>
-            <li><a href="#" target="_blank">尊敬的客人哟，如果你想和咱建立血之契约的话</a></li>
-            <li><a href="mailto:sniperstriker@163.com" target="_blank">就mail我吧</a></li>
-            <li><a href="http://t.qq.com/JoshuaGhost" target="_blank">或者用QQ：五七八六零三九一八</a></li>
-            <li><a href="#" target="_blank">咱就在此地恭候您的大驾</a></li>
-        </ul>
-    </section>
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="http://github.com/JoshuaGhost">Fork me on GitHub!</a></li>
+									<li><a href="mailto:sniperstriker@gmail.com">Mail me!</a></li>
+									<li><a href="http://twitter.com/Joshua_Ghost/">Twitt me!</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
 
-</aside>    </div>
-  </div>
-  <footer role="contentinfo"><p>
-    Copyright &copy;  2008&ndash;2015  韩光 &mdash;
-  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
-</p></footer>
-  <script src="../theme/js/modernizr-2.0.js"></script>
-  <script src="../theme/js/ender.js"></script>
-  <script src="../theme/js/octopress.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    var disqus_shortname = 'joshuaghost';
-    (function() {
-      console.log('..');
-      console.log(disqus_url);
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
-  </script>
-</body>
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="/theme/js/jquery.js"></script>
+		<script src="/theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>

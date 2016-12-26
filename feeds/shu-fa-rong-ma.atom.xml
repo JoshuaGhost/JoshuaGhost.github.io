@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐</title><link href="/" rel="alternate"></link><link href="/feeds/shu-fa-rong-ma.atom.xml" rel="self"></link><id>/</id><updated>2011-02-01T00:00:00+01:00</updated><entry><title>听ghost讲那oi的事情</title><link href="/2011/ting-ghostjiang-na-oide-shi-qing.html" rel="alternate"></link><updated>2011-02-01T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:,2011-02-01:2011/ting-ghostjiang-na-oide-shi-qing.html</id><summary type="html">&lt;p&gt;本人，Joshua Ghost，乃一早就退役的信息学竞赛老鸟是也，本来三次考竞赛成绩都不咋地，本来想忘记这段痛苦的回忆的，但是转念一想，又觉得这样做太不低碳了，以往对我的培训都成了沉没成本，自己也什么都没落下，怪可惜的，所以我下定决心要让自己至少要在oi界留下点什么“我来过”的痕迹……当然不是爪印咯……也就是，打算进行一个“听ghost讲那oi的事情”系列活动！鼓掌！(^o^)/~……诶诶诶，别走别走，也就是在这一系列《听》字头日志中把我这三年来所学的知识以及自己领悟的东西一点不剩的写出来，有没有人看我不管（咱空间本来访问量就低，这样一来就相当高了……），只为让那些“不慎”进入我空间的oi新鸟少走些我当年的弯路，也算是临走前做点好事吧~那位萝莉你别哭啊，我这可还没死哪，喂喂喂，剧务大叔，为什么发我便当啊，喂喂喂！场务姐姐，我的名字怎么用黑框框起来啦？喂喂喂……&lt;/p&gt;</summary><category term="NOIP"></category></entry><entry><title>听ghost讲那最短路的事情之dijkstra算法</title><link href="/2011/ting-ghostjiang-na-zui-duan-lu-de-shi-qing-zhi-dijkstrasuan-fa.html" rel="alternate"></link><updated>2011-02-01T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:,2011-02-01:2011/ting-ghostjiang-na-zui-duan-lu-de-shi-qing-zhi-dijkstrasuan-fa.html</id><summary type="html">&lt;p&gt;图论中的最短路算法，应该是每个进入图论的oier的入门课吧，虽然可能讲一节这个多此一举，但（为了凑数）还是说一说吧~&lt;/p&gt;
+&lt;h2&gt;名称&lt;/h2&gt;
+&lt;p&gt;dijkstra算法&lt;/p&gt;
+&lt;h2&gt;属性&lt;/h2&gt;
+&lt;p&gt;单源最短路算法、巨R眼镜（喂喂喂好像稍稍跑偏了啊……）&lt;/p&gt;
+&lt;h2&gt;来历&lt;/h2&gt;
+&lt;p&gt;在很久很久以前，互联网的规模还没发展到惊天地泣鬼神的时候，网络上的路由器依照静态路由表计算从一个节点（或网络）到另一个节点（或网络）的最短传包路径，就是用的dijkstra算法&lt;/p&gt;
+&lt;h2&gt;思想&lt;/h2&gt;
+&lt;p&gt;首先根据图的情况建立邻接矩阵，从出发点到各个节点的路径都有一个权值（没有道路直接相连置为+∞）如下图：
+&lt;img alt="啊咧图片好像没有加载出来" src="/2011/dijkstra.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;可建立邻接矩阵如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;0   11  53  +∞
+11  0   1   +∞
+53  1   0   6
++∞  +∞  6   0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;接下来，寻找从节点1出发到各个其他节点的最短直连路，也就是从上面矩阵的第一行中找出（除了从一到一的那个0权回路以外的）最小值，当然，根据我超人的智慧已经提前你们找出来了，就是那个53！哇嘎嘎嘎……咳咳，言归正传，是那个从节点1到节点2的权为11的路径，此时，第一轮路径优化开始：把11那条路练的节点2当做从节点1侵略其他节点的“中继站”，看看“是从节点1直接到节点3权值（53）小呢”还是“以2为中继站倒一趟车再到节点3权值（12）小呢？”当然是12&amp;lt;53，现在把第一行第三列的53更新为12，也就是现在已知的从节点1到节点3的道路权值最小的是12；然后看能不能同理更新节点1到节点4的权值，不过可惜啊，两条路径都是正无穷权值，到节点4的权值没法更新了。接下来是第一轮路径优化的善后处理：把节点2置一个“已使用”标志，这样下一轮找中继站的时候就不会再找到节点2，这样的路径优化进行三遍后，临街矩阵的第一行就变了样子，也就是列出了从节点1到各个节点的最小权值：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;0 11 12 18
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这就是求最小权值的问题，如果要求再提高一点，想要求最短权值路径，就要在路径优化的时候多记一个数据，就是从节点1到被更新的点本轮使用的“中继站”是哪个节点，等输出的时候递归输出即可。&lt;/p&gt;
+&lt;h2&gt;点评&lt;/h2&gt;
+&lt;p&gt;dijkstra可谓图论最短路问题中资格最老也是最眼镜娘（循规蹈矩）的算法了，整个算法透着一股明显的贪心气息，是每个学习图论的oier居家旅行必备良方……&lt;/p&gt;
+&lt;h2&gt;时间复杂度&lt;/h2&gt;
+&lt;p&gt;O(n^2)因为路径优化进行了n-1（n是节点数）次，每次检查了n-1个节点是否能被更新路径。&lt;/p&gt;</summary><category term="NOIP"></category><category term="最短路"></category><category term="算法"></category><category term="Dijkstra"></category></entry><entry><title>扩展kmp</title><link href="/2009/kuo-zhan-kmp.html" rel="alternate"></link><updated>2009-10-28T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:,2009-10-28:2009/kuo-zhan-kmp.html</id><summary type="html">&lt;p&gt;教程的话……我理解了以后会发上来的……&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;program&lt;/span&gt; &lt;span class="n"&gt;extended_kmp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+&lt;span class="k"&gt;var&lt;/span&gt; 
+    &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;now&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;longint&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="mi"&gt;200001&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="mi"&gt;200000&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="kt"&gt;longint&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+&lt;span class="k"&gt;begin&lt;/span&gt; 
+    &lt;span class="n"&gt;assign&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="n"&gt;assign&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="nb"&gt;reset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="nb"&gt;rewrite&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="nb"&gt;readln&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="nb"&gt;readln&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="nb"&gt;readln&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;inc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt; 
+        &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+        &lt;span class="nb"&gt;now&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;now&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; 
+            &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="nb"&gt;now&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt; 
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; 
+                    &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; 
+                &lt;span class="k"&gt;else&lt;/span&gt; 
+                    &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+            &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;inc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+            &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+            &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; 
+            &lt;span class="k"&gt;end&lt;/span&gt; 
+&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;begin&lt;/span&gt;
+    &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;inc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt; 
+        &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+        &lt;span class="nb"&gt;now&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;now&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; 
+            &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="nb"&gt;now&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt; 
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; 
+                    &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; 
+                &lt;span class="k"&gt;else&lt;/span&gt; 
+                    &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+                &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;inc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+                &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+                &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; 
+            &lt;span class="k"&gt;end&lt;/span&gt; 
+    &lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;inc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt; 
+        &lt;span class="nb"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+        &lt;span class="nb"&gt;writeln&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; 
+    &lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; 
+    &lt;span class="nb"&gt;close&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="nb"&gt;close&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="NOIP"></category><category term="算法"></category><category term="KMP"></category><category term="Extended KMP"></category></entry><entry><title>听ghost讲那字典树（trie）与AC自动机的事情</title><link href="/2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html" rel="alternate"></link><updated>2009-10-09T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:,2009-10-09:2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html</id><summary type="html">&lt;p&gt;吐个槽先：名字好长！为什么那么长！保持用一格式就那么重要吗！&lt;/p&gt;
+&lt;h2&gt;1.字典树：&lt;/h2&gt;
+&lt;p&gt;字典树，顾名思义，就是把一坨单词以某种树型结构储存起来，当你在这棵树中找寻某个单词的时候，就像查字典一样，一个字母一个字母地筛除不需要的序列。&lt;/p&gt;
+&lt;p&gt;要实现字典树的这个功能，就需要将有相同前缀的单词存在同一条树枝上，这样一来，字典树除根以外的每个节点都是一个字母（根为空节点），分别以它们为结尾，均可以从树的根开始走出一条字符序列。再标记每个可被视为单词的序列的结束节点，一棵香喷喷的字典树就新鲜出炉啦！这种储存减少了冗余数据的存储，节省空间；查找的时候减少了重复子串的查找，降低了时间复杂度（有种动态规划的感觉）。&lt;/p&gt;
+&lt;p&gt;字典树有这两大好处，个人觉得这种数据结构的魅力还是很大的。怎么实现它呢？曾经有名小菜（我就不告诉你那是我……）曾经想过这个东西只能用链表存，每多一个节点开一个内存空间，加一条边。因为如果用数组的话，第一个字母有26种可能，第二个字母又有26种可能……这个数组就要开到（26^（L＋1）－26）／25那么大（L是最长单词的长度，这个数——算不出来的去翻高中课本——如果有一个单词像'catastrophe'这么长，那可真是内存的catastrophe……），其实这种想法不用我说您也应该知道这是错误的……因为这样存相当于无视字典树不储存相同前缀的特征，写了一个超费内存的字符串统计排序，如果您有幸看到这种trie树的话……恭喜您，您是9315年第200位到火星旅游的地球人……言归正传，trie的储存方式可以是这样的，据SRC250牛所言，定义“儿子列表”：a[i,ch]，它记录的是编号为i的节点的字母为ch的儿子的节点编号，当然对邻接表比较有爱的同志可以用邻接表存，只不过边权可以设为char类型，即把本应该节点记录的字母转移到边上来（别忘了设成单向边，本hitman47小菜就在这里被死循环过，悲剧……），与那种儿子列表的储存方式各有千秋：儿子列表容易实现层间的转移，查询一个序列是不是单词的时候可以使用；邻接表尽最大力度精简了储存的东西，在需要进行广度优先遍历的时候提倡使用。&lt;/p&gt;
+&lt;h2&gt;2.AC自动机&lt;/h2&gt;
+&lt;p&gt;别误解，这个东西可不能顾名思义想成“自动把程序改到AC的机器”（如果有这种机器的话，我noip2008就不至于那么惨了……）。如果类比的话，我更愿意把它视为二维KMP算法，KMP算法同志们都应该明白了吧，不明白的话可以看我空间的KMP专讲以及网络上浩如烟海的介绍文章。AC自动机的用途就是进行模式匹配。只不过这次模式串的数量大幅度提升，由原来的1个变为现在的n个，一个一个地进行KMP就要n*[l(主串长度)＋li(模式串平均长度)]一般来说，出题的人都喜欢出卡这些山寨算法的数据，n特别大什么的，这个时候就要用到ac自动机了ac自动机的前身就是trie树，前期的建树方法也和trie树一模一样，只不过在树建立起来以后，树的每个节点新加入了一个附加数据，不妨叫这个数据为“失败指针”，听到这个名字，您可千万不要认为这个指针能把你指向失败的道路，而是说这个指针的作用是‘万一你失败了，该从哪里爬起来’，这个指针的作用就有点类似KMP算法的Pre数组，当前位置无法再进行模式匹配了，从哪里继续新的模式匹配。建造失败指针的方法如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;    1.根节点的失败指针指向自己
+
+    2.根的儿子们的失败指针指向根
+
+    3.其它节点的失败指针取决于其父亲的失败指针指向的节点，不妨设其父节点的失败指针指向的那个节点为p：
+
+        3.1.p的儿子们中有一个儿子（记为ps）附加的字母和当前节点的字母相等，当前节点的失败
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;指针就指向ps&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;        3.2.p的儿子们中没有一个儿子附加的字母和当前节点的字母相等，则进入一个递归过程，p成为p的失败指针指向的节点，进行3.1的可行性判断，如果3.1不成立，则p再成为当前p的失败指针指向的节点，直到3.1的匹配完成或p成为根节点。
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以上就是ac自动机的精华——失败指针的建立方法，然后把trie……哦不……ac自动机上所有可以作为一个单词结尾的节点标记上，接下来就是ac自动机的使用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;1.起始的时候主串指针指向主串的“0”号位置，trie树指针指向树的根节点
+
+2.匹配的任意时刻：
+
+    2.1如果当前节点的儿子们中有一个节点的字母等于主串里面的下一个字母，那么主串指针与ac自动机指针均＋1，到达的节点的访问标志置为“true”。
+
+    2.2如果当前节点的儿子们中任一节点的字母都不等于主串里面的下一个字母，则主串指针不变，ac自动机的节点指针指向当前节点的失败指针指向的节点，继续进行步骤2.1的可行性判断，
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果1成立，则按照步骤2.1的做法继续，如果2.1不成立，进行递归，ac自动机的节点指针成为&lt;/p&gt;
+&lt;p&gt;当前节点的失败指针指向的节点，继续2.1判断或2.2过程。直到2.1成立或当前节点为根节点&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;3.在匹配的时候，我们要把访问过的所有节点按访问顺序单独记录在一个表里面（用途下面讲）。
+
+4.当主串指针移到主串末尾的时候，停止匹配。
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这时候ac自动机的使用还没有结束，我们还要考虑这样的情况：如果模式串中有一串a是另一串b的后缀字串（b串的末尾几位与a串相等），那么在访问的时候如果能访问到完整的b串，那么a串也一定在主串里面出现过，但是你的访问标志只是b串那一支的结尾有，统计的时候就丢了个a，这个时候就要用到匹配的3里面记录的访问顺序表。按照访问顺续表的逆序，将所有在表中出现的访问过的节点的失败指针指向的节点、失败指针指向的节点的失败指针指向的节点、失败指针指向的节点的失败指针指向的节点的失败指针指向的节点…………这一串的访问标志都置为“true”。最后再把所有的单词结尾节点审查一遍，该节点上访问标志为“true”,则主串里面一定出现过这个单词。&lt;/p&gt;
+&lt;p&gt;ac自动机的代码正在编写中，应该很快就能发到我空间里了。&lt;/p&gt;
+&lt;p&gt;大家的转栽是对我工作的肯定，欢迎大家踊跃转载，&lt;/p&gt;
+&lt;p&gt;hitman47 原创&lt;/p&gt;</summary><category term="NOIP"></category><category term="数据结构"></category><category term="自动机"></category></entry><entry><title>zoj1013</title><link href="/2009/zoj1013.html" rel="alternate"></link><updated>2009-09-06T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:,2009-09-06:2009/zoj1013.html</id><summary type="html">&lt;p&gt;哈哈，第二道题的翻译……寂寞……新鲜出炉了！&lt;/p&gt;
+&lt;p&gt;改了一些题目背景，但是要写的东西还是一样的。&lt;/p&gt;
+&lt;p&gt;很久很久以前，恩洛斯王国住着一位女王，她的名字叫作Sylvanas Windrunner(希尔瓦娜斯.追风者)。有一天，女王得知她的父亲去世的噩耗，万般悲痛之中，她踏上了参加父亲葬礼的航程。以防万一，她征集了一支禁卫舰队来护航。当她到达目的地－－艾拉西亚的时候，她发现了联盟的一座防御塔，那座塔已被战火焚毁。希尔瓦娜斯女王从秘密渠道得知：她的父亲是被一位死亡骑士用毒酒害死的，这使得希尔瓦娜斯女王开始了复仇行动。她一方面追击敌人，一方面纠集当地武装，同时向已被叛军占领的艾拉西亚主城进军，沿途收复失地，慢慢积蓄力量。&lt;/p&gt;
+&lt;p&gt;在作战的过程中，英明的希尔瓦娜斯女王发现她军队中的士兵极缺武器装备，同时她也知道铁炉堡战争矮人制作的武器装备是世界数一数二的，他们的军备商店出产的军械以牢固耐用与品质优越而远近闻名。其中“不死族王者披风（拾取后绑定，增加携带者智力10000点，魔法最大值10000点）”、“咒怨铠甲（拾取后绑定，增加携带者防御力10000点，附冰霜护甲）”、“炽天使之盔（拾取后绑定，永久性增加佩戴者生命最大值10000点）”更是无人能及。不过不幸的是，他们开的这座军备商店恰恰坐落在艾拉西亚主城内部，处于敌人的层层包围之中。希尔瓦娜斯女王派出了敢死队员潜入主城与矮人们取得了联络。&lt;/p&gt;
+&lt;p&gt;“为正义的女英雄，伟大的希尔瓦娜斯女王效力是我们的荣幸！”矮人的首领瑞恩将这样的消息透过敢死队员传达给了希尔瓦娜斯女王。“可我们唯一的难题就是原料的匮乏，所以我们要尽可能多地生产那些普通的武器装备，尽管如此，我们的东西还是比别的军备商店的货要正得多！不过这样一来，新的问题就又出现了，主城处于叛军的层层包围当中，卫兵们对武器装备下达了明确的禁运令，所以我们只能请求地精的大篷车游商的帮助。如您所知，每辆地精大篷车都有一个运输限额，如果多出这个限额一丁点的话，卫兵就会发现篷车里面藏的猫腻，从而将地精们关入牢房，所以您需要为运输制订一个详尽的计划”&lt;/p&gt;
+&lt;p&gt;商店会为希尔瓦娜斯女王的军队提供“圣天使之盔”、“黑暗铠甲”、“矮人飞靴”，这三种物品分别有不同的防御能力，它们的重量与大小互不相同。此外，瑞恩还告诉希尔瓦娜斯女王说，如果这三件物品组合在一起形成一套装备，它们就会生成更大的防御能力据地精们所知，每件装备都有它特有的质量参数与大小参数，为了使希尔瓦娜斯女王的军队获得尽可能有效的防御，你，作为幽暗城的计算机高手，要为女王解答这个难题。&lt;/p&gt;
+&lt;h2&gt;输入：&lt;/h2&gt;
+&lt;p&gt;一个输入数据描述了几个小测试点，每个小测试点的第一行是一个整数n（0&amp;lt;=n&amp;lt;=100），表示地精大篷车的数目。&lt;/p&gt;
+&lt;p&gt;接下来的四行描述了装备的性状，第一行是三个整数w1,s1,d1，描述了圣天使之盔的重量，体积与防御力，第二行的w2,s2,d2，指的是黑暗铠甲的重量，体积与防御力；同样的，第三行的w3,s3,d3是矮人飞靴的重量，体积与防御力。第四行有四个整数c1,c2,c3,d4说的分别是圣天使之盔、黑暗铠甲、地精飞靴能组成一套装备分别需要的数量，这套装备的防御力。&lt;/p&gt;
+&lt;p&gt;接下来的n行描述了n辆地精大篷车的运载能力，每行包含两组整数，xi,yi说的分别是该辆大篷车的限重与体积限制.
+如果一个小测试点的n值为零，它是一个当前测试数据结束的标志。&lt;/p&gt;
+&lt;h2&gt;注意：&lt;/h2&gt;
+&lt;p&gt;考虑到地精大篷车的载物能力，你可以认为头盔、铠甲、靴子的数量都不超过500！&lt;/p&gt;
+&lt;h2&gt;输出：&lt;/h2&gt;
+&lt;p&gt;你的程序需要计算出能运载出来的最大防御力，也就是说，进行了这个运载方案，所有被运出主城的装备组成的防御能力要求最大。针对每个测试点的每个分测试点，先打小测试点号和一个冒号，然后在同一行写出这个小测试点能运载出来的最大防御值。
+小测试点之间用一空行隔开。&lt;/p&gt;
+&lt;h2&gt;Sample Input&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;3
+1 1 3
+5 6 10
+2 1 2
+1 1 1 50
+1 1
+5 6
+2 1
+0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Output for the Sample Input&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Case 1: 50
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;希尔瓦娜斯.追风者女王万岁
+她不曾真实存在，但她是我的信仰。
+当深秋的圆月挂于幽暗城的顶峰之时，
+向传说中的极北之地——诺森德——进军。
+复仇的火焰，燃烧吧！！！！！！！！！！！！&lt;/p&gt;</summary><category term="NOIP"></category><category term="ZOJ"></category><category term="翻译"></category></entry><entry><title>zoj1011</title><link href="/2009/zoj1011.html" rel="alternate"></link><updated>2009-09-05T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:,2009-09-05:2009/zoj1011.html</id><summary type="html">&lt;p&gt;老师让做zoj1011上的题，苦于那里都是英文题目，有的大牛用在线翻译站点翻译了一下，让我们更深刻地感觉到“翻译即背叛”……尤其是用电脑翻译……………………&lt;/p&gt;
+&lt;p&gt;为了使背叛的程度尽可能地减小，咱小菜来人工翻译了一遍，应该还是能读通的把，不通顺或者对题意不明的童鞋，可以留言或者与我qq联系。&lt;/p&gt;
+&lt;p&gt;我翻译的不是试题，是寂寞…………&lt;/p&gt;
+&lt;p&gt;非判断性树型自动机（NTA）是一种由多个树型结构组成的设备。每种设备在自己的一种特定的规则下运行，依据这种规则设备中的每个树型结构可以产生一系列的信号，这些信号可以组成一个信号系统。在这个系统里面，其中一个信号叫做“开始信号”，还有一些信号叫做“可接受信号”，其他的信号叫做“辅助信号”。一对“可接受信号”可以组成一个“可接受对”。&lt;/p&gt;
+&lt;p&gt;我们现在说的这些树都是二叉树，即所有的非叶子节点都有两个儿子，每个节点都有一种叫做“信号传输管理器”的装置，当这个节点接受到一个信号的时候，信号接触到这个节点的信号传输管理器，信号传输管理器产生一系列的信号对，然后节点随机地选择出其中的一对信号并将其传送给节点的左右儿子，信号对中第一个送到左儿子，第二个送给右儿子。&lt;/p&gt;
+&lt;p&gt;非判断性树型自动机的工作全过程如下所述：&lt;/p&gt;
+&lt;p&gt;设备首先向根节点发送一个信号，接着根据根节点的信号传送管理器的内建规则在规则允许的范围内随机地生成一对信号，并把第一个信号送给左儿子，第二个送给右儿子。之后每一个信号都分别生成两个信号，这样的传送路线一直传送到叶子节点。&lt;/p&gt;
+&lt;p&gt;如果一个信号达到了叶子节点并且叶子节点产生了两个可接受信号，我们就说这个叶子节点是shakable leaf，如果所有的叶子节点都是shakable leave，这次信息传递就是一次合法的信息传递，如果一个树型结构存在这么一种合法的传输，那么这个树型结构和它的信号传输物质就是合法的，如果所有传输都是不合法传输，这棵树就是不合法树。&lt;/p&gt;
+&lt;p&gt;简而言之，我们用一连串的连续小些字母'a','b','c'……来表示那些信号传输控制器，这个机器所传输的信号是一些连续的数字0,1,2……，第一种信号0永远是其实信号。一个四信号非判断性树型自动机传送的信号是0,1,2,3。可接受信号是可传送信号序列的后面几个信号，比如说，如果一台四信号非判断性树型自动机有两个可接受信号，那么这两个信号就是2,3，信号传送法则基于一个信号传送方式表，横向表头是信号传输控制器a,b,c，纵向表头是接受到的信号0,1,2,3，一个传送法则的样例如下所示：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;T    a            b            c    
+0    (1,2)        (2,1)        (1,0)
+1    (2,2)        (0,2),(1,0)  (3,2)
+2    (2,2)        (2,3)        (1,2)
+3    (1,2)        (2,1)        (3,2)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在这个信号传送方式表里面，一些信号传送管理器是确定性的，其他的是不确定性的，在上表里面，当信号1遇到信号传送管理器b的时候，产生的信号对是不确定的。&lt;/p&gt;
+&lt;p&gt;你的任务就是写一个程序来判断一个拥有特定信号传输管理器的树性结构是不是合法的。&lt;/p&gt;
+&lt;h2&gt;输入：&lt;/h2&gt;
+&lt;p&gt;一个输入文件包含几个情景，每个情景描述了一个信号传送法则，每个信号传送法则适用于一个情景。每个情景的第一行包含三个整数n,m,k。n表示这是一个n信号非确定性树型自动机；m表示这个设备的所有信号里面后m个是合法信号；k表示这个设备拥有的信号传输管理器的种数。（这三个参数也是只对当前情景有效）接下来的n*k行是以行优先方式输出的信号传送方式表，每个信号－－信号传送管理器组合占一行，每行两个数字一组，每组表示一种可能的信号转换方式。&lt;/p&gt;
+&lt;p&gt;接下来是对树的结构的描述，每个树都有一个深度值L，表示树的深度为（L＋1）。接下来的L+1行都是对数结构的描述，一行描述一层节点，字母间用空格分隔，根层是第0层。树中的空节点用＊表示。如果一棵树的层数为－1，那就表明这种情景结束了。&lt;/p&gt;
+&lt;p&gt;如果一个情景的nmk三参数都是0，那么说明这个输入文件结束了。&lt;/p&gt;
+&lt;h2&gt;注意：&lt;/h2&gt;
+&lt;p&gt;每个情景中的设备最多只有15种信号和10种信号传送管理器，树型结构的层数小于等于10&lt;/p&gt;
+&lt;h2&gt;输出：&lt;/h2&gt;
+&lt;p&gt;针对每一个输入数据中描述的NTA(NTA1,NTA2等等)中的树结构，输出改树结构是否合法，合法的话就输出“Valid”（不输出引号），，不合法的话就输出“Invalid”（不输出引号），在各个NTA的情况之间打一个空行以分隔。&lt;/p&gt;
+&lt;h2&gt;Sampal Input&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;4 2 3
+1 2
+2 1
+1 0
+2 2
+0 2 1 0
+3 2
+2 2
+2 3
+1 2
+1 2
+2 1
+3 2
+3
+a
+b c
+a b c b
+b a b a c a * *
+2
+b
+a b
+b c * *
+-1
+0 0 0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Output for the Sample Input&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;NTA1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;Valid&lt;/span&gt;
+&lt;span class="n"&gt;Invalid&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="NOIP"></category><category term="ZOJ"></category><category term="翻译"></category></entry><entry><title>听ghost讲那kmp算法的事情</title><link href="/2009/ting-ghostjiang-na-kmpsuan-fa-de-shi-qing.html" rel="alternate"></link><updated>2009-09-03T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:,2009-09-03:2009/ting-ghostjiang-na-kmpsuan-fa-de-shi-qing.html</id><summary type="html">&lt;p&gt;传说中的kmp算法，快速模式匹配，程序源代码如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;program&lt;/span&gt; &lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt;
+    &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;longint&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="k"&gt;string&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="kt"&gt;integer&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;procedure&lt;/span&gt; &lt;span class="nf"&gt;predeal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="k"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt;
+    &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;longint&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;begin&lt;/span&gt;
+    &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="nb"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="nb"&gt;inc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;kmp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="k"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;integer&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt;
+    &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;longint&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;begin&lt;/span&gt;
+    &lt;span class="n"&gt;predeal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="nb"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt;
+            &lt;span class="nb"&gt;inc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt;
+                &lt;span class="k"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+                &lt;span class="nb"&gt;halt&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;begin&lt;/span&gt;
+    &lt;span class="nb"&gt;readln&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nb"&gt;readln&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nb"&gt;writeln&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kmp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;普通的字符串匹配时间复杂度为目标串（以下用A串代替）长度乘以包含目标串的长串（以下用B串代替），而kmp算法则是这两个数相加，它的实现原理大致上是这样的：&lt;/p&gt;
+&lt;h2&gt;1.预处理过程&lt;/h2&gt;
+&lt;p&gt;以A串为原型建立一个p数组，p［i］记录的是i这个位置的字符在它前缀串里的位置（我语言表达能力不是很好，让我们以串说话）&lt;/p&gt;
+&lt;p&gt;比如，A串为abcabcd，则p数组就应该是0001230，设两个指针q与k，q是for循环的循环变量，k则是初始值为0的一个标记。&lt;/p&gt;
+&lt;p&gt;一开始，q为1，k为零，A串中q位置上的字符为a，k＋1位置上的字符也为a，但是q等于1，所以不做任何改变；&lt;/p&gt;
+&lt;p&gt;接着，q等于2，k为0，A串q位置上的字符为b，k＋1位置上的字符为a，a&amp;lt;&amp;gt;b所以不做任何改动；&lt;/p&gt;
+&lt;p&gt;q等于3的时候同2；&lt;/p&gt;
+&lt;p&gt;然后，q等于4，这个时候k＋1位置上的字符是a，q位置上的字符也是a，两者相等，k加一等于1，p［q］赋值等于k，说明当前位置上前一个前序段是从1位置开始的。&lt;/p&gt;
+&lt;p&gt;之后，q等于5，这个时候k+1位置上的字符是b，q位置上的字符也是b，两者相等，k加一等于1，p［q］赋值等于k。&lt;/p&gt;
+&lt;p&gt;q等于6，类推。&lt;/p&gt;
+&lt;p&gt;q等于7的时候，k等于3，k＋1位置上的字符为a，q位置上的字符等于d，d&amp;lt;&amp;gt;a，所以k赋值等于q［k］，也就是0，此时k等于0，停止往前倒，k＋1位置上的字符等于a，a&amp;lt;&amp;gt;d，所以q［7］等于0&lt;/p&gt;
+&lt;p&gt;如果A串为abcabcabce，p数组就变成了0001234560，想一想这是为什么，A数组如果是abcdeabcffa呢？&lt;/p&gt;
+&lt;p&gt;建立p数组的过程就是整个预处理的最主要过程，到此预处理告一段落，开始进行正式模式匹配。&lt;/p&gt;
+&lt;h2&gt;2.模式匹配&lt;/h2&gt;
+&lt;p&gt;阿，今天还有事，以后有空再写吧，语言还得组织组织，俄嫩，走了…………&lt;/p&gt;</summary><category term="NOIP"></category><category term="算法"></category><category term="KMP"></category></entry><entry><title>听ghost讲那匈牙利算法的事情</title><link href="/2009/ting-ghostjiang-na-xiong-ya-li-suan-fa-de-shi-qing.html" rel="alternate"></link><updated>2009-09-03T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:,2009-09-03:2009/ting-ghostjiang-na-xiong-ya-li-suan-fa-de-shi-qing.html</id><summary type="html">&lt;p&gt;具体的不用解释了吧，就是匈牙利算法，粘在这里只是为了防止自己电脑数据异常丢失……&lt;/p&gt;
+&lt;p&gt;这是百度百科上匈牙利算法的pascal原版程序，只是该了改格式而已。百度上的是用邻接矩阵写的，以后有空了我会写一个邻接表版本的匈牙利算法，矩阵版的时间复杂度为点个数的三次方，邻接表则变成了边的个数乘以点的个数，也不是很难写，应该最近就能完成。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;program&lt;/span&gt; &lt;span class="n"&gt;matching&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt;
+    &lt;span class="nb"&gt;max&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt;
+    &lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;array&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;array&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="kt"&gt;integer&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;chk&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;array&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;t1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;t2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;integer&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;dfs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;integer&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt;
+    &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;integer&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;begin&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;and&lt;/span&gt; &lt;span class="k"&gt;not&lt;/span&gt; &lt;span class="n"&gt;chk&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt;
+            &lt;span class="n"&gt;chk&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;:=&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;or&lt;/span&gt; &lt;span class="n"&gt;dfs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt;
+                &lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;:=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+                &lt;span class="k"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;end&lt;/span&gt;
+        &lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;begin&lt;/span&gt;
+    &lt;span class="nb"&gt;readln&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nb"&gt;fillchar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt;
+        &lt;span class="nb"&gt;readln&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+        &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;t1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;:=&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;t2&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="n"&gt;t2&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="nb"&gt;fillchar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;:=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="k"&gt;begin&lt;/span&gt;
+        &lt;span class="nb"&gt;fillchar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chk&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chk&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;dfs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="nb"&gt;inc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="nb"&gt;writeln&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+            &lt;span class="nb"&gt;writeln&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;--&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>听ghost讲关于树型动态规划的一点小经验</title><link href="/2009/ting-ghostjiang-guan-yu-shu-xing-dong-tai-gui-hua-de-yi-dian-xiao-jing-yan.html" rel="alternate"></link><updated>2009-06-14T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:,2009-06-14:2009/ting-ghostjiang-guan-yu-shu-xing-dong-tai-gui-hua-de-yi-dian-xiao-jing-yan.html</id><summary type="html">&lt;h2&gt;1.&lt;/h2&gt;
+&lt;p&gt;To 自底向顶 or 自顶向底.This is a question.两种不同的动规方法，应该已经为大家所熟悉了吧？为了for beginers,我就再罗嗦两句：自底向顶，就是先行着眼于处理动态规划中的子问题，再把问题规模不断扩大，最终解决最终问题；自顶向底，就是先行着眼于最终目标，然后探索要达到这个目的需要哪些“次级子问题”，再看每个“次级子问题”需要哪些“次次级子问题”……最终总能找到那些非常好解决的“子问题基元（在打这个词的时候竟然出现了那么HXE（HX+XE）的东西…………）”，然后逐级回溯（就像hitman47在巨菜阶段时辛辛苦苦找那些deb包的依赖关系一样），类似于深度优先搜索的代码印象。两种方法各有千秋，也各有不足。雪知遥神牛喜欢用自顶向底的方法，思考复杂度比较底，但是如果用最易编码的过程（函数）递归来写，每次调用过程就要比自底向顶时数组寻址的时间长一点，浪费了宝贵的N飞秒，所以她一般用数组模拟栈，进行模拟递归（数组模拟栈的方法应该不用再说了吧？），稍稍快了一些；但是这种方法就需要记录每个节点的所有子节点，用（模拟）邻接表储存也需要比自底向顶多开两三个数组，耗费空间。本人(Hitman47)比较喜欢使用自底向顶的动规方法，这种方法比较方便储存（下面一条要说到储存的问题）整个树型关系，比较省空间；不过这种方法的缺点有二：第一，（据雪知遥神牛说）比较不容易想，因为每个问题需要什么往往是一目了然的，但是基元子问题，或者叫边缘值，是什么，从哪里开始处理子问题，子问题与父问题的有向联系究竟怎么实现，都需要爆发一下小宇宙，思索一番，第二：在极限优化方面，由于将要操作的节点所储存的队列（日程表队列）与每个节点的父节点这两个数组储存在内存的不同位置，每完成一个节点就要再转向那个父节点储存单元，这样浪费了时间。&lt;/p&gt;
+&lt;h2&gt;2.&lt;/h2&gt;
+&lt;p&gt;有 planty of 同志s 都曾提到过树型的东东没有很好的储存方法，于是整了一个邻接matrix(膜拜一下matrix67大牛，就用了E文，严重声明，非ZB!)存储所有单向边，结果是既浪费了时间又浪费了空间，其实大可不必这样麻烦。如果你比较习惯自底向上来进行动规，只存储每个节点的父节点就可以，每次处理当前节点后，向它的父节点“汇报”一下自己的结果，当哪个节点的所有子节点都被处理过了（或子节点个数就是0），就把它加进队列，以备未来进行处理；如果你比较习惯自顶向底完成动态规划，就可以用（模拟）邻接表储存各条边，又省时又省电，为共产主义作贡献……扯远了……咳咳……总之，就是空间和时间复杂度都比邻接矩阵要底很多。&lt;/p&gt;
+&lt;h2&gt;3.&lt;/h2&gt;
+&lt;p&gt;以后想起来再说吧……&lt;/p&gt;</summary><category term="NOIP"></category><category term="动态规划"></category><category term="树型动归"></category></entry></feed>
