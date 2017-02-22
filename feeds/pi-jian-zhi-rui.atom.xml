@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐</title><link href="/" rel="alternate"></link><link href="/feeds/pi-jian-zhi-rui.atom.xml" rel="self"></link><id>/</id><updated>2011-07-26T00:00:00+02:00</updated><entry><title>段选择器 段描述符 段描述符表 线性地址形成</title><link href="/2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html" rel="alternate"></link><updated>2011-07-26T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:,2011-07-26:2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html</id><summary type="html">&lt;p&gt;买了本罗老师的琢石成器,才看前3章就感觉晕晕忽忽，总体觉得要看懂这本书前提是必须DOS汇编,了解32位汇编基础.DOS汇编本人只看了王爽老师的汇编语言前11章，中断这块还没有看,看来不看还是不行的。转回来说,罗老师这本书前3章写的很乱，尤其是描述符这块，看了似懂非懂，通而不透。只能自己抽丝剥茧，捋清头绪，慢慢体会：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 披坚执锐</title><link href="/" rel="alternate"></link><link href="/feeds/pi-jian-zhi-rui.atom.xml" rel="self"></link><id>/</id><updated>2011-07-26T00:00:00+02:00</updated><entry><title>段选择器 段描述符 段描述符表 线性地址形成</title><link href="/2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html" rel="alternate"></link><published>2011-07-26T00:00:00+02:00</published><updated>2011-07-26T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:None,2011-07-26:/2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html</id><summary type="html">&lt;p&gt;买了本罗老师的琢石成器,才看前3章就感觉晕晕忽忽，总体觉得要看懂这本书前提是必须DOS汇编,了解32位汇编基础.DOS汇编本人只看了王爽老师的汇编语言前11章，中断这块还没有看,看来不看还是不行的。转回来说,罗老师这本书前3章写的很乱，尤其是描述符这块，看了似懂非懂，通而不透。只能自己抽丝剥茧，捋清头绪，慢慢体会：&lt;/p&gt;
+&lt;h2&gt;段选择器&lt;/h2&gt;
+&lt;p&gt;32位汇编中16位段寄存器(CS、DS、ES、SS、FS、GS)中不再存放段基址,而是段描述符在段描述符表中的索引值 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;买了本罗老师的琢石成器,才看前3章就感觉晕晕忽忽，总体觉得要看懂这本书前提是必须DOS汇编,了解32位汇编基础.DOS汇编本人只看了王爽老师的汇编语言前11章，中断这块还没有看,看来不看还是不行的。转回来说,罗老师这本书前3章写的很乱，尤其是描述符这块，看了似懂非懂，通而不透。只能自己抽丝剥茧，捋清头绪，慢慢体会：&lt;/p&gt;
 &lt;h2&gt;段选择器&lt;/h2&gt;
 &lt;p&gt;32位汇编中16位段寄存器(CS、DS、ES、SS、FS、GS)中不再存放段基址,而是段描述符在段描述符表中的索引值,D3-D15位是索引值,D0-D1位是优先级(RPL)用于特权检查,D2位是描述符表引用指示位TI,TI=0指示从全局描述表GDT中读取描述符，TI=1指示从局部描述符中LDT中读取描述符。这些信息总称段选择器(段选择子).&lt;/p&gt;
 &lt;h2&gt;段描述符&lt;/h2&gt;
@@ -12,19 +14,25 @@
 &lt;p&gt;16位，高13为存放LDT在GET中的索引值。&lt;/p&gt;
 &lt;p&gt;IA-32处理器仍然使用xxxx：yyyyyyyy（段选择器：偏移量）逻辑方式表示一个线性地址，那么是怎么得到段的基址呢？在上面说明中我们知道，要得到段的基址首先通过段选择器xxxx中TI位指定的段描述符所在位置：&lt;/p&gt;
 &lt;p&gt;当TI=0时表示段描述符在GDT中，如下图所示：① 先从GDTR寄存器中获得GDT基址。② 然后再GDT中以段选择器高13位位置索引值得到段描述符。③ 段描述符符包含段的基址、限长、优先级等各种属性，这就得到了段的起始地址（基址），再以基址加上偏移地址yyyyyyyy才得到最后的线性地址。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="假装此处有图片" src="/2011/segment0.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="假装此处有图片" src="/2011/segment0.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;当TI=1时表示段描述符在LDT中，如下图所示：① 还是先从GDTR寄存器中获得GDT基址。② 从LDTR寄存器中获取LDT所在段的位置索引(LDTR高13位)。③ 以这个位置索引在GDT中得到LDT段描述符从而得到LDT段基址。④ 用段选择器高13位位置索引值从LDT段中得到段描述符。⑤ 段描述符符包含段的基址、限长、优先级等各种属性，这就得到了段的起始地址（基址），再以基址加上偏移地址yyyyyyyy才得到最后的线性地址。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="假装此处有图片" src="/2011/segment1.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;此文章乃自&lt;a href="http://hi.baidu.com/%B7%E7%D6%AE%D2%E2/blog/item/02f0c71a473bb1bf4bedbc5d.html"&gt;此处&lt;/a&gt;转载，喜欢的话给原作者点个赞呗～&lt;/p&gt;</summary><category term="信息安全"></category><category term="IA-32"></category><category term="Windows架构"></category></entry><entry><title>metaexploit安装时问题解决</title><link href="/2011/metaexploitan-zhuang-shi-wen-ti-jie-jue.html" rel="alternate"></link><updated>2011-07-23T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:,2011-07-23:2011/metaexploitan-zhuang-shi-wen-ti-jie-jue.html</id><summary type="html">&lt;p&gt;metasploit 中文系统安装失败问题&lt;/p&gt;
+&lt;p&gt;&lt;img alt="假装此处有图片" src="/2011/segment1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;此文章乃自&lt;a href="http://hi.baidu.com/%B7%E7%D6%AE%D2%E2/blog/item/02f0c71a473bb1bf4bedbc5d.html"&gt;此处&lt;/a&gt;转载，喜欢的话给原作者点个赞呗～&lt;/p&gt;</content><category term="信息安全"></category><category term="IA-32"></category><category term="Windows架构"></category></entry><entry><title>metaexploit安装时问题解决</title><link href="/2011/metaexploitan-zhuang-shi-wen-ti-jie-jue.html" rel="alternate"></link><published>2011-07-23T00:00:00+02:00</published><updated>2011-07-23T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:None,2011-07-23:/2011/metaexploitan-zhuang-shi-wen-ti-jie-jue.html</id><summary type="html">&lt;p&gt;metasploit 中文系统安装失败问题&lt;/p&gt;
 &lt;p&gt;windows中文系统在安装metasploit时会报postgresql错误，这是由于postgresql对中文支持问题导致。&lt;/p&gt;
 &lt;p&gt;解决方法：控制面板-区域和语言选项-将标准与格式，改为英语（美国），在安装即可&lt;/p&gt;
 &lt;p&gt;或可以安装metasploit framework的mini版，该版本不安装postgresql自然也无上述错误了。但无法使用GUI界面和一些相关功能&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;On 11/29/2010 11:21 PM, Yuping Li wrote: hi, guyswhen i was installing the metasploit framework 3.5 on XP, I come across with the following error message again and again.There has been an error. Unknown error while running C:\framework/postgresql/bin/psql.exe -U postgres -p 8448 -h localhost -c &amp;quot;ALTER USER postgresql PASSWORD &amp;#39;********&amp;#39;&amp;quot; The application will exit now. We have seen this on some non-english versions of the install - the cause is the default locale in PostgreSQL is not compatible with the SQL_ASCII statements. We need to override the installation locale of PostgreSQL to resolve this and have an open ticket to resolve it.-HD
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;On 11/29/2010 11:21 PM, Yuping Li wrote: hi, guyswhen …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;metasploit 中文系统安装失败问题&lt;/p&gt;
+&lt;p&gt;windows中文系统在安装metasploit时会报postgresql错误，这是由于postgresql对中文支持问题导致。&lt;/p&gt;
+&lt;p&gt;解决方法：控制面板-区域和语言选项-将标准与格式，改为英语（美国），在安装即可&lt;/p&gt;
+&lt;p&gt;或可以安装metasploit framework的mini版，该版本不安装postgresql自然也无上述错误了。但无法使用GUI界面和一些相关功能&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;On 11/29/2010 11:21 PM, Yuping Li wrote: hi, guyswhen i was installing the metasploit framework 3.5 on XP, I come across with the following error message again and again.There has been an error. Unknown error while running C:\framework/postgresql/bin/psql.exe -U postgres -p 8448 -h localhost -c &amp;quot;ALTER USER postgresql PASSWORD &amp;#39;********&amp;#39;&amp;quot; The application will exit now. We have seen this on some non-english versions of the install - the cause is the default locale in PostgreSQL is not compatible with the SQL_ASCII statements. We need to override the installation locale of PostgreSQL to resolve this and have an open ticket to resolve it.-HD
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;a href="http://seclists.org/metasploit/2010/q4/27"&gt;问题解答原文出处&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;转载自&lt;a href="http://hi.baidu.com/heyiblog/blog/item/60edb9867413462d67096e59.html/cmtid/3303d1fc0402a88db901a02e"&gt;此处&lt;/a&gt;&lt;/p&gt;</summary><category term="metasploit"></category><category term="troubleshooting"></category></entry><entry><title>md5加密算法c语言实现</title><link href="/2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html" rel="alternate"></link><updated>2009-09-13T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:,2009-09-13:2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html</id><summary type="html">&lt;p&gt;从网上找的md5信息摘要算法的c语言实现，因为我不会用Pascal语言一二进制形式打开文件，就只能把这个c语言的代码原封不动地（其实还是我自己抄了一遍，把编码风格改得比较像自己的）粘到qq空间上来，以做珍藏，具体的实现原理我就不再赘述了，总结起来就是补位，加长度，分组，位运算，反向输出这么几步。
+&lt;p&gt;转载自&lt;a href="http://hi.baidu.com/heyiblog/blog/item/60edb9867413462d67096e59.html/cmtid/3303d1fc0402a88db901a02e"&gt;此处&lt;/a&gt;&lt;/p&gt;</content><category term="metasploit"></category><category term="troubleshooting"></category></entry><entry><title>md5加密算法c语言实现</title><link href="/2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html" rel="alternate"></link><published>2009-09-13T00:00:00+02:00</published><updated>2009-09-13T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:None,2009-09-13:/2009/md5jia-mi-suan-fa-cyu-yan-shi-xian.html</id><summary type="html">&lt;p&gt;从网上找的md5信息摘要算法的c语言实现，因为我不会用Pascal语言一二进制形式打开文件，就只能把这个c语言的代码原封不动地（其实还是我自己抄了一遍，把编码风格改得比较像自己的）粘到qq空间上来，以做珍藏，具体的实现原理我就不再赘述了，总结起来就是补位，加长度，分组，位运算，反向输出这么几步。
+所谓md5信息摘要算法，当然比他的前身md4信息摘要要先进，升级的地方主要有这么几点：
+    1.定义的宏里面，I函数由原来的(x ^ y^ z)，也就是Pascal中的(x xor …&lt;/p&gt;</summary><content type="html">&lt;p&gt;从网上找的md5信息摘要算法的c语言实现，因为我不会用Pascal语言一二进制形式打开文件，就只能把这个c语言的代码原封不动地（其实还是我自己抄了一遍，把编码风格改得比较像自己的）粘到qq空间上来，以做珍藏，具体的实现原理我就不再赘述了，总结起来就是补位，加长度，分组，位运算，反向输出这么几步。
 所谓md5信息摘要算法，当然比他的前身md4信息摘要要先进，升级的地方主要有这么几点：
     1.定义的宏里面，I函数由原来的(x ^ y^ z)，也就是Pascal中的(x xor y xor z)改为(y^x|(~z))，也就是Pascal中的
      (x xor y or (not z))，增加了算法的不对称性，使得md5更难破译
@@ -36,7 +44,7 @@
     5.第二轮和第三轮加密计算中改变了各算式中x[i]的i的排列顺序，使四轮加密相似性更差。
     6.各轮中shl（&amp;lt;&amp;lt;）的量并不一样，同时对整体的左移量进行了优化，引发雪崩效应更快。&lt;/p&gt;
 &lt;p&gt;以下是md5信息摘要算法c语言实现，如果有那位大牛告诉下本小菜Pascal或Delphi中怎么以binary形式打开一个文件，我也许会考虑再将它翻译成Pascal或Delphi。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#include&amp;lt;stdio.h&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="cp"&gt;#define F(x, y, z) (((x) &amp;amp; (y)) | ((~x) &amp;amp; (z)))&lt;/span&gt;
 &lt;span class="cp"&gt;#define G(x, y, z) (((x) &amp;amp; (z)) | ((y) &amp;amp; (~z)))&lt;/span&gt;
@@ -172,4 +180,4 @@
             &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;MD5 Code:%08x%08x%08x%08x&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;PP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;PP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;PP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;PP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;D&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
         &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="密码学"></category><category term="信息安全"></category></entry></feed>
+&lt;/pre&gt;&lt;/div&gt;</content><category term="密码学"></category><category term="信息安全"></category></entry></feed>
