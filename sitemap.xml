@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2019-01-07T10:32:48-00:00</lastmod>
+<lastmod>2019-01-22T08:33:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2019-01-07T10:32:48-00:00</lastmod>
+<lastmod>2019-01-22T08:33:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2019-01-07T10:32:48-00:00</lastmod>
+<lastmod>2019-01-22T08:33:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2019-01-07T10:32:48-00:00</lastmod>
+<lastmod>2019-01-22T08:33:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -34,6 +34,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/pages/jian-yi-ming-zhi-long-wo-mao-lu.html</loc>
 <lastmod>2014-11-12T00:00:00+01:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/2019/dao-qie-tuo-yan-yu-bu-ru-dong-wu-nao.html</loc>
+<lastmod>2019-02-22T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -264,7 +271,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/category/feng-chui-piao-xu.html</loc>
-<lastmod>2015-03-19T00:00:00+00:53</lastmod>
+<lastmod>2019-02-22T00:00:00+00:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -321,6 +328,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/category/shui-lai-tu-tun.html</loc>
 <lastmod>2013-08-13T00:00:00+00:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/za-wen-jiao-cai-xi-gua-pi.html</loc>
+<lastmod>2019-02-22T00:00:00+00:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -670,7 +684,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/author/han-guang.html</loc>
-<lastmod>2019-01-06T00:00:00+00:53</lastmod>
+<lastmod>2019-02-22T00:00:00+00:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
