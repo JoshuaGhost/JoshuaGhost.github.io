@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 虐猫狂魔</title><link href="/" rel="alternate"></link><link href="/feeds/nue-mao-kuang-mo.atom.xml" rel="self"></link><id>/</id><updated>2016-12-30T00:00:00+01:00</updated><entry><title>Test of render-math plugin</title><link href="/2016/test-of-render-math-plugin.html" rel="alternate"></link><published>2016-12-30T00:00:00+01:00</published><updated>2016-12-30T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2016-12-30:/2016/test-of-render-math-plugin.html</id><summary type="html">&lt;h2&gt;This is a test of render-math plugin of pelican&lt;/h2&gt;
+&lt;p&gt;\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\bb}{\pi R}
+\newcommand{\bc}{\pi r …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;This is a test of render-math plugin of pelican&lt;/h2&gt;
+&lt;p&gt;\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\bb}{\pi R}
+\newcommand{\bc}{\pi r}&lt;/p&gt;
+&lt;p&gt;$$\frac{\partial A}{\partial t}$$&lt;/p&gt;
+&lt;p&gt;$$
+J(\theta) = \frac 1 2 \sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2
+$$&lt;/p&gt;
+&lt;p&gt;The God said:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Let there be light&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Thus:
+$$
+\nabla \cdot E = \frac{\rho}{\epsilon_0}
+$$
+$$
+\nabla \cdot B =0
+$$
+$$
+\nabla \times E = - \frac{\partial B}{\partial t}
+$$
+$$
+\nabla \times B = \mu_0 J + \mu_0 \epsilon_0 \frac{\partial E}{\partial t}
+$$&lt;/p&gt;</content><category term="虐猫狂魔"></category><category term="Test"></category></entry></feed>

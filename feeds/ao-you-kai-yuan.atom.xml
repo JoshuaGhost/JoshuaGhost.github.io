@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 遨游开源</title><link href="/" rel="alternate"></link><link href="/feeds/ao-you-kai-yuan.atom.xml" rel="self"></link><id>/</id><updated>2012-05-14T00:00:00+02:00</updated><entry><title>使用netlink与内核通信时发现的问题记录</title><link href="/2012/shi-yong-netlinkyu-nei-he-tong-xin-shi-fa-xian-de-wen-ti-ji-lu.html" rel="alternate"></link><published>2012-05-14T00:00:00+02:00</published><updated>2012-05-14T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:None,2012-05-14:/2012/shi-yong-netlinkyu-nei-he-tong-xin-shi-fa-xian-de-wen-ti-ji-lu.html</id><summary type="html">&lt;h2&gt;1&lt;/h2&gt;
+&lt;p&gt;kernel部分的netlink_kernel_create()函数第一个参数是net类型的一个结构体指针，这个结构指的是网络设备，一般情 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;1&lt;/h2&gt;
 &lt;p&gt;kernel部分的netlink_kernel_create()函数第一个参数是net类型的一个结构体指针，这个结构指的是网络设备，一般情况下应该设为&amp;amp;init_net&lt;/p&gt;
 &lt;h2&gt;2&lt;/h2&gt;
 &lt;p&gt;netlink使用新类型的时候要用一下MODULE_ALIAS_NET_PF_PROTO(family,protoco)宏函数来注册新类型（我用的是17号类型）&lt;/p&gt;
 &lt;h2&gt;3&lt;/h2&gt;
-&lt;p&gt;内核的对skb操作部分最好用互斥锁lock一下，以防篡改&lt;/p&gt;</summary><content type="html">&lt;h2&gt;1&lt;/h2&gt;
-&lt;p&gt;kernel部分的netlink_kernel_create()函数第一个参数是net类型的一个结构体指针，这个结构指的是网络设备，一般情况下应该设为&amp;amp;init_net&lt;/p&gt;
-&lt;h2&gt;2&lt;/h2&gt;
-&lt;p&gt;netlink使用新类型的时候要用一下MODULE_ALIAS_NET_PF_PROTO(family,protoco)宏函数来注册新类型（我用的是17号类型）&lt;/p&gt;
-&lt;h2&gt;3&lt;/h2&gt;
-&lt;p&gt;内核的对skb操作部分最好用互斥锁lock一下，以防篡改&lt;/p&gt;</content><category term="信息安全竞赛"></category><category term="netlink"></category><category term="linux"></category><category term="troubleshooting"></category><category term="笔记"></category></entry></feed>
+&lt;p&gt;内核的对skb操作部分最好用互斥锁lock一下，以防篡改&lt;/p&gt;</content><category term="遨游开源"></category><category term="信息安全竞赛"></category><category term="netlink"></category><category term="linux"></category><category term="troubleshooting"></category><category term="笔记"></category></entry></feed>

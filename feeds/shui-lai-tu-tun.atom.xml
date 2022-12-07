@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 水來土屯</title><link href="/" rel="alternate"></link><link href="/feeds/shui-lai-tu-tun.atom.xml" rel="self"></link><id>/</id><updated>2013-08-13T00:00:00+02:00</updated><entry><title>记一次关于IPv4无法连接IPv6却可以上网的解决过程</title><link href="/2013/ji-yi-ci-guan-yu-ipv4wu-fa-lian-jie-ipv6que-ke-yi-shang-wang-de-jie-jue-guo-cheng.html" rel="alternate"></link><published>2013-08-13T00:00:00+02:00</published><updated>2013-08-13T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:None,2013-08-13:/2013/ji-yi-ci-guan-yu-ipv4wu-fa-lian-jie-ipv6que-ke-yi-shang-wang-de-jie-jue-guo-cheng.html</id><summary type="html">&lt;p&gt;最近因为天气炎热，电脑卡的不行，刚想和妹子侃会儿大山，却发现电脑卡成翔，一怒之下按住电源键四秒，想让电脑稍作冷静之后再来为我服务。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 水來土屯</title><link href="/" rel="alternate"></link><link href="/feeds/shui-lai-tu-tun.atom.xml" rel="self"></link><id>/</id><updated>2013-08-13T00:00:00+02:00</updated><entry><title>记一次关于IPv4无法连接IPv6却可以上网的解决过程</title><link href="/2013/ji-yi-ci-guan-yu-ipv4wu-fa-lian-jie-ipv6que-ke-yi-shang-wang-de-jie-jue-guo-cheng.html" rel="alternate"></link><published>2013-08-13T00:00:00+02:00</published><updated>2013-08-13T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:None,2013-08-13:/2013/ji-yi-ci-guan-yu-ipv4wu-fa-lian-jie-ipv6que-ke-yi-shang-wang-de-jie-jue-guo-cheng.html</id><summary type="html">&lt;p&gt;最近因为天气炎热，电脑卡的不行，刚想和妹子侃会儿大山，却 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近因为天气炎热，电脑卡的不行，刚想和妹子侃会儿大山，却发现电脑卡成翔，一怒之下按住电源键四秒，想让电脑稍作冷静之后再来为我服务。
 谁承想，再开机以后居然qq登陆不上去，网页也打不开了，&lt;/p&gt;
 &lt;hr&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;尝试1：浏览器地址栏输入百度的地址（测网速用）。
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;尝试1：浏览器地址栏输入百度的地址（测网速用）。
 结果1：chrome表示无法显示此网页。
 
 尝试2：瞄了一眼右下角状态栏。
@@ -10,95 +10,68 @@
 
 尝试3：然后打开cmd，试着ping了一下百度。
 结果3：a.shifen的服务器及其IPv4地址可以解析出来而且ping通且速度良好。
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;hr&gt;
-&lt;h2&gt;怀疑 …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;最近因为天气炎热，电脑卡的不行，刚想和妹子侃会儿大山，却发现电脑卡成翔，一怒之下按住电源键四秒，想让电脑稍作冷静之后再来为我服务。
-谁承想，再开机以后居然qq登陆不上去，网页也打不开了，&lt;/p&gt;
-&lt;hr&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;尝试1：浏览器地址栏输入百度的地址（测网速用）。
-结果1：chrome表示无法显示此网页。
-
-尝试2：瞄了一眼右下角状态栏。
-结果2：本地连接明明连的好好的。
-
-尝试3：然后打开cmd，试着ping了一下百度。
-结果3：a.shifen的服务器及其IPv4地址可以解析出来而且ping通且速度良好。
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;h2&gt;怀疑&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;TCP服务出现问题。
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;TCP服务出现问题。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;尝试4：尝试用telnet连接百度页面。
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;尝试4：尝试用telnet连接百度页面。
 结果4：返回很正常的在端口23拒绝链接的结果。
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;h2&gt;疑问&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;TCP与UDP皆正常，但为何无法连接 ？
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;TCP与UDP皆正常，但为何无法连接 ？
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;尝试5：打开wireshark，尝试用telnet进行连接的时候与浏览器打开网页的时候的线上数据包进行对比。
-结果5：发现telnet数据包发送的DNS请求时IPv4的请求，而浏览器使用的是IPv6的，而浏览器对百度的IPv6地址的DNS查询出了问题
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;尝试&lt;/span&gt;&lt;span class="mh"&gt;5&lt;/span&gt;&lt;span class="err"&gt;：打开&lt;/span&gt;&lt;span class="n"&gt;wireshark&lt;/span&gt;&lt;span class="err"&gt;，尝试用&lt;/span&gt;&lt;span class="n"&gt;telnet进行连接的时候与浏览器打开网页的时候的线上数据包进行对比&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;结果&lt;/span&gt;&lt;span class="mh"&gt;5&lt;/span&gt;&lt;span class="err"&gt;：发现&lt;/span&gt;&lt;span class="n"&gt;telnet数据包发送的DNS请求时IPv4的请求&lt;/span&gt;&lt;span class="err"&gt;，而浏览器使用的是&lt;/span&gt;&lt;span class="n"&gt;IPv6的&lt;/span&gt;&lt;span class="err"&gt;，而浏览器对百度的&lt;/span&gt;&lt;span class="n"&gt;IPv6地址的DNS查询出了问题&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;h2&gt;解释&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;因为我们的校园网是46通用，自动选择，就怀疑是否是校园网的6on4服务器出现了问题
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;因为我们的校园网是46通用，自动选择，就怀疑是否是校园网的6on4服务器出现了问题
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;h2&gt;但是&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;同宿舍的同学可以上网好好的，所以应该不是校园网的问题，问题还是应该出现在自己电脑上。
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;同宿舍的同学可以上网好好的，所以应该不是校园网的问题，问题还是应该出现在自己电脑上。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;h2&gt;提出假设&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;可能更换一个IPv6的DNS地址会暂时改善一点？
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;可能更换一个IPv6的DNS地址会暂时改善一点？
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;尝试6：用手机查出了一个可用的IPv6的DNS地址，北京邮电大学的，并且更换到了本地连接的DNS上。
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;尝试6：用手机查出了一个可用的IPv6的DNS地址，北京邮电大学的，并且更换到了本地连接的DNS上。
 结果6：一如往常，所以不是v6的DNS服务器的问题。
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;为确保所有DNS服务器都没有问题，使用了nslookup命令，查询了本机连接的所有DNS服务器，结果都可以连接&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;疑问&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;如果v4对应的域名解析成v6成问题，那v6对应的域名解析成v6会不会有问题呢？
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;如果v4对应的域名解析成v6成问题，那v6对应的域名解析成v6会不会有问题呢？
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;尝试7：打开了google的IPv6版本：ipv6.google.com。
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;尝试7：打开了google的IPv6版本：ipv6.google.com。
 结果7：可以访问完全没有问题。
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;然后就超出了我的知识范围，使用手机上网搜索答案 &lt;/p&gt;
 &lt;hr&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;尝试8：以“IPv6能够上网，IPv4无法连接”为关键字进行搜索，搜索到和我遇到一样情况的一篇[解决文章](http://delbert.me/archives/358.html) ，并且使用文章中给出的建议，对winsock注册表进行修复，在cmd中敲入 netsh winsock reset，重启计算机
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;尝试8：以“IPv6能够上网，IPv4无法连接”为关键字进行搜索，搜索到和我遇到一样情况的一篇[解决文章](http://delbert.me/archives/358.html) ，并且使用文章中给出的建议，对winsock注册表进行修复，在cmd中敲入 netsh winsock reset，重启计算机
 结果8：成功，IPv4和IPv6的地址都正常访问
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;h2&gt;解释&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;由于我们的校园网是46混搭的，所以它的DHCP服务也分v4和v6两个版本，刚才的情况是由于强制关机而造成了dhcp在本机中的组件出现了问题，导致计算机不能识别v4地址，而错误地用v6的方式进行dns解析，从而dns包中发送的是请求v6解析的“AAAA”包，而不是v4解析的“A”包，故造成了这个问题，同时上边那篇博文的博主提出的两点悬而未决的问题我也有了一个初步的猜测，我的猜测已经写在了这个对我帮助极大的论坛上
-&lt;/pre&gt;&lt;/div&gt;</content><category term="IPv4"></category><category term="IPv6"></category><category term="troubleshooting"></category></entry></feed>
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;由于我们的校园网是46混搭的，所以它的DHCP服务也分v4和v6两个版本，刚才的情况是由于强制关机而造成了dhcp在本机中的组件出现了问题，导致计算机不能识别v4地址，而错误地用v6的方式进行dns解析，从而dns包中发送的是请求v6解析的“AAAA”包，而不是v4解析的“A”包，故造成了这个问题，同时上边那篇博文的博主提出的两点悬而未决的问题我也有了一个初步的猜测，我的猜测已经写在了这个对我帮助极大的论坛上
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="水來土屯"></category><category term="IPv4"></category><category term="IPv6"></category><category term="troubleshooting"></category></entry></feed>

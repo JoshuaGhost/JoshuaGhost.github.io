@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 数学天地</title><link href="/" rel="alternate"></link><link href="/feeds/shu-xue-tian-di.atom.xml" rel="self"></link><id>/</id><updated>2017-02-22T00:00:00+01:00</updated><entry><title>也谈softmax（施工中）</title><link href="/2017/ye-tan-softmaxshi-gong-zhong.html" rel="alternate"></link><published>2017-02-22T00:00:00+01:00</published><updated>2017-02-22T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2017-02-22:/2017/ye-tan-softmaxshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;引言&lt;/h2&gt;
-&lt;p&gt;随着机器学习的异常火爆，学习它的人也如雨后春笋一般冒了出来，作为时刻保持在时代前沿的Ghost自然也没能免俗跟着一起跳进了大坑，今天不说别的，就着青梅煮酒，我胡扯一点关于机器学习中极为重要的一个函数：softmax&lt;/p&gt;
-&lt;h2&gt;softmax是什么？&lt;/h2&gt;
-&lt;p&gt;softmax是一个函数，它的定义域为$\mathbb{R}^d$，值域为$(0,1)$，d个输入是数据源的自变量，输入是多个自变量的值，输出是当前输入值应该归到哪一分类的概率。我们先来和它混个脸熟：
-$$
-P(y=i|\vec …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;引言&lt;/h2&gt;
+&lt;p&gt;随着机器学习的异常火爆，学习它的人也如雨后春笋一 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;引言&lt;/h2&gt;
 &lt;p&gt;随着机器学习的异常火爆，学习它的人也如雨后春笋一般冒了出来，作为时刻保持在时代前沿的Ghost自然也没能免俗跟着一起跳进了大坑，今天不说别的，就着青梅煮酒，我胡扯一点关于机器学习中极为重要的一个函数：softmax&lt;/p&gt;
 &lt;h2&gt;softmax是什么？&lt;/h2&gt;
 &lt;p&gt;softmax是一个函数，它的定义域为$\mathbb{R}^d$，值域为$(0,1)$，d个输入是数据源的自变量，输入是多个自变量的值，输出是当前输入值应该归到哪一分类的概率。我们先来和它混个脸熟：
@@ -35,16 +31,8 @@ P(y=1|x)=\frac{1}{1+e^{-xw+b}}
 $$&lt;/p&gt;
 &lt;p&gt;当w=-30,b=20的时候，函数图像为：&lt;/p&gt;
 &lt;p&gt;&lt;img alt="logit function" src="/2017/logit.png"&gt;&lt;/p&gt;
-&lt;p&gt;左边部分分类为1的概率十分接近1，右边十分接近0,logit函数有两个参数来控制&lt;/p&gt;</content><category term="数学"></category></entry><entry><title>caculus of variations（施工中）</title><link href="/2017/caculus-of-variationsshi-gong-zhong.html" rel="alternate"></link><published>2017-01-12T00:00:00+01:00</published><updated>2017-01-12T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2017-01-12:/2017/caculus-of-variationsshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;泛函是个啥？&lt;/h2&gt;
-&lt;p&gt;泛函就是函数的函数，还记得我们当初学函数的时候，把函数比作一部机器，它的入料是一个变量，输出是一个函数值;而泛函这部“机器”，输入本身就是一部“机器”也就是函数，输出是泛函求值。用数学的语言讲，函数是一个映射：
-$$
-x_0\mapsto f(x_0)
-$$
-其中x_0叫做自变量，而泛函则是一个如下映射：
-$$
-f\mapsto f(x_0)
-$$
-其中 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;泛函是个啥？&lt;/h2&gt;
+&lt;p&gt;左边部分分类为1的概率十分接近1，右边十分接近0,logit函数有两个参数来控制&lt;/p&gt;</content><category term="数学天地"></category><category term="数学"></category></entry><entry><title>caculus of variations（施工中）</title><link href="/2017/caculus-of-variationsshi-gong-zhong.html" rel="alternate"></link><published>2017-01-12T00:00:00+01:00</published><updated>2017-01-12T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2017-01-12:/2017/caculus-of-variationsshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;泛函是个啥？&lt;/h2&gt;
+&lt;p&gt;泛函就是函数的函数，还记得我们当初学函数的 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;泛函是个啥？&lt;/h2&gt;
 &lt;p&gt;泛函就是函数的函数，还记得我们当初学函数的时候，把函数比作一部机器，它的入料是一个变量，输出是一个函数值;而泛函这部“机器”，输入本身就是一部“机器”也就是函数，输出是泛函求值。用数学的语言讲，函数是一个映射：
 $$
 x_0\mapsto f(x_0)
@@ -96,4 +84,4 @@ $$
 $$
 $$
 \nabla \times B = \mu_0 J + \mu_0 \epsilon_0 \frac{\partial E}{\partial t}
-$$&lt;/p&gt;</content><category term="数学"></category></entry></feed>
+$$&lt;/p&gt;</content><category term="数学天地"></category><category term="数学"></category></entry></feed>
