@@ -5,3 +5,4 @@ Unidecode==0.04.17
 pelican==4.8.0
 # wsgiref>=0.1.2
 pelican-liquid-tags==1.0.4
+ghp-import
