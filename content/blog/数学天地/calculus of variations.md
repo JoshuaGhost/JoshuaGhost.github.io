@@ -35,11 +35,11 @@ $$
    = \sqrt{1-y'(x_0)}dx
 $$
 那么小球从$$ds$$“左边”到“右边”滑动的时候，它的速度我们可以近似视为
-
+$$
 \newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\bb}{\pi R}
 \newcommand{\bc}{\pi r}
-
+$$
 $$\frac{\partial A}{\partial t}$$
 
 $$
