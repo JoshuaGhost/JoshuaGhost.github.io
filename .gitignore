@@ -1,5 +1,0 @@
-**/*.swp
-**/*.pyc
-*/output/
-.venv/*
-output/*

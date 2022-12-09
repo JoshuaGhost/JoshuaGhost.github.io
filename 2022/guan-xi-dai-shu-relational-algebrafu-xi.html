@@ -55,7 +55,7 @@
 						<li><a href="">Home</a></li>
 						<li><label>Categories</label></li>
 							<li ><a href="/category/ao-you-kai-yuan.html">遨游开源</a></li>
-							<li ><a href="/category/dan-qiu-ri-xin.html">但求日新</a></li>
+							<li class="active"><a href="/category/dan-qiu-ri-xin.html">但求日新</a></li>
 							<li ><a href="/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
 							<li ><a href="/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
 							<li ><a href="/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
@@ -94,7 +94,7 @@
 					<section class="top-bar-section">
 						<ul class="left">
 								<li ><a href="/category/ao-you-kai-yuan.html">遨游开源</a></li>
-								<li ><a href="/category/dan-qiu-ri-xin.html">但求日新</a></li>
+								<li class="active"><a href="/category/dan-qiu-ri-xin.html">但求日新</a></li>
 								<li ><a href="/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
 								<li ><a href="/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
 								<li ><a href="/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
@@ -117,24 +117,60 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-							<div class="row">
-								<div class="small-12 columns">
-									<h2>Posts Tagged With 'recourse'</h2>
-								</div>
-							</div>
-
 <article>
-	<h3><a href="/2022/attentions-cha-que-bu-lou.html">Attentions 查缺补漏</a></h3>
-	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/dan-qiu-ri-xin.html">但求日新</a> on 三 07 十二月 2022. Tags: <a href="/tag/attention.html">attention</a>, <a href="/tag/paper-reading.html">paper reading</a>, <a href="/tag/recourse.html">recourse</a>, </h6>
-	<p>Loung的Attention paper： <a href="https://arxiv.org/abs/1508.04025">https://arxiv.org/abs/1508.04025</a></p>
-<p>Bahdanau的Attention Paper： <a href="https://arxiv.org/abs/1409.0473">https://arxiv.org/abs/1409.0473</a></p>
-<h1>首先，啥是attention：</h1>
-<p>拿输入-输 …</p>
-		<p class="continue"><a href="/2022/attentions-cha-que-bu-lou.html">Continue reading &raquo;</a></p>
+	<h2>关系代数（relational Algebra）复习</h2>
+	<h2>关系代数与SQL语句的等效性</h2>
+<p>大部分关系代数表达式可以与sql语句等价，比如</p>
+<p>projection: $\pi_{\text{mat_no}}(Student)$就代表select mat_no from Student</p>
+<p>selection: $\sigma_{gender='male'}(Student)$就等效于select * from Student where gender = ‘male’</p>
+<p>另外还有一些集合操作，比如union ($\cup$), intersection ($\cap$), difference () cartesian product ($\times$)</p>
+<p>还有比如各种join：inner join ($\bowtie$)</p>
+<p>笛卡尔积-selection与inner join等效性：$R\bowtie_{condition}S \equiv \sigma_{condition}(R\times S)$</p>
+<p>aggregation: 比如select name from student like avg(height) &gt; 180 group by gender，就等效于 $\pi_{name}(\sigma_{\text{height}&gt;{avg_height}}(\text{student} \bowtie (a_{\text{gender}} \mathcal{F}_{\text{avg(height)}}(\text{student}))))$ （忽略那个诡异的a，它只是个占位符，因为mathjax无力识别前置下标）。这里之所以在aggregation之后还要join一个原来的student表，是因为在aggregation之后，新的临时表格把所有的老attribution名都删除了：</p>
+<p><img alt="Untitled" src="/2022/关系代数（Relational Algebra）复习/Untitled.png"></p>
+<h2>例题</h2>
+<p><img alt="Untitled" src="/2022/关系代数（Relational Algebra）复习/Untitled_1.png"></p>
+<p><img alt="Untitled" src="/2022/关系代数（Relational Algebra）复习/Untitled_2.png"></p>
+<p>分析：这道题让选出所有符合下列要求的动物（返回这只动物的名字、物种、年龄和笼子编号），这只动物需要：</p>
+<ol>
+<li>是濒危动物status=”stark gefaehrdet”</li>
+<li>在其对应gruppe中，年龄超过平均年龄</li>
+</ol>
+<p>要求1.翻译成关系代数，应该是 $\text{Tier}\bowtie\sigma_{\text{status}=\text{"stark gefährdet"}}(\text{Tierart})$</p>
+<p>要求2.翻译成关系代数，应该是 $\text{Tier}\bowtie\text{  }\text{Tierart}\bowtie(a_\text{gruppe}\mathcal{F}_\text{avg(alter)}(\text{Tier}\bowtie\text{Tierart}))$</p>
+<p>所以选出所有符合这一条件的动物，应该是</p>
+<!-- $$
+\text{Tier}\bowtie\text{  }\text{Tierart}\bowtie(a_\text{gruppe}\mathcal{F}_\text{avg(alter)}(\text{Tier}\bowtie\text{Tierart}))\bowtie\sigma_{\text{status}=\text{stark gefaehrdet}}(\text{Tierart})
+$$ -->
+<p><img alt="Untitled" src="/2022/关系代数（Relational Algebra）复习/CodeCogsEqn.png"></p>
+<p>然后把所有这样的动物的笼子也找出来，就需要再join一个Lebt_in表：</p>
+<!-- $$
+\begin{split}\pi&_{name, bezeichnung, alter, nr}(\\&\sigma_{\text{alter}>\text{avg\_alter}\wedge\text{status="stark gefährdet"}}(\\&\text{ }\text{ }\text{ }\text{Tier}\bowtie\text{  }\text{Tierart}\bowtie(a_\text{gruppe}\mathcal{F}_\text{avg(alter)}(\text{Tier}\bowtie\text{Tierart}))\\&)\bowtie\sigma_{\text{status="stark gefährdet}"}(\text{Tierart})\bowtie\text{Lebt\_in}\\)\end{split}
+$$ -->
+<p><img alt="Untitled" src="/2022/关系代数（Relational Algebra）复习/eq2.png"></p>
+<p>1h 10~15min ti
+12.12 14:00</p>
+	<hr/>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/dan-qiu-ri-xin.html">但求日新</a> on 五 09 十二月 2022. Tags: <a href="/tag/relationa-algebra.html">Relationa Algebra</a>, <a href="/tag/review.html">review</a>, </h6>
 </article>
-<hr />
 
-
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'joshuaghost';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->
