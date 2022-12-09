@@ -14,7 +14,7 @@ ARTICLE_URL = '{date:%Y}/{slug}.html'
 
 TIMEZONE = 'Europe/Berlin'
 
-DEFAULT_LANG = u'zh'
+DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

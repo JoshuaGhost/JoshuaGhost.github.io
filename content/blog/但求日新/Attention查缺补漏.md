@@ -1,6 +1,6 @@
 Title:Attentions 查缺补漏
 Date: 2022-12-07
-Tags: attention, paper reading, recourse
+Tags: attention, paper reading, review 
 
 Loung的Attention paper： [https://arxiv.org/abs/1508.04025](https://arxiv.org/abs/1508.04025)
 
