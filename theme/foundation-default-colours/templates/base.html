@@ -155,8 +155,13 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									{% for tag in tag_cloud %}
-									<li><a href="/tag/{{ tag.0|lower|replace(' ', '-') }}.html" class="tag-{{ tag.1 }}">{{ tag.0 }}</a></li>
+									{% for tag, articles in tags %}
+									<li style="font-size: {{ articles|count|count_to_font_size }};">
+										<a href="{{ SITEURL }}/{{ tag.url|lower|replace(' ', '-') }}" class="tag-{{ articles }}">{{ tag }}</a>
+									</li>
+									<!-- <li style="font-size: {{ articles|count|count_to_font_size }};">
+										<a href="{{ SITEURL }}/tags/{{ tag.0 }}.html">{{ tag.2 }}</a>
+										<a href="{{ SITEURL }}/tags/{{ tag.0 }}.html">{{ tag.0 }}</a>-->
 									{% endfor %}
 								</ul>
 							</div>

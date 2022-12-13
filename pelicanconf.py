@@ -2,6 +2,11 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
+import math
+JINJA_FILTERS = {
+    'count_to_font_size': lambda c: '{p:.1f}%'.format(p=100 + 25 * math.log(c, 2)),
+}
+
 AUTHOR = u'\u97e9\u5149'
 SITENAME = u'\u7b80\u5e90'
 SITEURL = 'http://joshuaghost.github.io'
@@ -32,7 +37,7 @@ LINKS = (('宋壬初', 'http://renchusong.github.io/portfolio/'),
 # Social widget
 SOCIAL = (('Fork me on GitHub!', 'http://github.com/JoshuaGhost'),
           ('Twitt me!','http://twitter.com/Joshua_Ghost/'),
-          ('Mail me!','zzhang[at]l3s[dot]de'),
+          ('Mail me!','mailto:zzhang@l3s.de'),
           ("My medium page", 'https://medium.com/@zhangzijian0523'))
 
 DEFAULT_PAGINATION = 6
