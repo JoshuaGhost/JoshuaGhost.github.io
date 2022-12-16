@@ -62,10 +62,10 @@
 							<li ><a href="/category/nue-mao-kuang-mo.html">虐猫狂魔</a></li>
 							<li ><a href="/category/pi-jian-zhi-rui.html">披坚执锐</a></li>
 							<li ><a href="/category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
-							<li ><a href="/category/shi-juan-you-huai.html">释卷有怀</a></li>
+							<li class="active"><a href="/category/shi-juan-you-huai.html">释卷有怀</a></li>
 							<li ><a href="/category/shu-fa-rong-ma.html">束发戎马</a></li>
 							<li ><a href="/category/shu-xue-tian-di.html">数学天地</a></li>
-							<li ><a href="/category/shui-lai-tu-tun.html">水来土屯</a></li>
+							<li ><a href="/category/shui-lai-tu-tun.html">水來土屯</a></li>
 
 						<li><label>Links</label></li>
 							<li><a href="http://renchusong.github.io/portfolio/">宋壬初</a></li>
@@ -101,10 +101,10 @@
 								<li ><a href="/category/nue-mao-kuang-mo.html">虐猫狂魔</a></li>
 								<li ><a href="/category/pi-jian-zhi-rui.html">披坚执锐</a></li>
 								<li ><a href="/category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
-								<li ><a href="/category/shi-juan-you-huai.html">释卷有怀</a></li>
+								<li class="active"><a href="/category/shi-juan-you-huai.html">释卷有怀</a></li>
 								<li ><a href="/category/shu-fa-rong-ma.html">束发戎马</a></li>
 								<li ><a href="/category/shu-xue-tian-di.html">数学天地</a></li>
-								<li ><a href="/category/shui-lai-tu-tun.html">水来土屯</a></li>
+								<li ><a href="/category/shui-lai-tu-tun.html">水來土屯</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
                                                                                                                                              
@@ -117,24 +117,87 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-							<div class="row">
-								<div class="small-12 columns">
-									<h2>Posts Tagged With '新闻'</h2>
-								</div>
-							</div>
-
 <article>
-	<h3><a href="/2022/2022nian-wu-yue-he-nan-qing-xiao-mai-ti-qian-shou-ge-yuan-wei.html">2022年五月河南青小麦提前收割原委</a></h3>
-	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/dan-qiu-ri-xin.html">但求日新</a> on 三 14 十二月 2022. Tags: <a href="/tag/xin-wen.html">新闻</a>, <a href="/tag/nong-ye.html">农业</a>, <a href="/tag/chang-shi.html">常识</a>, </h6>
-	<h2>视频链接</h2>
-<p><a href="https://www.bilibili.com/video/BV1tr4y1t7QD/">此事要展开说方能理解透彻！_哔哩哔哩_bilibili</a></p>
-<h2>事件本末</h2>
-<p>河南等地 …</p>
-		<p class="continue"><a href="/2022/2022nian-wu-yue-he-nan-qing-xiao-mai-ti-qian-shou-ge-yuan-wei.html">Continue reading &raquo;</a></p>
+	<h2>Multi-arm-bandit学习笔记</h2>
+	<p>用于<a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">Anchors</a>的<a href="http://proceedings.mlr.press/v30/Kaufmann13.pdf">KL-LUCB</a>算法笔记</p>
+<p>与其说KL-LUCB算法是用来解决K-臂老虎机，不如说它是用来解决抛K个不均匀硬币问题，因为它要解决的实际上是对K个不相关的伯努利分布的独立事件收益的问题，</p>
+<p>考虑$X_i \sim Bernoulli(p_i), 1\leq i \leq K$为K个独立不相关的伯努利事件（K个不均匀硬币），每枚硬币head是收益+1，tail是没有收益，问在抛出t次的时候，如何确定收益最高的m个硬币</p>
+<p>经典multi-arm-bandit问题：</p>
+<p>考虑经典的老虎机（非伯努利分布），m=1时候几种经典做法：</p>
+<ol>
+<li>
+<p>exploration only：</p>
+<p>每个都搂t/K次，缺点是没有利用“所有老虎机平均收益不同”的特点</p>
+</li>
+<li>
+<p>exploition only:</p>
+<p>每个都搂一次，剩下的选择收益最高的一个完了命地搂，缺点是采样个数最小</p>
+</li>
+<li>
+<p>$\epsilon$-greedy:</p>
+<p>在前$\epsilon/t$的次数中，平均搂各个arm，然后找出均值最高的一个完了命的搂</p>
+</li>
+<li>
+<p>0-regret:</p>
+<p>这是最理想的情况，你知道哪个平均收益最高，然后玩了命地搂，一切算法都要尽量压低自己的收益和0-regret情况之间的差距</p>
+</li>
+</ol>
+<p>explore-m（选择m个最好的）硬币问题：</p>
+<p>考虑$X_i \sim Bernoulli(p_i), 1\leq i \leq K$为K个独立不相关的伯努利事件（K个不均匀硬币），每枚硬币head是收益+1，tail是没有收益，问在抛出t次的时候，如何确定收益最高的m个硬币</p>
+<ol>
+<li>
+<p>exploration only:</p>
+<p>平均每个都抛同样的次数，选出收益最高的m个</p>
+</li>
+<li>
+<p>racing algorithm:</p>
+<p><img alt="Untitled" src="/2022/Multi-arm-bandit学习笔记/Untitled.png"></p>
+<p>每次把剩下的所有arms搂一遍（sample all the arms in R），更新各arm的confidence interval的上下界</p>
+<p>把剩下的所有arms分成收益最好的m-|S|个（$J$集合）和剩下的收益最差（$J^c$集合）的，S是上一轮已经选出来“胜出race”的arms</p>
+<p>如果R集合最差的arm过于拉胯，把它放进discard（D）集合中，或者如果R中最好的arm过于牛逼，那么就把它放进S（select）集合中</p>
+<p>“R集合最差的arm过于拉胯”，体现在R集合中平均收益最低的那个arm（$a_w$，即worst arm）的上界，甚至比J集合下界最低的arm的下界还低（with a margin of $\epsilon$）</p>
+<p>“R集合最好的arm过于牛逼”，体现在R集合中平均收益最高的那个arm（$a_B$，即best arm）的下界，甚至比$J^c$集合上界最高的arm的上界还高（with a margin of $\epsilon$）</p>
+<p>然后选择到底是worst arm的拉胯程度更夸张还是best arm的牛逼程度更夸张，选择更夸张的那个arm加到S（best arm）或者D（worst arm）中</p>
+<p>重复，直到S中有m个arms</p>
+<p>这个算法的问题是，“每次把剩下的所有arms都搂一遍”这里sample complexity太高了，完全可以有针对性地做adaptive sampling，所以有了LUCB：</p>
+<ol>
+<li>LUCB:</li>
+</ol>
+<p><img alt="Untitled" src="/2022/Multi-arm-bandit学习笔记/Untitled1.png"></p>
+<p>这个算法里面除了第一次对所有arm搂一遍，计算各自的confidence上下界以外，其它次数都只搂ut和lt，也就是$J^c$（潜在被抛弃）集合中上界最高的arm，和J（潜在接受）集中下界最高的arm。因为这两个arm是最有可能被分错的。</p>
+<p>搂这两个arm之后，可以更新这两个arm的平均收益，所以可以更新J集合和ut与lt，之后再更新B，这个代表两集合之间的含混程度，小到一定范围就可以停止了</p>
+<p>所有这些算法里面还留了一个问题就是confidence bound（上下界）怎么计算，从race到原版的LUCB都是用的Hoeffding bound，就是</p>
+<p><img alt="Untitled" src="/2022/Multi-arm-bandit学习笔记/Untitled2.png"></p>
+<p>$\hat{p}_a(t)$代表arm a在t时刻的平均收益，$N_a(t)$是a在t时刻搂的次数，$\beta(t,\delta)$是explore parameter</p>
+<p>但是KL-LUCB就是用KLD来计算这个上下界：</p>
+<p><img alt="Untitled" src="/2022/Multi-arm-bandit学习笔记/Untitled3.png"></p>
+<p>其中d就是KLD，其它参数同上，可以由Pinsker’s inequality证出来</p>
+<p><img alt="Untitled" src="/2022/Multi-arm-bandit学习笔记/Untitled4.png"></p>
+<p>也就是基于KLD的上下界比Hoeffding上下界要窄（反正我没证出来，但它在appendix中据说证出来了，那就是证出来了吧）</p>
+<p>所以可以使用KLD上下界来更新每个arm的上下界</p>
+</li>
+</ol>
+	<hr/>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/shi-juan-you-huai.html">释卷有怀</a> on 五 16 十二月 2022. Tags: <a href="/tag/xue-xi-bi-ji.html">学习笔记</a>, <a href="/tag/lun-wen-yue-du.html">论文阅读</a>, <a href="/tag/reinforcement-learning.html">Reinforcement Learning</a>, </h6>
 </article>
-<hr />
 
-
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'joshuaghost';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->
@@ -153,361 +216,361 @@
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
 									<li style="font-size: 100.0%;">
-										<a href="/tag/xin-wen.html" class="tag-[<pelican.contents.Article object at 0x7fbd21f4a760>]">新闻</a>
+										<a href="/tag/xue-xi-bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdfe8c90>]">学习笔记</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/nong-ye.html" class="tag-[<pelican.contents.Article object at 0x7fbd21f4a760>]">农业</a>
+										<a href="/tag/lun-wen-yue-du.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdfe8c90>]">论文阅读</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/chang-shi.html" class="tag-[<pelican.contents.Article object at 0x7fbd21f4a760>]">常识</a>
+										<a href="/tag/reinforcement-learning.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdfe8c90>]">Reinforcement Learning</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/philosophy.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d899e50>]">Philosophy</a>
+										<a href="/tag/philosophy.html" class="tag-[<pelican.contents.Article object at 0x7f0dcde76c10>]">Philosophy</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/study-notes.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d899e50>]">Study notes</a>
+										<a href="/tag/study-notes.html" class="tag-[<pelican.contents.Article object at 0x7f0dcde76c10>]">Study notes</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/relationa-algebra.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d90e430>]">Relationa Algebra</a>
+										<a href="/tag/relationa-algebra.html" class="tag-[<pelican.contents.Article object at 0x7f0dcde7f810>]">Relationa Algebra</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="/tag/review.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d90e430>, <pelican.contents.Article object at 0x7fbd1d978a60>]">review</a>
+										<a href="/tag/review.html" class="tag-[<pelican.contents.Article object at 0x7f0dcde7f810>, <pelican.contents.Article object at 0x7f0dcdf3f590>]">review</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/attention.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d978a60>]">attention</a>
+										<a href="/tag/attention.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf3f590>]">attention</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/paper-reading.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d978a60>]">paper reading</a>
+										<a href="/tag/paper-reading.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf3f590>]">paper reading</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/za-wen-jiao-cai-xi-gua-pi.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da0cac0>]">杂文，脚踩西瓜皮</a>
+										<a href="/tag/za-wen-jiao-cai-xi-gua-pi.html" class="tag-[<pelican.contents.Article object at 0x7f0dcde97510>]">杂文，脚踩西瓜皮</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 164.6%;">
-										<a href="/tag/ri-ji.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d97d940>, <pelican.contents.Article object at 0x7fbd1d9534c0>, <pelican.contents.Article object at 0x7fbd1d90c9a0>, <pelican.contents.Article object at 0x7fbd1da0a9a0>, <pelican.contents.Article object at 0x7fbd1d9d5fd0>, <pelican.contents.Article object at 0x7fbd1d9dac10>]">日记</a>
+										<a href="/tag/ri-ji.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf966b10>, <pelican.contents.Article object at 0x7f0dcdf488d0>, <pelican.contents.Article object at 0x7f0dcdf25210>, <pelican.contents.Article object at 0x7f0dcdefd810>, <pelican.contents.Article object at 0x7f0dcde93b10>, <pelican.contents.Article object at 0x7f0dcdf9a390>]">日记</a>
 									</li>
 									<!-- <li style="font-size: 164.6%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/leadership.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da0a6a0>]">Leadership</a>
+										<a href="/tag/leadership.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdfb2090>]">Leadership</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/systematic-thinking.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da0a6a0>]">Systematic thinking</a>
+										<a href="/tag/systematic-thinking.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdfb2090>]">Systematic thinking</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/studying.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da0a6a0>]">Studying</a>
+										<a href="/tag/studying.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdfb2090>]">Studying</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/bian-fu-xia.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d9b68e0>]">蝙蝠侠</a>
+										<a href="/tag/bian-fu-xia.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf997d10>]">蝙蝠侠</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/xiao-chou.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d9b68e0>]">小丑</a>
+										<a href="/tag/xiao-chou.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf997d10>]">小丑</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/si-duo-ge-si-de.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d9b68e0>]">斯多葛四德</a>
+										<a href="/tag/si-duo-ge-si-de.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf997d10>]">斯多葛四德</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="/tag/shu-xue.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d94db50>, <pelican.contents.Article object at 0x7fbd1d90cd00>]">数学</a>
+										<a href="/tag/shu-xue.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdfcc190>, <pelican.contents.Article object at 0x7f0dcdedcd10>]">数学</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/test.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d8e3070>]">Test</a>
+										<a href="/tag/test.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdfb2950>]">Test</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/zhe-xue.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d98f520>]">哲学</a>
+										<a href="/tag/zhe-xue.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf989cd0>]">哲学</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/ke-xue-fang-fa-lun.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d98f520>]">科学方法论</a>
+										<a href="/tag/ke-xue-fang-fa-lun.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf989cd0>]">科学方法论</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/du-shu-bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d98f520>]">读书笔记</a>
+										<a href="/tag/du-shu-bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf989cd0>]">读书笔记</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/za-gan.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d98f520>]">杂感</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 139.6%;">
-										<a href="/tag/za-wen.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d968f10>, <pelican.contents.Article object at 0x7fbd1d8e3130>, <pelican.contents.Article object at 0x7fbd1d9b6490>]">杂文</a>
-									</li>
-									<!-- <li style="font-size: 139.6%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="/tag/jekyll.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d8ef0d0>]">jekyll</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="/tag/ipv4.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d90e220>]">IPv4</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="/tag/ipv6.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d90e220>]">IPv6</a>
+										<a href="/tag/za-gan.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf989cd0>]">杂感</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 139.6%;">
-										<a href="/tag/troubleshooting.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d90e220>, <pelican.contents.Article object at 0x7fbd1d947250>, <pelican.contents.Article object at 0x7fbd1d90cb80>]">troubleshooting</a>
+										<a href="/tag/za-wen.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf3f6d0>, <pelican.contents.Article object at 0x7f0dcdf44a50>, <pelican.contents.Article object at 0x7f0dcdf78fd0>]">杂文</a>
 									</li>
 									<!-- <li style="font-size: 139.6%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/xiao-hua.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d9a3f70>]">笑话</a>
+										<a href="/tag/jekyll.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdeddf50>]">jekyll</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="/tag/ipv4.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf3f310>]">IPv4</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="/tag/ipv6.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf3f310>]">IPv6</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 139.6%;">
+										<a href="/tag/troubleshooting.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf3f310>, <pelican.contents.Article object at 0x7f0dcf9897d0>, <pelican.contents.Article object at 0x7f0dcded9490>]">troubleshooting</a>
+									</li>
+									<!-- <li style="font-size: 139.6%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="/tag/xiao-hua.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdfd6750>]">笑话</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 150.0%;">
-										<a href="/tag/zhai-chao.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d9a3f70>, <pelican.contents.Article object at 0x7fbd1d90e910>, <pelican.contents.Article object at 0x7fbd1d98fb80>, <pelican.contents.Article object at 0x7fbd1d8e3880>]">摘抄</a>
+										<a href="/tag/zhai-chao.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdfd6750>, <pelican.contents.Article object at 0x7f0dcdf3f9d0>, <pelican.contents.Article object at 0x7f0dcdf60810>, <pelican.contents.Article object at 0x7f0dcdec3510>]">摘抄</a>
 									</li>
 									<!-- <li style="font-size: 150.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/you-xi.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d90e910>]">游戏</a>
+										<a href="/tag/you-xi.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf3f9d0>]">游戏</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/xin-xi-an-quan-jing-sai.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d947250>]">信息安全竞赛</a>
+										<a href="/tag/xin-xi-an-quan-jing-sai.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf9897d0>]">信息安全竞赛</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/netlink.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d947250>]">netlink</a>
+										<a href="/tag/netlink.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf9897d0>]">netlink</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/linux.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d947250>]">linux</a>
+										<a href="/tag/linux.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf9897d0>]">linux</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d947250>]">笔记</a>
+										<a href="/tag/bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7f0dcf9897d0>]">笔记</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/fa-lao-sao.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d9b6490>]">发牢骚</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 125.0%;">
-										<a href="/tag/zhong-er-hei-li-shi.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d9b6490>, <pelican.contents.Article object at 0x7fbd1da0c6a0>]">中二黑历史</a>
-									</li>
-									<!-- <li style="font-size: 125.0%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="/tag/fo-xue.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d98fb80>]">佛学</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="/tag/zheng-quan-tou-zi.html" class="tag-[<pelican.contents.Article object at 0x7fbd21f56520>]">证券投资</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="/tag/zuo-ye-zhan-shi.html" class="tag-[<pelican.contents.Article object at 0x7fbd21f56520>]">作业展示</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="/tag/er-ci-yuan.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da0c6a0>]">二次元</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="/tag/tui-hou-gan.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da0c6a0>]">推后感</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="/tags/.html"></a>
-										<a href="/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="/tag/xiao-huang-you.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da0c6a0>]">小黄油</a>
+										<a href="/tag/fa-lao-sao.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf78fd0>]">发牢骚</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="/tag/xin-xi-an-quan.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d90eee0>, <pelican.contents.Article object at 0x7fbd1da0cf10>]">信息安全</a>
+										<a href="/tag/zhong-er-hei-li-shi.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf78fd0>, <pelican.contents.Article object at 0x7f0dcdf8af90>]">中二黑历史</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/ia-32.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d90eee0>]">IA-32</a>
+										<a href="/tag/fo-xue.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf60810>]">佛学</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/windowsjia-gou.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d90eee0>]">Windows架构</a>
+										<a href="/tag/zheng-quan-tou-zi.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdea2e50>]">证券投资</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/metasploit.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d90cb80>]">metasploit</a>
+										<a href="/tag/zuo-ye-zhan-shi.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdea2e50>]">作业展示</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="/tag/er-ci-yuan.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf8af90>]">二次元</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="/tag/tui-hou-gan.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf8af90>]">推后感</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="/tag/xiao-huang-you.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf8af90>]">小黄油</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 125.0%;">
+										<a href="/tag/xin-xi-an-quan.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdecf6d0>, <pelican.contents.Article object at 0x7f0dcefc4510>]">信息安全</a>
+									</li>
+									<!-- <li style="font-size: 125.0%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="/tag/ia-32.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdecf6d0>]">IA-32</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="/tag/windowsjia-gou.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdecf6d0>]">Windows架构</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="/tags/.html"></a>
+										<a href="/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="/tag/metasploit.html" class="tag-[<pelican.contents.Article object at 0x7f0dcded9490>]">metasploit</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 175.0%;">
-										<a href="/tag/noip.html" class="tag-[<pelican.contents.Article object at 0x7fbd1e834a60>, <pelican.contents.Article object at 0x7fbd1d9da550>, <pelican.contents.Article object at 0x7fbd1da0a8e0>, <pelican.contents.Article object at 0x7fbd1da3deb0>, <pelican.contents.Article object at 0x7fbd1d8999a0>, <pelican.contents.Article object at 0x7fbd1d8efee0>, <pelican.contents.Article object at 0x7fbd1d94d9a0>, <pelican.contents.Article object at 0x7fbd1d8da940>]">NOIP</a>
+										<a href="/tag/noip.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf14450>, <pelican.contents.Article object at 0x7f0dcdf1dd50>, <pelican.contents.Article object at 0x7f0dcdebef90>, <pelican.contents.Article object at 0x7f0dcfa07f50>, <pelican.contents.Article object at 0x7f0dcdecfb90>, <pelican.contents.Article object at 0x7f0dcdf48c10>, <pelican.contents.Article object at 0x7f0dd07ed410>, <pelican.contents.Article object at 0x7f0dcdf9b550>]">NOIP</a>
 									</li>
 									<!-- <li style="font-size: 175.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/zui-duan-lu.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d9da550>]">最短路</a>
+										<a href="/tag/zui-duan-lu.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf1dd50>]">最短路</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 139.6%;">
-										<a href="/tag/suan-fa.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d9da550>, <pelican.contents.Article object at 0x7fbd1da0a8e0>, <pelican.contents.Article object at 0x7fbd1d94d9a0>]">算法</a>
+										<a href="/tag/suan-fa.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf1dd50>, <pelican.contents.Article object at 0x7f0dcdebef90>, <pelican.contents.Article object at 0x7f0dd07ed410>]">算法</a>
 									</li>
 									<!-- <li style="font-size: 139.6%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/dijkstra.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d9da550>]">Dijkstra</a>
+										<a href="/tag/dijkstra.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf1dd50>]">Dijkstra</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="/tag/kmp.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da0a8e0>, <pelican.contents.Article object at 0x7fbd1d94d9a0>]">KMP</a>
+										<a href="/tag/kmp.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdebef90>, <pelican.contents.Article object at 0x7f0dd07ed410>]">KMP</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/extended-kmp.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da0a8e0>]">Extended KMP</a>
+										<a href="/tag/extended-kmp.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdebef90>]">Extended KMP</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/shu-ju-jie-gou.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da3deb0>]">数据结构</a>
+										<a href="/tag/shu-ju-jie-gou.html" class="tag-[<pelican.contents.Article object at 0x7f0dcfa07f50>]">数据结构</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/zi-dong-ji.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da3deb0>]">自动机</a>
+										<a href="/tag/zi-dong-ji.html" class="tag-[<pelican.contents.Article object at 0x7f0dcfa07f50>]">自动机</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/mi-ma-xue.html" class="tag-[<pelican.contents.Article object at 0x7fbd1da0cf10>]">密码学</a>
+										<a href="/tag/mi-ma-xue.html" class="tag-[<pelican.contents.Article object at 0x7f0dcefc4510>]">密码学</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="/tag/zoj.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d8999a0>, <pelican.contents.Article object at 0x7fbd1d8efee0>]">ZOJ</a>
+										<a href="/tag/zoj.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdecfb90>, <pelican.contents.Article object at 0x7f0dcdf48c10>]">ZOJ</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="/tag/fan-yi.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d8999a0>, <pelican.contents.Article object at 0x7fbd1d8efee0>]">翻译</a>
+										<a href="/tag/fan-yi.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdecfb90>, <pelican.contents.Article object at 0x7f0dcdf48c10>]">翻译</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/dong-tai-gui-hua.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d8da940>]">动态规划</a>
+										<a href="/tag/dong-tai-gui-hua.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf9b550>]">动态规划</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
 										<a href="/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="/tag/shu-xing-dong-gui.html" class="tag-[<pelican.contents.Article object at 0x7fbd1d8da940>]">树型动归</a>
+										<a href="/tag/shu-xing-dong-gui.html" class="tag-[<pelican.contents.Article object at 0x7f0dcdf9b550>]">树型动归</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="/tags/.html"></a>
