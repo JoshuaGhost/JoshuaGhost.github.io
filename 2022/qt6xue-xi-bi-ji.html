@@ -55,7 +55,7 @@
 						<li><a href="">Home</a></li>
 						<li><label>Categories</label></li>
 							<li ><a href="/category/ao-you-kai-yuan.html">遨游开源</a></li>
-							<li ><a href="/category/dan-qiu-ri-xin.html">但求日新</a></li>
+							<li class="active"><a href="/category/dan-qiu-ri-xin.html">但求日新</a></li>
 							<li ><a href="/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
 							<li ><a href="/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
 							<li ><a href="/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
@@ -94,7 +94,7 @@
 					<section class="top-bar-section">
 						<ul class="left">
 								<li ><a href="/category/ao-you-kai-yuan.html">遨游开源</a></li>
-								<li ><a href="/category/dan-qiu-ri-xin.html">但求日新</a></li>
+								<li class="active"><a href="/category/dan-qiu-ri-xin.html">但求日新</a></li>
 								<li ><a href="/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
 								<li ><a href="/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
 								<li ><a href="/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
@@ -117,71 +117,102 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
+<article>
+	<h2>Qt6学习笔记</h2>
+	<h2>1</h2>
+<p>main window的三种基类：
+QMainWindow有toolbar
+QWidget和QDialog是没有toolbar的</p>
+<h2>2</h2>
+<p>cpp的explicit标识符，如果写了，就表示这个类是explicit的，否则就叫一个implicit类，对于一个implicit类，如果他的构造函数只有一个参数，那么可以把这个类的类名用类似强制类型转换的方式使用，比如：</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">m_foo</span><span class="p">;</span><span class="w"></span>
 
-<article>
-	<h3><a href="/2015/heng-zhong-xian-xiang-zhi-wo-jian.html">“衡中现象”之我见</a></h3>
-	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/feng-chui-piao-xu.html">风吹飘絮</a> on 四 19 三月 2015. Tags: <a href="/tag/za-wen.html">杂文</a>, </h6>
-	<p>数日前，现任衡水中学校长张文茂作客崔永元主持的《新闻眼 …</p>
-		<p class="continue"><a href="/2015/heng-zhong-xian-xiang-zhi-wo-jian.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="/2015/38ou-ji.html">3.8偶记</a></h3>
-	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/jie-sheng-ke-shi.html">结绳刻石</a> on 日 08 三月 2015. Tags: <a href="/tag/ri-ji.html">日记</a>, </h6>
-	<p>来德国快半年了，这半年最有成效的事情就是把德语以一个 …</p>
-		<p class="continue"><a href="/2015/38ou-ji.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="/2015/lun-you-mo.html">论幽默</a></h3>
-	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/feng-chui-piao-xu.html">风吹飘絮</a> on 日 08 三月 2015. Tags: <a href="/tag/za-wen.html">杂文</a>, </h6>
-	<p>作为语言的佐料，幽默在交流的时候起着润滑剂的作用，可以 …</p>
-		<p class="continue"><a href="/2015/lun-you-mo.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="/2014/wo-de-di-yi-pian-jekyllbo-ke-my-first-jekyll-blogmeine-erste-blog-mit-jekyll.html">"我的第一篇Jekyll博客/My first Jekyll blog/Meine erste Blog mit Jekyll"</a></h3>
-	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/jie-sheng-ke-shi.html">结绳刻石</a> on 六 15 十一月 2014. Tags: <a href="/tag/jekyll.html">jekyll</a>, </h6>
-	<h2>汉语</h2>
-<p>于是乎这就是第一篇相当于测试性质的Jekyll博客啦，之前搜索静 …</p>
-		<p class="continue"><a href="/2014/wo-de-di-yi-pian-jekyllbo-ke-my-first-jekyll-blogmeine-erste-blog-mit-jekyll.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="/2013/ji-yi-ci-guan-yu-ipv4wu-fa-lian-jie-ipv6que-ke-yi-shang-wang-de-jie-jue-guo-cheng.html">记一次关于IPv4无法连接IPv6却可以上网的解决过程</a></h3>
-	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/shui-lai-tu-tun.html">水来土屯</a> on 二 13 八月 2013. Tags: <a href="/tag/ipv4.html">IPv4</a>, <a href="/tag/ipv6.html">IPv6</a>, <a href="/tag/troubleshooting.html">troubleshooting</a>, </h6>
-	<p>最近因为天气炎热，电脑卡的不行，刚想和妹子侃会儿大山，却 …</p>
-		<p class="continue"><a href="/2013/ji-yi-ci-guan-yu-ipv4wu-fa-lian-jie-ipv6que-ke-yi-shang-wang-de-jie-jue-guo-cheng.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="/2012/qing-nian-wen-shan-shi.html">青年问禅师</a></h3>
-	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/qian-tan-shi-bei.html">浅滩拾贝</a> on 四 05 七月 2012. Tags: <a href="/tag/xiao-hua.html">笑话</a>, <a href="/tag/zhai-chao.html">摘抄</a>, </h6>
-	<p>青年问禅师</p>
-<div class="highlight"><pre><span></span><code>“我工作很努力，但事业上却没有一点成就，怎么办 …</code></pre></div>
-		<p class="continue"><a href="/2012/qing-nian-wen-shan-shi.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">Foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">m_foo</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">//这里的冒号标识符是用来initialization的。有两种用法，一是用来直接调用父类的构造函数，二是用来初始化某些值的，这里等效于m_foo = foo;，作用是在构造函数运行之前就执行这个赋值语句。如果被赋值的变量m_foo是const int m_foo;，那么在构造函数体里面不能直接给它赋值，而用这种冒号的赋值语句是可行的。如果要调用多个父函数的构造函数，或者要给多变量赋值，那多个冒号表达式用逗号隔开</span>
 
-<div class="row" style="margin-bottom: -1.25em;">
-	<div class="small-12 columns text-center">
-		<div class="pagination-centered">
-			<ul class="pagination">
-				<li class="arrow"><a href="/author/han-guang3.html">&larr; Previous</a></li>
-				<li class=""><a href="/author/han-guang.html">1</a></li>
-				<li class=""><a href="/author/han-guang2.html">2</a></li>
-				<li class=""><a href="/author/han-guang3.html">3</a></li>
-				<li class="current"><a href="/author/han-guang4.html">4</a></li>
-				<li class=""><a href="/author/han-guang5.html">5</a></li>
-				<li class=""><a href="/author/han-guang6.html">6</a></li>
-				<li class=""><a href="/author/han-guang7.html">7</a></li>
-				<li class=""><a href="/author/han-guang8.html">8</a></li>
-				<li class="arrow"><a href="/author/han-guang5.html">Next &rarr;</a></li>
-			</ul>
-		</div>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">GetFoo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_foo</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<h2>3</h2>
+<p>QT的stylesheet可以用类似css的方法自定义widget的样式，比如定义所有的QPushButton的背景颜色为黄色：</p>
+<div class="highlight"><pre><span></span><code><span class="nt">QPushButton</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">background</span><span class="w"> </span><span class="err">yellow</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>注意如果选择更改了主窗口的样式，那主窗口下所有的按钮都会改变，因为这些窗口都是主窗口的后代widget，如果想仅改变其中一个widget的样式，可以用QPushButton#button_no_1这样的id选择器来选择特定widget，或者直接对widget本身的样式进行修订</p>
+<h2>4</h2>
+<p>如果在qt的design界面更改了控件的名字，则需要先构建一次才能在编辑窗口使用代码补全</p>
+<h2>5</h2>
+<p>cpp的标准模板库的vector，使用方法是：</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">variable_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<p>比如我要用一个vector装载radiobox_{1..3}的指针，就可以</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">QRadioBox</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">radio_boxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">radiobox_1</span><span class="p">,</span><span class="w"> </span><span class="n">radiobox_2</span><span class="p">,</span><span class="w"> </span><span class="n">radiobox_3</span><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<p>之后用一个循环变量去便利vector里面的所有内容，就可以</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">QRadioBox</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="n">radio_boxes</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">do_something</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>另外QT中还自己有一个QStringList，定义方法与vector相近：</p>
+<div class="highlight"><pre><span></span><code><span class="n">QStringList</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;d&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;e&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;f&quot;</span><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<p>循环也可以用foreach：</p>
+<div class="highlight"><pre><span></span><code><span class="n">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">QString</span><span class="w"> </span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">items</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">do_something</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<h2>6</h2>
+<p>QT中有不同的message boxes可供提示使用，它们在QMessageBox命名空间下边，分别是</p>
+<div class="highlight"><pre><span></span><code><span class="n">QMessageBox</span><span class="o">::</span><span class="n">information</span><span class="w"></span>
+<span class="n">QMessageBox</span><span class="o">::</span><span class="n">warning</span><span class="w"></span>
+<span class="n">QMessageBox</span><span class="o">::</span><span class="n">about</span><span class="w"></span>
+<span class="n">QMessageBox</span><span class="o">::</span><span class="n">question</span><span class="w"></span>
+</code></pre></div>
+
+<p>使用的时候，以question box为例，它的第一个参数是父窗口的指针，第二个是标题字符串，第三个是信息字符串，如果是question box的话，还有第四个参数，一般设置为QMessageBox::Yes|QMessageBox::No，前者是16384（2^14，即第15位有一个1），后者是65536（2^16，即第17位有一个1），两者进行bit-wise或得到的一个bitmap，即</p>
+<div class="highlight"><pre><span></span><code><span class="n">QMessageBox</span><span class="o">::</span><span class="n">question</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Title of the question box&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Do you answer yes or no?&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">QMessageBox</span><span class="o">::</span><span class="n">Yes</span><span class="o">|</span><span class="n">QMessageBox</span><span class="o">::</span><span class="n">No</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<p>question box的回复，是一个QMessageBox::StandardButton的值，比如说我可以这样获取question box的回复：</p>
+<p>```cpp
+QMessageBox::StandardButton reply;
+reply = QMessageBox question(this, "Title", "Question", QMessageBox::Yes|QMessageBox::No);</p>
+<p>if (reply == QMessageBox::Yes) {
+    do_something_for_answering_yes();
+} else if (reply == QMessageBox::No) {
+    do_smething_for_answering_no();
+}</p>
+	<hr/>
+	<h6>Written by <a href="/author/韩光.html">韩光</a> in <a href="/category/dan-qiu-ri-xin.html">但求日新</a> on 五 23 十二月 2022.</h6>
+</article>
+
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'joshuaghost';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 	</div>
 </div>
-
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->
