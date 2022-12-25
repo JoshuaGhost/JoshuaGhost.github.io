@@ -1,5 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2022-12-23T00:00:00+01:00</updated><entry><title>Qt6学习笔记</title><link href="/2022/qt6xue-xi-bi-ji.html" rel="alternate"></link><published>2022-12-23T00:00:00+01:00</published><updated>2022-12-23T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-23:/2022/qt6xue-xi-bi-ji.html</id><summary type="html">&lt;h2&gt;1&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2022-12-25T00:00:00+01:00</updated><entry><title>分析力学笔记</title><link href="/2022/fen-xi-li-xue-bi-ji.html" rel="alternate"></link><published>2022-12-25T00:00:00+01:00</published><updated>2022-12-25T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-25:/2022/fen-xi-li-xue-bi-ji.html</id><summary type="html">&lt;h1&gt;18世纪动力学&lt;/h1&gt;
+&lt;p&gt;Status: 有价值长期保留&lt;/p&gt;
+&lt;h2&gt;广义坐标&lt;/h2&gt;
+&lt;p&gt;任意选择的（最好是相互独立 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;18世纪动力学&lt;/h1&gt;
+&lt;p&gt;Status: 有价值长期保留&lt;/p&gt;
+&lt;h2&gt;广义坐标&lt;/h2&gt;
+&lt;p&gt;任意选择的（最好是相互独立的），符合约束条件的能够描述物理系统运动的几个参数$q_i$，广义坐标与时间$t$共同表达物体运动的位矢$\mathbf{r}=\mathbf{r}(q_1,q_2,\dots,q_m,t)$（此时系统自由度为m）&lt;/p&gt;
+&lt;p&gt;经典例子为双摆的两个摆臂与铅垂线夹角&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/分析力学笔记/Untitled.png"&gt;&lt;/p&gt;
+&lt;h2&gt;虚位移&lt;/h2&gt;
+&lt;p&gt;是一个微分学的概念，就是时间参数不变（$\delta t=0$）时，系统位矢对广义坐标的全微分&lt;/p&gt;
+&lt;p&gt;记位矢是广义坐标与时间的函数：&lt;/p&gt;
+&lt;p&gt;$$
+\mathbf{r}_i=\mathbf{r}_i(q_1,q_2,\dots,q_N, t)
+$$&lt;/p&gt;
+&lt;p&gt;则此位矢的无穷小位移（对所有参数的全微分）为&lt;/p&gt;
+&lt;p&gt;$$
+d\mathbf{r}&lt;em j="1"&gt;i = \frac{\partial \mathbf{r}_i}{\partial t}dt + \sum&lt;/em&gt;^N \frac{\partial\mathbf{r}_i}{\partial q_i}dq_i
+$$&lt;/p&gt;
+&lt;p&gt;而虚位移$\delta\mathbf{r_i}$就是当$\delta t=0$的时候，位矢对广义坐标的全微分：&lt;/p&gt;
+&lt;p&gt;$$
+\delta \mathbf{r}&lt;em j="1"&gt;i = \sum&lt;/em&gt;^N\frac{\partial\mathbf{r}_i}{\partial q_i}\delta q_i
+$$&lt;/p&gt;
+&lt;h2&gt;达朗贝尔原理&lt;/h2&gt;
+&lt;p&gt;达朗贝尔原理指对于任意物理系统，所有惯性力与加的外力之和，在经过符合约束条件的虚位移时，所做的虚功为0&lt;/p&gt;
+&lt;p&gt;考虑牛顿第二定律：&lt;/p&gt;
+&lt;p&gt;$$
+\mathbf{F}^{(T)}_i=m_i\mathbf{a}_i
+$$&lt;/p&gt;
+&lt;p&gt;其中$\mathbf{F}^{(T)}_i=\mathbf{F}_i+\mathbf{C}_i$是外力$\mathbf{F}_i$与约束力$\mathbf{C}_i$的合力，而达朗贝尔把$-m_i\mathbf{a}_i$视为惯性力(initia)$\mathbf{I}_i$，并把它挪到等号左边创造一个守衡量&lt;/p&gt;
+&lt;p&gt;$$
+\mathbf{F}^{(T)}_i+\mathbf{I}_i=0
+$$&lt;/p&gt;
+&lt;p&gt;而达朗贝尔原理（虚功原理）指出，每一个粒子经过虚位移$\delta\mathbf{r}_i$，外力和惯性力之向量和所作的虚功等与0，即&lt;/p&gt;
+&lt;p&gt;$$
+\delta W_i = (\mathbf{F}^{(T)}_i + \mathbf{I}_i)\delta \mathbf{r}_i = 0
+$$&lt;/p&gt;
+&lt;p&gt;作用在所有粒子的虚功总和$\delta W=\sum_{i}\delta W_i$也等于0&lt;/p&gt;
+&lt;p&gt;进一步把作用在每个粒子上的合力$\mathbf{F}^{(T)}_i$拆解成外力$\mathbf{F}_i$与约束力$\mathbf{C}_i$，在一个理想约束系统中，系统中约束力所做的虚功之和为0，即约束力对每一个粒子的合理的虚功为0。这个是分析力学额外的假设，约束力就是约束体给运动体的力，比如滑块在光滑水平桌面上滑动，约束力就是桌子对滑块的支持，这些约束力的虚功为0。达朗贝尔原理此时变为只包含外力（主动力）与惯性力的版本：&lt;/p&gt;
+&lt;p&gt;$$
+\delta W = \sum_i (\mathbf{F}_i+\mathbf{I}_i)\delta\mathbf{r}_i = 0
+$$&lt;/p&gt;
+&lt;p&gt;此时这个主动力与惯性力的和，被成为“有效力”$\mathbf{F}^{eff}_i$，即达朗贝尔原理可表示为：有效力经过符合约束条件的虚位移虚功总和为0（注意这里每个粒子的有效力很可能不等于0）&lt;/p&gt;</content><category term="虐猫狂魔"></category><category term="物理"></category><category term="自学"></category><category term="分析力学"></category></entry><entry><title>数据分析学习内容</title><link href="/2022/shu-ju-fen-xi-xue-xi-nei-rong.html" rel="alternate"></link><published>2022-12-25T00:00:00+01:00</published><updated>2022-12-25T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-25:/2022/shu-ju-fen-xi-xue-xi-nei-rong.html</id><content type="html">&lt;h1&gt;数据分析工具：&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Excle&lt;/li&gt;
+&lt;li&gt;*SQL&lt;/li&gt;
+&lt;li&gt;Tableau&lt;/li&gt;
+&lt;li&gt;Prepuilder&lt;/li&gt;
+&lt;/ol&gt;</content><category term="案牍劳形"></category></entry><entry><title>现代战机为什么要用双垂尾</title><link href="/2022/xian-dai-zhan-ji-wei-shi-yao-yao-yong-shuang-chui-wei.html" rel="alternate"></link><published>2022-12-25T00:00:00+01:00</published><updated>2022-12-25T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-25:/2022/xian-dai-zhan-ji-wei-shi-yao-yao-yong-shuang-chui-wei.html</id><summary type="html">&lt;h2&gt;现代战机为什么要用双垂尾&lt;/h2&gt;
+&lt;p&gt;二战飞机多为单垂尾，高垂尾以 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;现代战机为什么要用双垂尾&lt;/h2&gt;
+&lt;p&gt;二战飞机多为单垂尾，高垂尾以提供足够的偏航力矩。二战后喷气式飞机迅猛发展，飞机速度越来越快，飞机的垂尾越来越低矮宽，比如F4鬼怪（Mach2.2）和同时期的米格21&lt;/p&gt;
+&lt;p&gt;但是方向舵舵面偏转时候，在偏转舵面铰链的地方会形成斜激波&lt;/p&gt;
+&lt;p&gt;&lt;img alt="激波与舵面方向示意图，舵面偏转角是舵面（红色尖角）和垂尾方向（黄色梭形）之间的夹角，而激波后掠角是激波（红色曲线）和飞机冠切面（水平尾翼方向）之间的夹角" src="/2022/现代战机为什么要用双垂尾/Untitled.png"&gt;&lt;/p&gt;
+&lt;p&gt;激波与舵面方向示意图，舵面偏转角是舵面（红色尖角）和垂尾方向（黄色梭形）之间的夹角，而激波后掠角是激波（红色曲线）和飞机冠切面（水平尾翼方向）之间的夹角&lt;/p&gt;
+&lt;p&gt;斜激波和舵面的运动方向是一致的，即斜激波后掠角随着舵面偏转角的增大而减小，舵面偏转一定时，来流速度（空速）越大，激波后掠角越大，而来流通过斜激波的时候，气流会偏转方向，顺着舵面流动，舵面的气流动压下降，航向偏转力矩不足&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/现代战机为什么要用双垂尾/Untitled 1.png"&gt;&lt;/p&gt;
+&lt;p&gt;而当机身侧滑时，即机身测对来流方向时，垂尾迎角增大，激波后掠角减小，来流穿过激波后彻底和舵面分离，形成激波失速，垂尾失效，体现在“超音速飞行转不过来弯”&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/现代战机为什么要用双垂尾/Untitled 2.png"&gt;&lt;/p&gt;
+&lt;p&gt;另一方面在飞机大迎角飞行时，低矮垂尾处于机身形成的来流中，转向性能下降&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/现代战机为什么要用双垂尾/Untitled 3.png"&gt;&lt;/p&gt;
+&lt;p&gt;所以米格25使用了双垂尾布局，一方面两片垂尾补足单垂尾的偏航力矩，另一方面垂尾有外偏转角，这避免了垂尾被机身干扰来流，而现代战机垂尾外倾，隐身性能更好，同时避开了机身边条涡流冲击&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/现代战机为什么要用双垂尾/Untitled 4.png"&gt;&lt;/p&gt;</content><category term="虐猫狂魔"></category><category term="飞机"></category><category term="萌萌战队"></category><category term="自学"></category></entry><entry><title>小麦收麦情况</title><link href="/2022/xiao-mai-shou-mai-qing-kuang.html" rel="alternate"></link><published>2022-12-25T00:00:00+01:00</published><updated>2022-12-25T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-25:/2022/xiao-mai-shou-mai-qing-kuang.html</id><summary type="html">&lt;p&gt;河南省滑县：我国第一大小麦生产省的第一大小麦生产县
+于 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;河南省滑县：我国第一大小麦生产省的第一大小麦生产县
+于5月28日小麦机收&lt;/p&gt;
+&lt;p&gt;2021年河南省小麦产量为760亿斤，占全国总产量28%，这一产量略高于乌克兰全境小麦产量643亿斤；河南小麦播种面积为8538万亩，占全国夏粮小麦播种面积的24%。故河南小麦亩产水平位居世界第一（891斤）&lt;/p&gt;
+&lt;p&gt;什么是“三夏”？夏收、夏种、夏管，夏收指冬小麦的夏季收获，夏种则是紧接在冬小麦收获之后的玉米播种&lt;/p&gt;
+&lt;p&gt;2021年，因720洪水的缘故，河南秋粮产量严重受损，达到548亿斤，比上年减产10.8%，其中玉米产量为410亿斤，比上年下降12.4%&lt;/p&gt;
+&lt;p&gt;影响小麦受成的因素：
+1. 小麦穗数，暖冬导致冬小麦分蘖多，成熟的穗数高
+2. 小麦的穗粒重，在三、四月份小麦分化期，温度忽高忽低，有利于小麦分化，温度高分化强度就高，但一直温度高的话，小麦会分化太快，无法保证营养，所以需要适时低温巩固分化
+3. 2021年受洪水影响晚播小麦有一千万亩，一、二类苗的比例在春天时较往年减少10.9%，在反青期结束时，一、二类苗比例已经接近九成，与往年持平
+4. 病虫害，四月份因为气温偏低，加上2022年春/夏提前“一喷三防”，降低了病虫害影响
+5. 无月份为小麦需水高峰期，需要灌溉用水和晴天来辅助灌浆&lt;/p&gt;
+&lt;p&gt;随后，在7月14日，国家统计局公布&lt;a href="http://www.stats.gov.cn/tjsj/zxfb/202207/t20220714_1886369.html"&gt;夏粮产量2948亿斤&lt;/a&gt;，相较2021年增产1%，夏粮占全国全年粮食总产量的1/5，其中九成是小麦。全国全年的农作物产量第一是玉米，第二水稻第三小麦，而玉米水稻都是秋粮。虽然夏粮占比比较小，但夏粮是稳预期。&lt;/p&gt;
+&lt;p&gt;夏粮与之后的秋粮关系十分紧密，因为一季冬小麦收割之后紧接着要种一季的夏玉米，而我国为追求粮食产量，需要让小麦产量向玉米妥协，这就导致小麦种植更晚，过去的农谚“白露早，寒露迟，秋分种麦正当时”，现在就变成了“白露早，霜降迟，寒露种麦正当时”，即小麦比之前晚播种两周&lt;/p&gt;
+&lt;p&gt;夏粮收成推算
+全国抽取6000多个样本村，推算得出省级的播种面积，接着全国抽取测量一万多个测产地块，得出省级夏粮产量，从而综合得出国家级别的产量&lt;/p&gt;</content><category term="屯垦戍边"></category></entry><entry><title>重接炮原理</title><link href="/2022/zhong-jie-pao-yuan-li.html" rel="alternate"></link><published>2022-12-25T00:00:00+01:00</published><updated>2022-12-25T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-25:/2022/zhong-jie-pao-yuan-li.html</id><summary type="html">&lt;p&gt;视频来源：&lt;a href="https://www.bilibili.com/video/BV1QA411972Y"&gt;https://www.bilibili.com/video/BV1QA411972Y&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;重(chong(2))接炮为一类特殊的电磁炮，发 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;视频来源：&lt;a href="https://www.bilibili.com/video/BV1QA411972Y"&gt;https://www.bilibili.com/video/BV1QA411972Y&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;重(chong(2))接炮为一类特殊的电磁炮，发射时用一串线圈对柱状弹丸进行加速&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/重接炮原理/Untitled.png"&gt;&lt;/p&gt;
+&lt;p&gt;发射时弹丸以一定初速进入首个线圈中，当炮弹正好进入线圈长度时，线圈开始通电&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/重接炮原理/Untitled 1.png"&gt;&lt;/p&gt;
+&lt;p&gt;按照安培定理，线圈通电引起感生磁场&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/重接炮原理/Untitled 2.png"&gt;&lt;/p&gt;
+&lt;p&gt;而炮弹是非导磁材质，故不影响磁力线分布和闭合，但通电瞬间弹丸内部磁力线密度增大，弹丸内部依据楞次定律产生环形感生电流与感生磁场。感生磁场与螺线管磁场耦合（即弹丸内部同一个地方受螺线管磁场影响产生的感生磁力线强度大，直观上好像螺线管磁力线被“挤”到了弹丸边缘）&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/重接炮原理/Untitled 3.png"&gt;&lt;/p&gt;
+&lt;p&gt;之后圆柱前移，螺线管的电流增大，螺线管的磁场形成如此形状：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/重接炮原理/Untitled 4.png"&gt;&lt;/p&gt;
+&lt;p&gt;之后螺线管磁场在弹丸后方重新接合，相对于弹丸形成像前的斥力推动加速&lt;/p&gt;</content><category term="披坚执锐"></category></entry><entry><title>Qt6学习笔记</title><link href="/2022/qt6xue-xi-bi-ji.html" rel="alternate"></link><published>2022-12-23T00:00:00+01:00</published><updated>2022-12-23T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-23:/2022/qt6xue-xi-bi-ji.html</id><summary type="html">&lt;h2&gt;1&lt;/h2&gt;
 &lt;p&gt;main window的三种基类：
 QMainWindow有toolbar
 QWidget和QDialog是没有toolbar的&lt;/p&gt;
@@ -457,7 +545,7 @@ reply = QMessageBox question(this, "Title", "Question", QMessageBox::Yes|QMessag
 &lt;li&gt;根据河南牧业经济学院的张卫宪院长的文章《河南是片大草原》，中国第一小麦生产区河南，小麦玉米收获之后，本身就可以作为牛的饲草；&lt;/li&gt;
 &lt;li&gt;另外当玉米价格大涨，小麦玉米价格倒挂的时候，小麦也会替代玉米作为饲草使用&lt;/li&gt;
 &lt;li&gt;玉米本身也有青贮品种，杆高结果品质差，主要是为了收获时候整株打碎作为饲草，此种玉米亩产饲草产量可达6吨（6000kg），比普通玉米的饲草产量高一倍（相比起来五月的小麦含水量多，青贮产量在2吨（2000kg）左右），但就算这样优质的青贮玉米，也并没有很多种植。有些地区推动“粮改饲”，还给补贴，但农民还是更倾向于普通玉米，因为普通玉米“进可攻退可守”，青贮玉米风险压过粮改饲补贴。这个的主要归罪于市场需求，一方面下游产业链单一，不能形成替代竞争，另一方面没有那么大需求&lt;/li&gt;
-&lt;/ol&gt;</content><category term="但求日新"></category><category term="新闻"></category><category term="农业"></category><category term="常识"></category></entry><entry><title>（新）黑格尔矛盾论</title><link href="/2022/xin-hei-ge-er-mao-dun-lun.html" rel="alternate"></link><published>2022-12-12T00:00:00+01:00</published><updated>2022-12-12T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-12:/2022/xin-hei-ge-er-mao-dun-lun.html</id><summary type="html">&lt;p&gt;Status: 有价值长期保留&lt;/p&gt;
+&lt;/ol&gt;</content><category term="屯垦戍边"></category><category term="新闻"></category><category term="农业"></category><category term="常识"></category></entry><entry><title>（新）黑格尔矛盾论</title><link href="/2022/xin-hei-ge-er-mao-dun-lun.html" rel="alternate"></link><published>2022-12-12T00:00:00+01:00</published><updated>2022-12-12T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-12:/2022/xin-hei-ge-er-mao-dun-lun.html</id><summary type="html">&lt;p&gt;Status: 有价值长期保留&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV16G4y137jT/?vd_source=89a1a90b938801a866ff7940f371e8a2"&gt;视频链接&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;理论基础&lt;/h2&gt;
 &lt;p&gt;黑格尔的辩证法，是从 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Status: 有价值长期保留&lt;/p&gt;

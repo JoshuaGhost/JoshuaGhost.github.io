@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 案牍劳形</title><link href="/" rel="alternate"></link><link href="/feeds/an-du-lao-xing.atom.xml" rel="self"></link><id>/</id><updated>2022-12-25T00:00:00+01:00</updated><entry><title>数据分析学习内容</title><link href="/2022/shu-ju-fen-xi-xue-xi-nei-rong.html" rel="alternate"></link><published>2022-12-25T00:00:00+01:00</published><updated>2022-12-25T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-25:/2022/shu-ju-fen-xi-xue-xi-nei-rong.html</id><content type="html">&lt;h1&gt;数据分析工具：&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Excle&lt;/li&gt;
+&lt;li&gt;*SQL&lt;/li&gt;
+&lt;li&gt;Tableau&lt;/li&gt;
+&lt;li&gt;Prepuilder&lt;/li&gt;
+&lt;/ol&gt;</content><category term="案牍劳形"></category></entry></feed>

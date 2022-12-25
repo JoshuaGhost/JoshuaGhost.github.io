@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 披坚执锐</title><link href="/" rel="alternate"></link><link href="/feeds/pi-jian-zhi-rui.atom.xml" rel="self"></link><id>/</id><updated>2011-07-26T00:00:00+02:00</updated><entry><title>段选择器 段描述符 段描述符表 线性地址形成</title><link href="/2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html" rel="alternate"></link><published>2011-07-26T00:00:00+02:00</published><updated>2011-07-26T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:None,2011-07-26:/2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html</id><summary type="html">&lt;p&gt;买了本罗老师的琢石成器,才看前3章就感觉晕晕忽忽，总体觉得要看懂这本书 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;买了本罗老师的琢石成器,才看前3章就感觉晕晕忽忽，总体觉得要看懂这本书前提是必须DOS汇编,了解32位汇编基础.DOS汇编本人只看了王爽老师的汇编语言前11章，中断这块还没有看,看来不看还是不行的。转回来说,罗老师这本书前3章写的很乱，尤其是描述符这块，看了似懂非懂，通而不透。只能自己抽丝剥茧，捋清头绪，慢慢体会：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 披坚执锐</title><link href="/" rel="alternate"></link><link href="/feeds/pi-jian-zhi-rui.atom.xml" rel="self"></link><id>/</id><updated>2022-12-25T00:00:00+01:00</updated><entry><title>重接炮原理</title><link href="/2022/zhong-jie-pao-yuan-li.html" rel="alternate"></link><published>2022-12-25T00:00:00+01:00</published><updated>2022-12-25T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-25:/2022/zhong-jie-pao-yuan-li.html</id><summary type="html">&lt;p&gt;视频来源：&lt;a href="https://www.bilibili.com/video/BV1QA411972Y"&gt;https://www.bilibili.com/video/BV1QA411972Y&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;重(chong(2))接炮为一类特殊的电磁炮，发 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;视频来源：&lt;a href="https://www.bilibili.com/video/BV1QA411972Y"&gt;https://www.bilibili.com/video/BV1QA411972Y&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;重(chong(2))接炮为一类特殊的电磁炮，发射时用一串线圈对柱状弹丸进行加速&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/重接炮原理/Untitled.png"&gt;&lt;/p&gt;
+&lt;p&gt;发射时弹丸以一定初速进入首个线圈中，当炮弹正好进入线圈长度时，线圈开始通电&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/重接炮原理/Untitled 1.png"&gt;&lt;/p&gt;
+&lt;p&gt;按照安培定理，线圈通电引起感生磁场&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/重接炮原理/Untitled 2.png"&gt;&lt;/p&gt;
+&lt;p&gt;而炮弹是非导磁材质，故不影响磁力线分布和闭合，但通电瞬间弹丸内部磁力线密度增大，弹丸内部依据楞次定律产生环形感生电流与感生磁场。感生磁场与螺线管磁场耦合（即弹丸内部同一个地方受螺线管磁场影响产生的感生磁力线强度大，直观上好像螺线管磁力线被“挤”到了弹丸边缘）&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/重接炮原理/Untitled 3.png"&gt;&lt;/p&gt;
+&lt;p&gt;之后圆柱前移，螺线管的电流增大，螺线管的磁场形成如此形状：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="/2022/重接炮原理/Untitled 4.png"&gt;&lt;/p&gt;
+&lt;p&gt;之后螺线管磁场在弹丸后方重新接合，相对于弹丸形成像前的斥力推动加速&lt;/p&gt;</content><category term="披坚执锐"></category></entry><entry><title>段选择器 段描述符 段描述符表 线性地址形成</title><link href="/2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html" rel="alternate"></link><published>2011-07-26T00:00:00+02:00</published><updated>2011-07-26T00:00:00+02:00</updated><author><name>韩光</name></author><id>tag:None,2011-07-26:/2011/duan-xuan-ze-qi-duan-miao-shu-fu-duan-miao-shu-fu-biao-xian-xing-di-zhi-xing-cheng.html</id><summary type="html">&lt;p&gt;买了本罗老师的琢石成器,才看前3章就感觉晕晕忽忽，总体觉得要看懂这本书 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;买了本罗老师的琢石成器,才看前3章就感觉晕晕忽忽，总体觉得要看懂这本书前提是必须DOS汇编,了解32位汇编基础.DOS汇编本人只看了王爽老师的汇编语言前11章，中断这块还没有看,看来不看还是不行的。转回来说,罗老师这本书前3章写的很乱，尤其是描述符这块，看了似懂非懂，通而不透。只能自己抽丝剥茧，捋清头绪，慢慢体会：&lt;/p&gt;
 &lt;h2&gt;段选择器&lt;/h2&gt;
 &lt;p&gt;32位汇编中16位段寄存器(CS、DS、ES、SS、FS、GS)中不再存放段基址,而是段描述符在段描述符表中的索引值,D3-D15位是索引值,D0-D1位是优先级(RPL)用于特权检查,D2位是描述符表引用指示位TI,TI=0指示从全局描述表GDT中读取描述符，TI=1指示从局部描述符中LDT中读取描述符。这些信息总称段选择器(段选择子).&lt;/p&gt;
 &lt;h2&gt;段描述符&lt;/h2&gt;
