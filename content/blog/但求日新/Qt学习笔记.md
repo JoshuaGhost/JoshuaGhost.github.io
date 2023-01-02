@@ -95,3 +95,53 @@ if (reply == QMessageBox::Yes) {
 } else if (reply == QMessageBox::No) {
 	do_smething_for_answering_no();
 }
+```
+
+## 7
+创建项目的时候记得要用qmake来构建整个项目，而不要用cmake，否则会无法添加resource文件
+
+## 8
+设置textEdit的字体
+```cpp
+bool ok
+Qfont font = QFontDialog::getFont(&ok, QFont("Times New Roman", 12), this);
+if (ok) {
+	ui->textEdit->setFont(font);
+}
+```
+这会更改整个textedit的文字字体，无论有没有选中文本
+
+下面一段代码可以更改选中部分的文字字体：
+```cpp
+	bool ok;
+    QFont font = QFontDialog::getFont(&ok, QFont("Helvetica[Cronyx]", 12), this);
+
+    QTextCharFormat format;
+    format.setFont(font);
+    if (ok) {
+        ui->textEdit->textCursor().setCharFormat(format);
+    }
+```
+
+设置textColor
+```cpp
+bool ok
+QColor color = QColorDialog::getColor(QT::yellow, this);
+ui->textEdit->setTextColor(color);
+```
+这个只会更改选中部分的文字颜色
+
+设置打印对话框
+```cpp
+QPrinter printer;
+QPrintDialog dialog(&printer, this);
+dialog.setWindowTitle("Print Document");
+
+if (ui->textEdit->textCursor().hasSelection()) {
+	dialog.setOption(QAbstractPrintDialog::PrintSelection);
+}
+
+if (dialog.exec() != QDialog::Accepted) {
+	return;
+}
+```
