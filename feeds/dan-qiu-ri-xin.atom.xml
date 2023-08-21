@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 但求日新</title><link href="/" rel="alternate"></link><link href="/feeds/dan-qiu-ri-xin.atom.xml" rel="self"></link><id>/</id><updated>2022-12-23T00:00:00+01:00</updated><entry><title>Qt6学习笔记</title><link href="/2022/qt6xue-xi-bi-ji.html" rel="alternate"></link><published>2022-12-23T00:00:00+01:00</published><updated>2022-12-23T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-23:/2022/qt6xue-xi-bi-ji.html</id><summary type="html">&lt;h2&gt;1&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Zijian's Hunting Cabin - 但求日新</title><link href="https://joshuaghost.github.io/" rel="alternate"></link><link href="https://joshuaghost.github.io/feeds/dan-qiu-ri-xin.atom.xml" rel="self"></link><id>https://joshuaghost.github.io/</id><updated>2022-12-23T00:00:00+01:00</updated><entry><title>Qt6学习笔记</title><link href="https://joshuaghost.github.io/2022/qt6xue-xi-bi-ji.html" rel="alternate"></link><published>2022-12-23T00:00:00+01:00</published><updated>2022-12-23T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2022-12-23:/2022/qt6xue-xi-bi-ji.html</id><summary type="html">&lt;h2&gt;1&lt;/h2&gt;
 &lt;p&gt;main window的三种基类：
 QMainWindow有toolbar
 QWidget和QDialog是没有toolbar的&lt;/p&gt;
@@ -10,22 +10,22 @@ QMainWindow有toolbar
 QWidget和QDialog是没有toolbar的&lt;/p&gt;
 &lt;h2&gt;2&lt;/h2&gt;
 &lt;p&gt;cpp的explicit标识符，如果写了，就表示这个类是explicit的，否则就叫一个implicit类，对于一个implicit类，如果他的构造函数只有一个参数，那么可以把这个类的类名用类似强制类型转换的方式使用，比如：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nc"&gt;Foo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;private&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;m_foo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nc"&gt;Foo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;private&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;m_foo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;Foo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;m_foo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;//这里的冒号标识符是用来initialization的。有两种用法，一是用来直接调用父类的构造函数，二是用来初始化某些值的，这里等效于m_foo = foo;，作用是在构造函数运行之前就执行这个赋值语句。如果被赋值的变量m_foo是const int m_foo;，那么在构造函数体里面不能直接给它赋值，而用这种冒号的赋值语句是可行的。如果要调用多个父函数的构造函数，或者要给多变量赋值，那多个冒号表达式用逗号隔开&lt;/span&gt;
 
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;GetFoo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;m_foo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;GetFoo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;m_foo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;3&lt;/h2&gt;
 &lt;p&gt;QT的stylesheet可以用类似css的方法自定义widget的样式，比如定义所有的QPushButton的背景颜色为黄色：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;QPushButton&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;background&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;QPushButton&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;background&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;注意如果选择更改了主窗口的样式，那主窗口下所有的按钮都会改变，因为这些窗口都是主窗口的后代widget，如果想仅改变其中一个widget的样式，可以用QPushButton#button_no_1这样的id选择器来选择特定widget，或者直接对widget本身的样式进行修订&lt;/p&gt;
@@ -33,106 +33,106 @@ QWidget和QDialog是没有toolbar的&lt;/p&gt;
 &lt;p&gt;如果在qt的design界面更改了控件的名字，则需要先构建一次才能在编辑窗口使用代码补全&lt;/p&gt;
 &lt;h2&gt;5&lt;/h2&gt;
 &lt;p&gt;cpp的标准模板库的vector，使用方法是：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vector&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;variable_name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;value1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;value2&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vector&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;variable_name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;value1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;value2&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;比如我要用一个vector装载radiobox_{1..3}的指针，就可以&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vector&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;QRadioBox&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;radio_boxes&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;radiobox_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;radiobox_2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;radiobox_3&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vector&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;QRadioBox&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;radio_boxes&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;radiobox_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;radiobox_2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;radiobox_3&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;之后用一个循环变量去便利vector里面的所有内容，就可以&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QRadioBox&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;radio_boxes&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;do_something&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QRadioBox&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;radio_boxes&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;do_something&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;另外QT中还自己有一个QStringList，定义方法与vector相近：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;QStringList&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;e&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;f&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;QStringList&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;e&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;f&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;循环也可以用foreach：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;foreach&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QString&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;do_something&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;foreach&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QString&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;do_something&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;6&lt;/h2&gt;
 &lt;p&gt;QT中有不同的message boxes可供提示使用，它们在QMessageBox命名空间下边，分别是&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;information&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;warning&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;about&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;information&lt;/span&gt;
+&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;warning&lt;/span&gt;
+&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;about&lt;/span&gt;
+&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;使用的时候，以question box为例，它的第一个参数是父窗口的指针，第二个是标题字符串，第三个是信息字符串，如果是question box的话，还有第四个参数，一般设置为QMessageBox::Yes|QMessageBox::No，前者是16384（2^14，即第15位有一个1），后者是65536（2^16，即第17位有一个1），两者进行bit-wise或得到的一个bitmap，即&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Title of the question box&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Do you answer yes or no?&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Yes&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;No&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Title of the question box&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Do you answer yes or no?&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Yes&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;No&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;question box的回复，是一个QMessageBox::StandardButton的值，比如说我可以这样获取question box的回复：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;StandardButton&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Question&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Yes&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;No&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;StandardButton&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Question&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Yes&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;No&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Yes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;do_something_for_answering_yes&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;No&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;do_smething_for_answering_no&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Yes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;do_something_for_answering_yes&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;No&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;do_smething_for_answering_no&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;7&lt;/h2&gt;
 &lt;p&gt;创建项目的时候记得要用qmake来构建整个项目，而不要用cmake，否则会无法添加resource文件&lt;/p&gt;
 &lt;h2&gt;8&lt;/h2&gt;
 &lt;p&gt;设置textEdit的字体&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;bool&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;Qfont&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QFontDialog&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Times New Roman&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textEdit&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;setFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;bool&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;
+&lt;span class="n"&gt;Qfont&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QFontDialog&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Times New Roman&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textEdit&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;setFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;这会更改整个textedit的文字字体，无论有没有选中文本&lt;/p&gt;
 &lt;p&gt;下面一段代码可以更改选中部分的文字字体：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;QFont&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QFontDialog&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Helvetica[Cronyx]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;QFont&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QFontDialog&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Helvetica[Cronyx]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;QTextCharFormat&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textEdit&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textCursor&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;setCharFormat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;QTextCharFormat&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setFont&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textEdit&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textCursor&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;setCharFormat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;设置textColor&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;bool&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;QColor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QColorDialog&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getColor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QT&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textEdit&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;setTextColor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;bool&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ok&lt;/span&gt;
+&lt;span class="n"&gt;QColor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QColorDialog&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getColor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QT&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textEdit&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;setTextColor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;这个只会更改选中部分的文字颜色&lt;/p&gt;
 &lt;p&gt;设置打印对话框&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;QPrinter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;printer&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;QPrintDialog&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;dialog&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;printer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;dialog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setWindowTitle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Print Document&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;QPrinter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;printer&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;QPrintDialog&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;dialog&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;printer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;dialog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setWindowTitle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Print Document&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textEdit&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textCursor&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;hasSelection&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;dialog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setOption&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QAbstractPrintDialog&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;PrintSelection&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textEdit&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;textCursor&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;hasSelection&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;dialog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setOption&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QAbstractPrintDialog&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;PrintSelection&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dialog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exec&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QDialog&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Accepted&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="但求日新"></category></entry><entry><title>PID controller 入门视频</title><link href="/2022/pid-controller-ru-men-shi-pin.html" rel="alternate"></link><published>2022-12-18T00:00:00+01:00</published><updated>2022-12-18T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-18:/2022/pid-controller-ru-men-shi-pin.html</id><summary type="html">&lt;p&gt;入门视频是这一系列的视频：&lt;/p&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dialog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exec&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;QDialog&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Accepted&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="但求日新"></category></entry><entry><title>PID controller 入门视频</title><link href="https://joshuaghost.github.io/2022/pid-controller-ru-men-shi-pin.html" rel="alternate"></link><published>2022-12-18T00:00:00+01:00</published><updated>2022-12-18T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2022-12-18:/2022/pid-controller-ru-men-shi-pin.html</id><summary type="html">&lt;p&gt;入门视频是这一系列的视频：&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=wkfEZmsQqiA&amp;amp;ab_channel=MATLAB"&gt;Understanding PID Control, Part 1: What Is PID Control?&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;PID 是三个 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;入门视频是这一系列的视频：&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=wkfEZmsQqiA&amp;amp;ab_channel=MATLAB"&gt;Understanding PID Control, Part 1: What Is PID Control?&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;PID 是三个词的缩写：propotional, integral and derivitive。着三个components都以当前被控对象和目标的差值作为输入，输出分别对应着对被控对象的当前误差x，当前误差的变化速率dx和误差的历史状态$\int dx$，最终输入的控制信号就是着三个的线性组合&lt;/p&gt;
+&lt;p&gt;PID 是三个词的缩写：propotional, integral and derivitive。着三个components都以当前被控对象和目标的差值作为输入，输出分别对应着对被控对象的当前误差x，当前误差的变化速率dx和误差的历史状态&lt;span class="math"&gt;\(\int dx\)&lt;/span&gt;，最终输入的控制信号就是着三个的线性组合&lt;/p&gt;
 &lt;h2&gt;饱和信号 (saturation)&lt;/h2&gt;
 &lt;p&gt;这时候就有一个问题，现实的actor与输入信号并不是线性的，首先我们关注saturation效应，比如电机不能无限提高转速，这时就需要在输入信号输入到actor之前进行一个saturation check，先检查想要输入的信号是不是超过了上限，如果是，并且误差和控制信号同号，那么就关闭误差-积分器这一通路（把积分器的输入设置为0），以停止对误差进行积分，从而避免输入一个过大的信号。这时候保证1.如果已经wind up了，那么积分器的输出是平的（因为在这一段是对0进行积分），2.如果误差变号了，那积分器的输出立马减小&lt;/p&gt;
 &lt;h2&gt;de-noising，使用derivative和low-pass+derivative，也就是filtered derivative&lt;/h2&gt;
 &lt;p&gt;使用有cutoff frequency的filter，在derivative之前，使用first-order low-pass filter(此处基于laplacian domain transfer function, cheetsheet see below:)&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="/2022/PID controller 入门视频/Untitled.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/PID controller 入门视频/Untitled.png"&gt;&lt;/p&gt;
 &lt;p&gt;回忆：一个信号先通过低通再通过derivative，在时域上体现为卷积，在S域上体现为两个组分的成绩，这两个的串连等效于在正向的一个乘以N的forward path，加上一个1/s的feedback path&lt;/p&gt;
-&lt;p&gt;考虑正弦函数$y=Asin(\omega x + \phi)$，它的导数的最大幅度正比于它的频率，但我们想让它在某个cut-off频率后边的噪声都被block掉，以至于高频的噪声对于derivative分量不造成过大的影响，就需要在dirivative之前加一个滤波器，这也就成了filtered derivative&lt;/p&gt;
+&lt;p&gt;考虑正弦函数&lt;span class="math"&gt;\(y=Asin(\omega x + \phi)\)&lt;/span&gt;，它的导数的最大幅度正比于它的频率，但我们想让它在某个cut-off频率后边的噪声都被block掉，以至于高频的噪声对于derivative分量不造成过大的影响，就需要在dirivative之前加一个滤波器，这也就成了filtered derivative&lt;/p&gt;
 &lt;h2&gt;pid tuning&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;is the system well-behaved? it’s not, because it’s:&lt;ol&gt;
@@ -152,10 +152,72 @@ QWidget和QDialog是没有toolbar的&lt;/p&gt;
 &lt;h3&gt;或者直接进行linearization，对复杂非线性系统线性化，这比system id的方式更方便debug和更可靠&lt;/h3&gt;
 &lt;h2&gt;用控制论来tune pid&lt;/h2&gt;
 &lt;p&gt;所有的pid，写成S域的都是如下形式：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="/2022/PID controller 入门视频/Untitled 1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/PID controller 入门视频/Untitled 1.png"&gt;&lt;/p&gt;
 &lt;p&gt;一个pole在源点，所有的pid设计都是怎样放置两个零点。&lt;/p&gt;
 &lt;p&gt;但是一般都不会直接用dirivitive，而是用filtered dirivitive（de-noising，使用derivative和low-pass+derivative，也就是filtered derivative），这样就引入了一个额外的pole&lt;/p&gt;
-&lt;p&gt;两种方式，一个是pole placement，一个是loop shaping&lt;/p&gt;</content><category term="但求日新"></category></entry><entry><title>（新）黑格尔矛盾论</title><link href="/2022/xin-hei-ge-er-mao-dun-lun.html" rel="alternate"></link><published>2022-12-12T00:00:00+01:00</published><updated>2022-12-12T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-12:/2022/xin-hei-ge-er-mao-dun-lun.html</id><summary type="html">&lt;p&gt;Status: 有价值长期保留&lt;/p&gt;
+&lt;p&gt;两种方式，一个是pole placement，一个是loop shaping&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="但求日新"></category></entry><entry><title>（新）黑格尔矛盾论</title><link href="https://joshuaghost.github.io/2022/xin-hei-ge-er-mao-dun-lun.html" rel="alternate"></link><published>2022-12-12T00:00:00+01:00</published><updated>2022-12-12T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2022-12-12:/2022/xin-hei-ge-er-mao-dun-lun.html</id><summary type="html">&lt;p&gt;Status: 有价值长期保留&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV16G4y137jT/?vd_source=89a1a90b938801a866ff7940f371e8a2"&gt;视频链接&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;理论基础&lt;/h2&gt;
 &lt;p&gt;黑格尔的辩证法，是从 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Status: 有价值长期保留&lt;/p&gt;
@@ -168,52 +230,237 @@ QWidget和QDialog是没有toolbar的&lt;/p&gt;
 &lt;p&gt;要把矛盾汇合起来，因为所有的矛盾都是不可调合的，比如目田躺平和积极防御之间的矛盾等，这些矛盾在现实层面上都被删除了，因为它们在依靠同一个意识形态运转的共同体内部，没有合法性可言（即这两个观点之间的冲突其实都不算事，至少在我们的语境下是这样），即这些矛盾中，没有自己内部的矛盾，而全部都是自己与他人的矛盾。所有的这种表面上的矛盾都被删除，被拍平了。最后剩下矛盾就变成了“拍平”和“被拍平”之间的矛盾，而被拍平一方囊括的所有矛盾最终会走向汇合，因为由一个意识形态维系的共同体，需要维护一个不受干扰的表象，但当矛盾的汇合足够激烈的时候，表象会直接被撕裂（，历史进入下一阶段）。所以催化矛盾，才会有更高层次的矛盾出现。又已知整个共同体的运转，不可能只依赖一个最先进的矛盾，因为最先进的矛盾定是占在了一个最端正的立场，而这最端正的立场只是在把上一个矛盾无限延长时间。而一个整体性危机会汇合起所有的矛盾，并让其中的差异显现出来。注意到矛盾（推动历史向下一个阶段运转的原动力）和差异（在不同的视角看同一个矛盾所体现出来的视差）是有很大的不同的。&lt;/p&gt;
 &lt;h2&gt;实践指导&lt;/h2&gt;
 &lt;p&gt;黑格尔的理念是解放理想，而许下的政治承诺与理念并不一定相同。&lt;/p&gt;
-&lt;p&gt;Marx说自己是黑格尔思想的倒转，实际上可以理解为M对黑的回归——即从一个对精纯的矛盾的研究，走向一个现实的多元的矛盾的汇合。而我们要做的是黑格尔与M的乘法（，即在黑格尔辩证法的基础上，把握马克思论题的时代性，能够看到马克思提出的种种矛盾的外化，也最终能回到黑格尔那精纯的矛盾结构上，同时要认识到当前客观世界环境下各种已经外化成意识形态的统一与差异）；而不应该做马克思减去黑格尔的减法（，即只映射某种表象的符合，而丢掉了核心的辩证法）。&lt;/p&gt;</content><category term="但求日新"></category><category term="Philosophy"></category><category term="Study notes"></category></entry><entry><title>关系代数（relational Algebra）复习</title><link href="/2022/guan-xi-dai-shu-relational-algebrafu-xi.html" rel="alternate"></link><published>2022-12-09T00:00:00+01:00</published><updated>2022-12-09T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-09:/2022/guan-xi-dai-shu-relational-algebrafu-xi.html</id><summary type="html">&lt;h2&gt;关系代数与SQL语句的等效性&lt;/h2&gt;
+&lt;p&gt;Marx说自己是黑格尔思想的倒转，实际上可以理解为M对黑的回归——即从一个对精纯的矛盾的研究，走向一个现实的多元的矛盾的汇合。而我们要做的是黑格尔与M的乘法（，即在黑格尔辩证法的基础上，把握马克思论题的时代性，能够看到马克思提出的种种矛盾的外化，也最终能回到黑格尔那精纯的矛盾结构上，同时要认识到当前客观世界环境下各种已经外化成意识形态的统一与差异）；而不应该做马克思减去黑格尔的减法（，即只映射某种表象的符合，而丢掉了核心的辩证法）。&lt;/p&gt;</content><category term="但求日新"></category><category term="Philosophy"></category><category term="Study notes"></category></entry><entry><title>关系代数（relational Algebra）复习</title><link href="https://joshuaghost.github.io/2022/guan-xi-dai-shu-relational-algebrafu-xi.html" rel="alternate"></link><published>2022-12-09T00:00:00+01:00</published><updated>2022-12-09T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2022-12-09:/2022/guan-xi-dai-shu-relational-algebrafu-xi.html</id><summary type="html">&lt;h2&gt;关系代数与SQL语句的等效性&lt;/h2&gt;
 &lt;p&gt;大部分关系代数表达式可以与sql语句等价，比如&lt;/p&gt;
-&lt;p&gt;projection: $\pi_{\text …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;关系代数与SQL语句的等效性&lt;/h2&gt;
+&lt;p&gt;projection: &lt;span class="math"&gt;\(\pi_{\text …&lt;/span&gt;&lt;/p&gt;&lt;script type='text/javascript'&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><content type="html">&lt;h2&gt;关系代数与SQL语句的等效性&lt;/h2&gt;
 &lt;p&gt;大部分关系代数表达式可以与sql语句等价，比如&lt;/p&gt;
-&lt;p&gt;projection: $\pi_{\text{mat_no}}(Student)$就代表select mat_no from Student&lt;/p&gt;
-&lt;p&gt;selection: $\sigma_{gender='male'}(Student)$就等效于select * from Student where gender = ‘male’&lt;/p&gt;
-&lt;p&gt;另外还有一些集合操作，比如union ($\cup$), intersection ($\cap$), difference () cartesian product ($\times$)&lt;/p&gt;
-&lt;p&gt;还有比如各种join：inner join ($\bowtie$)&lt;/p&gt;
-&lt;p&gt;笛卡尔积-selection与inner join等效性：$R\bowtie_{condition}S \equiv \sigma_{condition}(R\times S)$&lt;/p&gt;
-&lt;p&gt;aggregation: 比如select name from student like avg(height) &amp;gt; 180 group by gender，就等效于 $\pi_{name}(\sigma_{\text{height}&amp;gt;{avg_height}}(\text{student} \bowtie (a_{\text{gender}} \mathcal{F}_{\text{avg(height)}}(\text{student}))))$ （忽略那个诡异的a，它只是个占位符，因为mathjax无力识别前置下标）。这里之所以在aggregation之后还要join一个原来的student表，是因为在aggregation之后，新的临时表格把所有的老attribution名都删除了：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="/2022/关系代数（Relational Algebra）复习/Untitled.png"&gt;&lt;/p&gt;
+&lt;p&gt;projection: &lt;span class="math"&gt;\(\pi_{\text{mat_no}}(Student)\)&lt;/span&gt;就代表select mat_no from Student&lt;/p&gt;
+&lt;p&gt;selection: &lt;span class="math"&gt;\(\sigma_{gender='male'}(Student)\)&lt;/span&gt;就等效于select * from Student where gender = ‘male’&lt;/p&gt;
+&lt;p&gt;另外还有一些集合操作，比如union (&lt;span class="math"&gt;\(\cup\)&lt;/span&gt;), intersection (&lt;span class="math"&gt;\(\cap\)&lt;/span&gt;), difference () cartesian product (&lt;span class="math"&gt;\(\times\)&lt;/span&gt;)&lt;/p&gt;
+&lt;p&gt;还有比如各种join：inner join (&lt;span class="math"&gt;\(\bowtie\)&lt;/span&gt;)&lt;/p&gt;
+&lt;p&gt;笛卡尔积-selection与inner join等效性：&lt;span class="math"&gt;\(R\bowtie_{condition}S \equiv \sigma_{condition}(R\times S)\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;aggregation: 比如select name from student like avg(height) &amp;gt; 180 group by gender，就等效于 &lt;span class="math"&gt;\(\pi_{name}(\sigma_{\text{height}&amp;gt;{avg_height}}(\text{student} \bowtie (a_{\text{gender}} \mathcal{F}_{\text{avg(height)}}(\text{student}))))\)&lt;/span&gt; （忽略那个诡异的a，它只是个占位符，因为mathjax无力识别前置下标）。这里之所以在aggregation之后还要join一个原来的student表，是因为在aggregation之后，新的临时表格把所有的老attribution名都删除了：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/关系代数（Relational Algebra）复习/Untitled.png"&gt;&lt;/p&gt;
 &lt;h2&gt;例题&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="/2022/关系代数（Relational Algebra）复习/Untitled_1.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="/2022/关系代数（Relational Algebra）复习/Untitled_2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/关系代数（Relational Algebra）复习/Untitled_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/关系代数（Relational Algebra）复习/Untitled_2.png"&gt;&lt;/p&gt;
 &lt;p&gt;分析：这道题让选出所有符合下列要求的动物（返回这只动物的名字、物种、年龄和笼子编号），这只动物需要：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;是濒危动物status=”stark gefaehrdet”&lt;/li&gt;
 &lt;li&gt;在其对应gruppe中，年龄超过平均年龄&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;要求1.翻译成关系代数，应该是 $\text{Tier}\bowtie\sigma_{\text{status}=\text{"stark gefährdet"}}(\text{Tierart})$&lt;/p&gt;
-&lt;p&gt;要求2.翻译成关系代数，应该是 $\text{Tier}\bowtie\text{  }\text{Tierart}\bowtie(a_\text{gruppe}\mathcal{F}_\text{avg(alter)}(\text{Tier}\bowtie\text{Tierart}))$&lt;/p&gt;
+&lt;p&gt;要求1.翻译成关系代数，应该是 &lt;span class="math"&gt;\(\text{Tier}\bowtie\sigma_{\text{status}=\text{"stark gefährdet"}}(\text{Tierart})\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;要求2.翻译成关系代数，应该是 &lt;span class="math"&gt;\(\text{Tier}\bowtie\text{  }\text{Tierart}\bowtie(a_\text{gruppe}\mathcal{F}_\text{avg(alter)}(\text{Tier}\bowtie\text{Tierart}))\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;所以选出所有符合这一条件的动物，应该是&lt;/p&gt;
 &lt;!-- $$
 \text{Tier}\bowtie\text{  }\text{Tierart}\bowtie(a_\text{gruppe}\mathcal{F}_\text{avg(alter)}(\text{Tier}\bowtie\text{Tierart}))\bowtie\sigma_{\text{status}=\text{stark gefaehrdet}}(\text{Tierart})
 $$ --&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="/2022/关系代数（Relational Algebra）复习/CodeCogsEqn.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/关系代数（Relational Algebra）复习/CodeCogsEqn.png"&gt;&lt;/p&gt;
 &lt;p&gt;然后把所有这样的动物的笼子也找出来，就需要再join一个Lebt_in表：&lt;/p&gt;
 &lt;!-- $$
 \begin{split}\pi&amp;_{name, bezeichnung, alter, nr}(\\&amp;\sigma_{\text{alter}&gt;\text{avg\_alter}\wedge\text{status="stark gefährdet"}}(\\&amp;\text{ }\text{ }\text{ }\text{Tier}\bowtie\text{  }\text{Tierart}\bowtie(a_\text{gruppe}\mathcal{F}_\text{avg(alter)}(\text{Tier}\bowtie\text{Tierart}))\\&amp;)\bowtie\sigma_{\text{status="stark gefährdet}"}(\text{Tierart})\bowtie\text{Lebt\_in}\\)\end{split}
 $$ --&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="/2022/关系代数（Relational Algebra）复习/eq2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/关系代数（Relational Algebra）复习/eq2.png"&gt;&lt;/p&gt;
 &lt;p&gt;1h 10~15min ti
-12.12 14:00&lt;/p&gt;</content><category term="但求日新"></category><category term="Relationa Algebra"></category><category term="review"></category></entry><entry><title>Attentions 查缺补漏</title><link href="/2022/attentions-cha-que-bu-lou.html" rel="alternate"></link><published>2022-12-07T00:00:00+01:00</published><updated>2022-12-07T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2022-12-07:/2022/attentions-cha-que-bu-lou.html</id><summary type="html">&lt;p&gt;Loung的Attention paper： &lt;a href="https://arxiv.org/abs/1508.04025"&gt;https://arxiv.org/abs/1508.04025&lt;/a&gt;&lt;/p&gt;
+12.12 14:00&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="但求日新"></category><category term="Relationa Algebra"></category><category term="review"></category></entry><entry><title>Attentions 查缺补漏</title><link href="https://joshuaghost.github.io/2022/attentions-cha-que-bu-lou.html" rel="alternate"></link><published>2022-12-07T00:00:00+01:00</published><updated>2022-12-07T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2022-12-07:/2022/attentions-cha-que-bu-lou.html</id><summary type="html">&lt;p&gt;Loung的Attention paper： &lt;a href="https://arxiv.org/abs/1508.04025"&gt;https://arxiv.org/abs/1508.04025&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Bahdanau的Attention Paper： &lt;a href="https://arxiv.org/abs/1409.0473"&gt;https://arxiv.org/abs/1409.0473&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;首先，啥是attention：&lt;/h1&gt;
 &lt;p&gt;拿输入-输 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Loung的Attention paper： &lt;a href="https://arxiv.org/abs/1508.04025"&gt;https://arxiv.org/abs/1508.04025&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Bahdanau的Attention Paper： &lt;a href="https://arxiv.org/abs/1409.0473"&gt;https://arxiv.org/abs/1409.0473&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;首先，啥是attention：&lt;/h1&gt;
-&lt;p&gt;拿输入-输出的双向互Loung attention来说，它就是一个输入段各个token，对应输出端各个token的相关系数，输入端经过lstm编码，变成一系列hidden vectors $h_t$，每一个这些$h_t$对应输出端当前的hidden vector都有一个对应系数，也就是某个输入段的hidden vector与输出端当前hidden vector的相关系数，也就是attention的值a&lt;/p&gt;
+&lt;p&gt;拿输入-输出的双向互Loung attention来说，它就是一个输入段各个token，对应输出端各个token的相关系数，输入端经过lstm编码，变成一系列hidden vectors &lt;span class="math"&gt;\(h_t\)&lt;/span&gt;，每一个这些&lt;span class="math"&gt;\(h_t\)&lt;/span&gt;对应输出端当前的hidden vector都有一个对应系数，也就是某个输入段的hidden vector与输出端当前hidden vector的相关系数，也就是attention的值a&lt;/p&gt;
 &lt;h1&gt;其次，怎么计算attention：&lt;/h1&gt;
-&lt;p&gt;这里涉及到Loung和Bahdanau的attention计算方法不同了，Loung是用encoder最上边的一层lstm的所有hidden vector来计算互相关系数，Bahdanau是用所有lstm层的hidden vector和输出端的$h_{t-1}$ concatenate起来计算。&lt;/p&gt;
+&lt;p&gt;这里涉及到Loung和Bahdanau的attention计算方法不同了，Loung是用encoder最上边的一层lstm的所有hidden vector来计算互相关系数，Bahdanau是用所有lstm层的hidden vector和输出端的&lt;span class="math"&gt;\(h_{t-1}\)&lt;/span&gt; concatenate起来计算。&lt;/p&gt;
 &lt;p&gt;attention是一个经过softmax之后的权重值，在经过softmax之前它叫作score（Loung）或energy（Bahdanau），这个score按照Loung来说是这三种其一：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="/2022/Attention查缺补漏/Untitled.png"&gt;&lt;/p&gt;
-&lt;p&gt;Bahdanau的Attention只有concatenation的那个（注意这里还没有出现$\sqrt{d}$归一化，这玩意是在transformer里面的）&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/Attention查缺补漏/Untitled.png"&gt;&lt;/p&gt;
+&lt;p&gt;Bahdanau的Attention只有concatenation的那个（注意这里还没有出现&lt;span class="math"&gt;\(\sqrt{d}\)&lt;/span&gt;归一化，这玩意是在transformer里面的）&lt;/p&gt;
 &lt;h1&gt;最后，怎么使用attention&lt;/h1&gt;
-&lt;p&gt;把attention的a值当作一个权重，同input的hidden states点乘，得一个加权平均。这个加权平均是contextector，在Loung里面contex vector直接和输出端的hidden state concatenate，然后全链接，然后softmax预测输出，而在Bahdanau里面，在得到输出端的hidden state之后还需要再和context一起进行一个g的运算，才能得到最终prediction&lt;/p&gt;</content><category term="但求日新"></category><category term="attention"></category><category term="paper reading"></category><category term="review"></category></entry><entry><title>Some Thoughts about Leadership</title><link href="/2018/some-thoughts-about-leadership.html" rel="alternate"></link><published>2018-12-30T00:00:00+01:00</published><updated>2018-12-30T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2018-12-30:/2018/some-thoughts-about-leadership.html</id><summary type="html">&lt;p&gt;It’s been a long time the concept leadership has taken over the title of best sellings. Most of them are simply trying to sell …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It’s been a long time the concept leadership has taken over the title of best sellings. Most of them are simply trying to sell you their chicken soup without providing the spoon. The simple-anecdotal-evidence are abundant to proof their points of view and hardly trustful. So the central problem, what IS leadership, has hardly been systematically defined. Therefore i decided to figure it out by interviewing and analyzing the leaders i’ve ever met. They are CEOs of companies, chairmans of associations, or my professor of doctorate, who is also a leader of our research group. Based on my background knowledge, i conclude some of the points consist the concept leadership.&lt;/p&gt;
+&lt;p&gt;把attention的a值当作一个权重，同input的hidden states点乘，得一个加权平均。这个加权平均是contextector，在Loung里面contex vector直接和输出端的hidden state concatenate，然后全链接，然后softmax预测输出，而在Bahdanau里面，在得到输出端的hidden state之后还需要再和context一起进行一个g的运算，才能得到最终prediction&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="但求日新"></category><category term="attention"></category><category term="paper reading"></category><category term="review"></category></entry><entry><title>Some Thoughts about Leadership</title><link href="https://joshuaghost.github.io/2018/some-thoughts-about-leadership.html" rel="alternate"></link><published>2018-12-30T00:00:00+01:00</published><updated>2018-12-30T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2018-12-30:/2018/some-thoughts-about-leadership.html</id><summary type="html">&lt;p&gt;It’s been a long time the concept leadership has taken over the title of best sellings. Most of them are simply trying to sell …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It’s been a long time the concept leadership has taken over the title of best sellings. Most of them are simply trying to sell you their chicken soup without providing the spoon. The simple-anecdotal-evidence are abundant to proof their points of view and hardly trustful. So the central problem, what IS leadership, has hardly been systematically defined. Therefore i decided to figure it out by interviewing and analyzing the leaders i’ve ever met. They are CEOs of companies, chairmans of associations, or my professor of doctorate, who is also a leader of our research group. Based on my background knowledge, i conclude some of the points consist the concept leadership.&lt;/p&gt;
 &lt;h2&gt;1. Positive Aggression&lt;/h2&gt;
 &lt;p&gt;A team is simply a group of human beings if the team has no goal to pursuit. But the common goal of a team is usually ambigous and reshapeable. But sadly most of the people are either not clear enough what they really desire or are too defensive to claim. A team leader then emerges to find out or, in some extreme circumstances, tell the group what they can pursuit. This requires the leader to be more or less positive aggressive. It describes the desire of seizing profit for her- or himself and for the whole team, with or without vitiating benefit of the others explicitly. For example, if you are asked to finish some task, where you know yourself are more or less the best in your acknowledgment. And after that if you would require the asker to do the same thing, she or he agrees without any hesitation. You are in this case positively aggressed. For another example, if there is no explicit prohibition of possessing some pubic resource and someone is really grabbing it for the benefit of himself and his crew. Then if someone else is also to legally access this resource, the former possessor can choose either to recruit the new comer or make a deal of sharing without reducing the profit of her- or himself and her or his crew member’s. This resource can also be said positively aggressed. Most of us, regretfully, are too shy to be aggressive, even a little bit. Or we simply mind the thought of others too much and suppress our aggression. Actually according to the research of psychology, the one being asked to finish the job always admires the task distributor. So it seems that if you really want to be liked or be admired as a leader, you’d better ask the experts to do jobs they good at for you with repayment.&lt;/p&gt;
 &lt;h2&gt;2. Allowance of Uncertainty&lt;/h2&gt;

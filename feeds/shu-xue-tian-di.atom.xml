@@ -1,87 +1,322 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>简庐 - 数学天地</title><link href="/" rel="alternate"></link><link href="/feeds/shu-xue-tian-di.atom.xml" rel="self"></link><id>/</id><updated>2017-02-22T00:00:00+01:00</updated><entry><title>也谈softmax（施工中）</title><link href="/2017/ye-tan-softmaxshi-gong-zhong.html" rel="alternate"></link><published>2017-02-22T00:00:00+01:00</published><updated>2017-02-22T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2017-02-22:/2017/ye-tan-softmaxshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;引言&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Zijian's Hunting Cabin - 数学天地</title><link href="https://joshuaghost.github.io/" rel="alternate"></link><link href="https://joshuaghost.github.io/feeds/shu-xue-tian-di.atom.xml" rel="self"></link><id>https://joshuaghost.github.io/</id><updated>2023-08-21T00:00:00+02:00</updated><entry><title>线性回归的假设检验</title><link href="https://joshuaghost.github.io/2023/xian-xing-hui-gui-de-jia-she-jian-yan.html" rel="alternate"></link><published>2023-08-21T00:00:00+02:00</published><updated>2023-08-21T00:00:00+02:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2023-08-21:/2023/xian-xing-hui-gui-de-jia-she-jian-yan.html</id><summary type="html">&lt;p&gt;三种假设检验：lagrange multiplyer test, likelihood-ratio test 与 wald test&lt;/p&gt;
+&lt;h2&gt;线性回归的检验&lt;/h2&gt;
+&lt;h3&gt;模型&lt;/h3&gt;
+&lt;p&gt;假设 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;三种假设检验：lagrange multiplyer test, likelihood-ratio test 与 wald test&lt;/p&gt;
+&lt;h2&gt;线性回归的检验&lt;/h2&gt;
+&lt;h3&gt;模型&lt;/h3&gt;
+&lt;p&gt;假设回归的模型为&lt;span class="math"&gt;\(Y=\alpha + \beta x + \epsilon\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;0假设为x于y是uncorrelated，进行回归之后，&lt;span class="math"&gt;\(\hat{\alpha}\)&lt;/span&gt;和&lt;span class="math"&gt;\(\hat{\beta}\)&lt;/span&gt;作为截距和slope被计算出来，&lt;span class="math"&gt;\(SE_{\hat{\beta}}\)&lt;/span&gt;是各个点对于line的standard error。之后计算&lt;span class="math"&gt;\(\hat{\beta}\)&lt;/span&gt;的t值：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2023/ht-formula1.png"&gt;&lt;/p&gt;
+&lt;p&gt;服从自由度为n-2的t-distribution，&lt;/p&gt;
+&lt;p&gt;其中slope coefficent的standard error是&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2023/ht-formula2.png"&gt;&lt;/p&gt;
+&lt;p&gt;就是用y的偏差值（自由度为n-2）用x的方差进行归一化&lt;/p&gt;
+&lt;p&gt;样本的标准差被计作s，就是根号下除以n-1的那个，这样计算出来的样本标准差是整体标准差的无偏估计，也就是&lt;span class="math"&gt;\(E(s)=\sigma\)&lt;/span&gt;，这个操作叫作bessel‘s correction&lt;/p&gt;
+&lt;h3&gt;bessel’s correction&lt;/h3&gt;
+&lt;div class="math"&gt;$$
+\sum_{i = 1}^n (x_i - \bar{x}) ^ 2 = \sum (x_i^2 - 2x_i\bar{x} + \bar{x} ^2) = (\sum x_i^2) - 2n\bar{x}^2 + n\bar{x}^2 = \sum x_i^2 - n\bar{x}^2
+$$&lt;/div&gt;
+&lt;div class="math"&gt;$$
+E(☝) = \sum E(x_i^2) - n E(\bar{x}^2) = \sum (var(x_i) + E(x_i)^2) - n (var(\bar{x}) + E(\bar{x})^2)
+$$&lt;/div&gt;
+&lt;p&gt;其中，&lt;/p&gt;
+&lt;div class="math"&gt;$$
+var(x_i) = \sigma, E(x_i) = \mu, E(\bar{x}) = \mu, var(\bar{x}) = \sigma/n
+$$&lt;/div&gt;
+&lt;p&gt;所以上边的等于&lt;span class="math"&gt;\(\sum_{(1..n)} (\sigma + \mu^2) - \sigma - n \mu^2\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;两个&lt;span class="math"&gt;\(n\mu^2\)&lt;/span&gt;消去，剩下一个&lt;span class="math"&gt;\((n-1)\sigma\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;所以&lt;span class="math"&gt;\(\sum_{i = 1}^n (x_i - \bar{x}) ^ 2\)&lt;/span&gt;要除以n-1才是&lt;span class="math"&gt;\(\sigma\)&lt;/span&gt;的无偏估计&lt;/p&gt;
+&lt;h3&gt;假设检验，以t-test为例&lt;/h3&gt;
+&lt;p&gt;假设检验的目的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;双样本检验：检测两个随机变量是不同的，它先从两个随机变量里面各自抽取一些样本，然后对这些样本进行假设检验，这就是two-sample t-test，比如随机分组100个病人到治疗和对照组里面。&lt;/li&gt;
+&lt;li&gt;单样本检验：student-t这个统计量就是把观测量进行“正规化”，也就是用样本均值减去整体均值，除以（样本方差/根号n，n是样本个数）。分母这部分又叫作mean的standard error，是一个statistic的样本的标准差除以根号n。它假设&lt;span class="math"&gt;\(\bar{x}\)&lt;/span&gt;也就是样本均值服从以&lt;span class="math"&gt;\(\mu\)&lt;/span&gt;为均值，&lt;span class="math"&gt;\(\sigma^2/n\)&lt;/span&gt;为方差的normal distribution，检验这个t统计量是否&lt;span class="math"&gt;\(～\mathcal{N}(0, 1)\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Wald test&lt;/h3&gt;
+&lt;p&gt;未完待续...&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="数学天地"></category><category term="数学"></category></entry><entry><title>也谈softmax（施工中）</title><link href="https://joshuaghost.github.io/2017/ye-tan-softmaxshi-gong-zhong.html" rel="alternate"></link><published>2017-02-22T00:00:00+01:00</published><updated>2017-02-22T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2017-02-22:/2017/ye-tan-softmaxshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;引言&lt;/h2&gt;
 &lt;p&gt;随着机器学习的异常火爆，学习它的人也如雨后春笋一 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;引言&lt;/h2&gt;
 &lt;p&gt;随着机器学习的异常火爆，学习它的人也如雨后春笋一般冒了出来，作为时刻保持在时代前沿的Ghost自然也没能免俗跟着一起跳进了大坑，今天不说别的，就着青梅煮酒，我胡扯一点关于机器学习中极为重要的一个函数：softmax&lt;/p&gt;
 &lt;h2&gt;softmax是什么？&lt;/h2&gt;
-&lt;p&gt;softmax是一个函数，它的定义域为$\mathbb{R}^d$，值域为$(0,1)$，d个输入是数据源的自变量，输入是多个自变量的值，输出是当前输入值应该归到哪一分类的概率。我们先来和它混个脸熟：
-$$
+&lt;p&gt;softmax是一个函数，它的定义域为&lt;span class="math"&gt;\(\mathbb{R}^d\)&lt;/span&gt;，值域为&lt;span class="math"&gt;\((0,1)\)&lt;/span&gt;，d个输入是数据源的自变量，输入是多个自变量的值，输出是当前输入值应该归到哪一分类的概率。我们先来和它混个脸熟：
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
 P(y=i|\vec{x})=\frac{e^{{x}^{\, T} \vec{w_i}}}{\sum_{j=1}^{M}e^{\vec{x}^{\, T} \vec{w_j}}}
-$$
+$$&lt;/div&gt;
+&lt;p&gt;
 例如针对某个三分类两个参数的问题，数据分类为1的概率画出来长酱婶：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Function image of softmax" src="/2017/softmax.png"&gt;&lt;/p&gt;
-&lt;p&gt;可以看到图像中有一个泾渭分明的界限，左上方概率极为接近1，右下方概率极为接近0，这就是在w的这一特殊配置下，参数空间与分为第一类label的概率关系。softmax公式左边的$P(y=i|\vec{x})$表示“在我的输入数据是$\vec{x}$的时候，把这个数据分到第$i$类中的概率”; 
+&lt;p&gt;&lt;img alt="Function image of softmax" src="https://joshuaghost.github.io/2017/softmax.png"&gt;&lt;/p&gt;
+&lt;p&gt;可以看到图像中有一个泾渭分明的界限，左上方概率极为接近1，右下方概率极为接近0，这就是在w的这一特殊配置下，参数空间与分为第一类label的概率关系。softmax公式左边的&lt;span class="math"&gt;\(P(y=i|\vec{x})\)&lt;/span&gt;表示“在我的输入数据是&lt;span class="math"&gt;\(\vec{x}\)&lt;/span&gt;的时候，把这个数据分到第&lt;span class="math"&gt;\(i\)&lt;/span&gt;类中的概率”; 
 右边的式子比较吓人，咱们一点一点来分析。&lt;/p&gt;
-&lt;p&gt;先看分子，注意分子上$\vec{w}$的下标和预测的y，我们不妨称呼分子为“当前数据点分到i分类时的适合程度”，简称“i适配度”。分子的式子本身由于是自然指数函数，是对$x$单调的，也就是说它相当于把原来相对“均匀”地分布在$\vec{x}$所在空间中的各个数据点分配了一个“i适配度”，$\vec{x}^{\, T}\vec{w_i}$越大的项“i适配度”也就越大，而w则是用来线性调整$\vec{x}$的“权重”。到这里可能有人会问，我们已经有一个线性权重了，为什么还需要再套一层幂指数呢？由于一方面仅仅使用线性的权重，难以拟合一些比较复杂的函数;另一方面由于人类认知能力本来就是非线性的，例如给出两组数据，0.6与0.8; 0.7与0.9，问与1的一个“主观距离”，如果是我的话会觉得0.6、0.8一组距离1都“差着不少”;但0.9，就与0.7迥然不同，已经“非常接近”1了。而要让计算机理解这种“感觉”，我们可以巧妙地使用$e^0.6$、$e^0.8$和$e$比较，再用$e^0.7$、$e^0.9$和$e$比较，这样一来就可以直接使用数值差的绝对值来表示这种“感觉”，也就是把正分类和副分类的差距进一步拉大了。&lt;/p&gt;
-&lt;p&gt;再看分母，分母这个形式有个特定名称叫做“配分函数（Partition function）”，话说这个奇怪的名字我一直觉得就是为了符合音译而硬出来的…………它的作用是遍历加和所有$M$个分类的“适配度”，看看分子所对应的第i个分类到底能不能在所有可能分类中“脱颖而出”。并且分母相当于一个正则化因子，它让所有的$P$都能被真正视作一个“概率”，即$\forall i: 0&amp;lt;P(y=i|\vec{x})&amp;lt;1$并且$\sum_{i=1}^{M}P(y=i|\vec{x})=1$&lt;/p&gt;
+&lt;p&gt;先看分子，注意分子上&lt;span class="math"&gt;\(\vec{w}\)&lt;/span&gt;的下标和预测的y，我们不妨称呼分子为“当前数据点分到i分类时的适合程度”，简称“i适配度”。分子的式子本身由于是自然指数函数，是对&lt;span class="math"&gt;\(x\)&lt;/span&gt;单调的，也就是说它相当于把原来相对“均匀”地分布在&lt;span class="math"&gt;\(\vec{x}\)&lt;/span&gt;所在空间中的各个数据点分配了一个“i适配度”，&lt;span class="math"&gt;\(\vec{x}^{\, T}\vec{w_i}\)&lt;/span&gt;越大的项“i适配度”也就越大，而w则是用来线性调整&lt;span class="math"&gt;\(\vec{x}\)&lt;/span&gt;的“权重”。到这里可能有人会问，我们已经有一个线性权重了，为什么还需要再套一层幂指数呢？由于一方面仅仅使用线性的权重，难以拟合一些比较复杂的函数;另一方面由于人类认知能力本来就是非线性的，例如给出两组数据，0.6与0.8; 0.7与0.9，问与1的一个“主观距离”，如果是我的话会觉得0.6、0.8一组距离1都“差着不少”;但0.9，就与0.7迥然不同，已经“非常接近”1了。而要让计算机理解这种“感觉”，我们可以巧妙地使用&lt;span class="math"&gt;\(e^0.6\)&lt;/span&gt;、&lt;span class="math"&gt;\(e^0.8\)&lt;/span&gt;和&lt;span class="math"&gt;\(e\)&lt;/span&gt;比较，再用&lt;span class="math"&gt;\(e^0.7\)&lt;/span&gt;、&lt;span class="math"&gt;\(e^0.9\)&lt;/span&gt;和&lt;span class="math"&gt;\(e\)&lt;/span&gt;比较，这样一来就可以直接使用数值差的绝对值来表示这种“感觉”，也就是把正分类和副分类的差距进一步拉大了。&lt;/p&gt;
+&lt;p&gt;再看分母，分母这个形式有个特定名称叫做“配分函数（Partition function）”，话说这个奇怪的名字我一直觉得就是为了符合音译而硬出来的…………它的作用是遍历加和所有&lt;span class="math"&gt;\(M\)&lt;/span&gt;个分类的“适配度”，看看分子所对应的第i个分类到底能不能在所有可能分类中“脱颖而出”。并且分母相当于一个正则化因子，它让所有的&lt;span class="math"&gt;\(P\)&lt;/span&gt;都能被真正视作一个“概率”，即&lt;span class="math"&gt;\(\forall i: 0&amp;lt;P(y=i|\vec{x})&amp;lt;1\)&lt;/span&gt;并且&lt;span class="math"&gt;\(\sum_{i=1}^{M}P(y=i|\vec{x})=1\)&lt;/span&gt;&lt;/p&gt;
 &lt;h2&gt;softmax的来历&lt;/h2&gt;
 &lt;p&gt;softmax函数源自物理系四大神课之《热力学与统计物理》（另外三门传说是《经典力学》《量子场论》和《电动力学》，排名不分先后）。里面有一种分布叫做Boltzman distribution，又名Gibbs distribution，它首先由奥地利物理学家路德维希&lt;code&gt;玻尔兹曼于1868年在研究统计物理学中气体热分布的时候提出，随后玻尔兹曼投入大量精力为自己的理论辩护，也因此与他在奥地利的同事交恶。即便如此，这位天才作为讲师在维也纳教授的物理学与哲学课程皆大受欢迎，在大学一度达到万人空巷的程度。但这也没能阻止躁郁症对这颗出色大脑的折磨，玻尔兹曼最终在1906年9月5日于度假中情绪失控，自缢身亡。在玻尔兹曼陨落后人们为了纪念他的卓越贡献，将著名的玻尔兹曼熵公式$S=k\dot ln W$刻在了他的墓碑上。在1902年，美国科学家约西亚&lt;/code&gt;威拉德`吉布斯与玻尔兹曼共同创立了统计力学理论，并将玻尔兹曼分布，或吉布斯分布进一步发扬光大。这一概率分部的式子长这样：&lt;/p&gt;
-&lt;p&gt;$$
+&lt;div class="math"&gt;$$
 P(\epsilon_i)=\frac{e^{-\frac{\epsilon_i}{k_b T}}}{\sum_{j}e^{-\frac{\epsilon}{k_b T}}}
-$$&lt;/p&gt;
+$$&lt;/div&gt;
 &lt;p&gt;其中：&lt;/p&gt;
-&lt;p&gt;$\epsilon_i$表示单个单元的能量，或指系综（系统的集合）能量的一种分布方式;&lt;/p&gt;
-&lt;p&gt;$k_b$是玻尔兹曼常数，$k_b=1.38064852(79)\times 10^{-23}JK^{-1}$;&lt;/p&gt;
-&lt;p&gt;$T$是热力学温标。&lt;/p&gt;
-&lt;p&gt;Boltzman分布有两种用途，一是用来描述在一个正则系综（即与大热池等温的若干系统的集合，系统之间没有粒子与能量交换）中，系统能量的分布为$\epsilon_i$的概率; 或者另一种用途，是描述一个等温体系下，测量出能量为$\epsilon_i$粒子的概率。&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(\epsilon_i\)&lt;/span&gt;表示单个单元的能量，或指系综（系统的集合）能量的一种分布方式;&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(k_b\)&lt;/span&gt;是玻尔兹曼常数，&lt;span class="math"&gt;\(k_b=1.38064852(79)\times 10^{-23}JK^{-1}\)&lt;/span&gt;;&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(T\)&lt;/span&gt;是热力学温标。&lt;/p&gt;
+&lt;p&gt;Boltzman分布有两种用途，一是用来描述在一个正则系综（即与大热池等温的若干系统的集合，系统之间没有粒子与能量交换）中，系统能量的分布为&lt;span class="math"&gt;\(\epsilon_i\)&lt;/span&gt;的概率; 或者另一种用途，是描述一个等温体系下，测量出能量为&lt;span class="math"&gt;\(\epsilon_i\)&lt;/span&gt;粒子的概率。&lt;/p&gt;
 &lt;p&gt;当初奥美两国两位巨匠为描述现实世界搭建的巧妙模型，时隔百年又重新站到了时代的前沿，就中波折难免令人唏嘘。&lt;/p&gt;
 &lt;h2&gt;softmax的性质&lt;/h2&gt;
 &lt;p&gt;小时候看大牛Matrix67的博客，他的“特例分析法”让人眼前一亮，就是把要研究的对象尽可能地加以约束，先放到直观能够“观看”的程度，同时尽可能地不损失对象的一般性，随后再用类似数学归纳的方法来引申出源对象的性质。作为67牛的脑残粉之一，我在分析softmax的时候也先观察它最特化的形式，即只有一个分类的时候，这时softmax退化到logit函数：&lt;/p&gt;
-&lt;p&gt;$$
+&lt;div class="math"&gt;$$
 P(y=1|x)=\frac{1}{1+e^{-xw+b}}
-$$&lt;/p&gt;
+$$&lt;/div&gt;
 &lt;p&gt;当w=-30,b=20的时候，函数图像为：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="logit function" src="/2017/logit.png"&gt;&lt;/p&gt;
-&lt;p&gt;左边部分分类为1的概率十分接近1，右边十分接近0,logit函数有两个参数来控制&lt;/p&gt;</content><category term="数学天地"></category><category term="数学"></category></entry><entry><title>caculus of variations（施工中）</title><link href="/2017/caculus-of-variationsshi-gong-zhong.html" rel="alternate"></link><published>2017-01-12T00:00:00+01:00</published><updated>2017-01-12T00:00:00+01:00</updated><author><name>韩光</name></author><id>tag:None,2017-01-12:/2017/caculus-of-variationsshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;泛函是个啥？&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="logit function" src="https://joshuaghost.github.io/2017/logit.png"&gt;&lt;/p&gt;
+&lt;p&gt;左边部分分类为1的概率十分接近1，右边十分接近0,logit函数有两个参数来控制&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="数学天地"></category><category term="数学"></category></entry><entry><title>caculus of variations（施工中）</title><link href="https://joshuaghost.github.io/2017/caculus-of-variationsshi-gong-zhong.html" rel="alternate"></link><published>2017-01-12T00:00:00+01:00</published><updated>2017-01-12T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2017-01-12:/2017/caculus-of-variationsshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;泛函是个啥？&lt;/h2&gt;
 &lt;p&gt;泛函就是函数的函数，还记得我们当初学函数的 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;泛函是个啥？&lt;/h2&gt;
 &lt;p&gt;泛函就是函数的函数，还记得我们当初学函数的时候，把函数比作一部机器，它的入料是一个变量，输出是一个函数值;而泛函这部“机器”，输入本身就是一部“机器”也就是函数，输出是泛函求值。用数学的语言讲，函数是一个映射：
-$$
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
 x_0\mapsto f(x_0)
-$$
+$$&lt;/div&gt;
+&lt;p&gt;
 其中x_0叫做自变量，而泛函则是一个如下映射：
-$$
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
 f\mapsto f(x_0)
-$$
-其中$$x_0$$是一个参数。&lt;/p&gt;
+$$&lt;/div&gt;
+&lt;p&gt;
+其中&lt;/p&gt;
+&lt;div class="math"&gt;$$x_0$$&lt;/div&gt;
+&lt;p&gt;是一个参数。&lt;/p&gt;
 &lt;h2&gt;变分法是个啥？&lt;/h2&gt;
 &lt;p&gt;既然泛函是一个函数到数的映射，那么有些时候我们会对这个输出的数的极值感兴趣，变分法，是对于泛函求极值的一种方法，通过使用未知函数的积分与微分构造泛函，用来求未知函数泛函的极值。历史上比较经典的例子比如最速降线问题，一个小球从一个弯轨道的一段下落滑到另一端，使用哪种形状的轨道所用时间最短。因为轨道的形状不确定，所以小球划过每一小段轨道所用的时间也就不确定，对一个不确定的轨道上的运行时间作积分，这就成为了一个泛函。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Brachistochrone" src="/2017/speedest-decent.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Brachistochrone" src="https://joshuaghost.github.io/2017/speedest-decent.jpeg"&gt;&lt;/p&gt;
 &lt;h2&gt;变分法怎么玩？&lt;/h2&gt;
-&lt;p&gt;对于某一特定函数$y=f(x)$，我们可以先构造它的泛函$J[y(x)]$，还是以最速降线为例，如果我们如下图建立坐标系，小球沿着轨道滑下：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Brachistochrone1" src="/2017/Brachistochrone1.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;记从A到B小球滑动的这段轨道长度为$ds$，根据勾股定理，我们可以求出$ds$的长度为
-$$
+&lt;p&gt;对于某一特定函数&lt;span class="math"&gt;\(y=f(x)\)&lt;/span&gt;，我们可以先构造它的泛函&lt;span class="math"&gt;\(J[y(x)]\)&lt;/span&gt;，还是以最速降线为例，如果我们如下图建立坐标系，小球沿着轨道滑下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Brachistochrone1" src="https://joshuaghost.github.io/2017/Brachistochrone1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;记从A到B小球滑动的这段轨道长度为&lt;span class="math"&gt;\(ds\)&lt;/span&gt;，根据勾股定理，我们可以求出&lt;span class="math"&gt;\(ds\)&lt;/span&gt;的长度为
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
 ds = \sqrt{(x_1-x_0)^2+(y(x_1)-y(x_0))^2}
-$$
-$$
+$$&lt;/div&gt;
+&lt;div class="math"&gt;$$
    = \sqrt{dx^2-dy^2}
-$$
-$$
+$$&lt;/div&gt;
+&lt;div class="math"&gt;$$
    = \sqrt{1-y'(x_0)}dx
-$$
-那么小球从$$ds$$“左边”到“右边”滑动的时候，它的速度我们可以近似视为
-$$
+$$&lt;/div&gt;
+&lt;p&gt;
+那么小球从&lt;/p&gt;
+&lt;div class="math"&gt;$$ds$$&lt;/div&gt;
+&lt;p&gt;“左边”到“右边”滑动的时候，它的速度我们可以近似视为
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
 \newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\bb}{\pi R}
 \newcommand{\bc}{\pi r}
-$$
-$$\frac{\partial A}{\partial t}$$&lt;/p&gt;
-&lt;p&gt;$$
+$$&lt;/div&gt;
+&lt;div class="math"&gt;$$\frac{\partial A}{\partial t}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$
 J(\theta) = \frac 1 2 \sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2
-$$&lt;/p&gt;
+$$&lt;/div&gt;
 &lt;p&gt;The God said:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Let there be light&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Thus:
-$$
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
 \nabla \cdot E = \frac{\rho}{\epsilon_0}
-$$
-$$
+$$&lt;/div&gt;
+&lt;div class="math"&gt;$$
 \nabla \cdot B =0
-$$
-$$
+$$&lt;/div&gt;
+&lt;div class="math"&gt;$$
 \nabla \times E = - \frac{\partial B}{\partial t}
-$$
-$$
+$$&lt;/div&gt;
+&lt;div class="math"&gt;$$
 \nabla \times B = \mu_0 J + \mu_0 \epsilon_0 \frac{\partial E}{\partial t}
-$$&lt;/p&gt;</content><category term="数学天地"></category><category term="数学"></category></entry></feed>
+$$&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="数学天地"></category><category term="数学"></category></entry></feed>
