@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Zijian's Hunting Cabin - 但求日新</title><link href="https://joshuaghost.github.io/" rel="alternate"></link><link href="https://joshuaghost.github.io/feeds/dan-qiu-ri-xin.atom.xml" rel="self"></link><id>https://joshuaghost.github.io/</id><updated>2023-08-27T00:00:00+02:00</updated><entry><title>python并发编程</title><link href="https://joshuaghost.github.io/2023/pythonbing-fa-bian-cheng.html" rel="alternate"></link><published>2023-08-27T00:00:00+02:00</published><updated>2023-08-27T00:00:00+02:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2023-08-27:/2023/pythonbing-fa-bian-cheng.html</id><summary type="html">&lt;h2&gt;multithreading, threads, asyncio&lt;/h2&gt;
-&lt;p&gt;Status: python&lt;/p&gt;
-&lt;h2&gt;asyncio，threading和multiprocessing之间的区别与联系&lt;/h2&gt;
-&lt;p&gt;参考资料: &lt;a href="https://medium.com/analytics-vidhya/asyncio-threading-and-multiprocessing-in-python-4f5ff6ca75e8"&gt;https://medium.com/analytics-vidhya/asyncio-threading-and-multiprocessing-in-python-4f5ff6ca75e8&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;TBD&lt;/p&gt;
-&lt;h2&gt;整理自领英文章&lt;a href="https://www.linkedin.com/advice/0/how-can-you-succeed-parallel-programming-skills-computer-science?utm_source=share&amp;amp;utm_medium=member_android&amp;amp;utm_campaign=share_via"&gt;How …&lt;/a&gt;&lt;/h2&gt;</summary><content type="html">&lt;h2&gt;multithreading, threads, asyncio&lt;/h2&gt;
-&lt;p&gt;Status: python&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ghost@Hunter's Dream - 但求日新</title><link href="https://joshuaghost.github.io/" rel="alternate"></link><link href="https://joshuaghost.github.io/feeds/dan-qiu-ri-xin.atom.xml" rel="self"></link><id>https://joshuaghost.github.io/</id><updated>2023-08-27T00:00:00+02:00</updated><entry><title>python并发编程</title><link href="https://joshuaghost.github.io/2023/pythonbing-fa-bian-cheng.html" rel="alternate"></link><published>2023-08-27T00:00:00+02:00</published><updated>2023-08-27T00:00:00+02:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2023-08-27:/2023/pythonbing-fa-bian-cheng.html</id><summary type="html">&lt;p&gt;最近在面试中接触到了许多python并发编程的知识，发现自己在这方向一直是个 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近在面试中接触到了许多python并发编程的知识，发现自己在这方向一直是个短板。&lt;/p&gt;
+&lt;p&gt;于是痛定思痛痛改前非痛得飞起一定要学习到底怎么搞python并发，于是有了这篇学习笔记性质的东西。&lt;/p&gt;
+&lt;p&gt;虽然python有着类似GIL等限制，它的threading等模块不一定能够达到很好的并发效果。&lt;/p&gt;
+&lt;p&gt;但是以点带面，通过这个简单又流行的语言接触一下不同的并发模型，也是极好的，还是要学习一个。&lt;/p&gt;
 &lt;h2&gt;asyncio，threading和multiprocessing之间的区别与联系&lt;/h2&gt;
 &lt;p&gt;参考资料: &lt;a href="https://medium.com/analytics-vidhya/asyncio-threading-and-multiprocessing-in-python-4f5ff6ca75e8"&gt;https://medium.com/analytics-vidhya/asyncio-threading-and-multiprocessing-in-python-4f5ff6ca75e8&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;TBD&lt;/p&gt;
@@ -263,12 +260,10 @@
 
 &lt;h2&gt;优先队列（数据结构那个堆）、LIFO队列（栈）&lt;/h2&gt;
 &lt;p&gt;参考：&lt;a href="https://www.cnblogs.com/traditional/p/17398542.html"&gt;https://www.cnblogs.com/traditional/p/17398542.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;TBD&lt;/p&gt;</content><category term="但求日新"></category></entry><entry><title>Qt6学习笔记</title><link href="https://joshuaghost.github.io/2022/qt6xue-xi-bi-ji.html" rel="alternate"></link><published>2022-12-23T00:00:00+01:00</published><updated>2022-12-23T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2022-12-23:/2022/qt6xue-xi-bi-ji.html</id><summary type="html">&lt;h2&gt;1&lt;/h2&gt;
-&lt;p&gt;main window的三种基类：
-QMainWindow有toolbar
-QWidget和QDialog是没有toolbar的&lt;/p&gt;
-&lt;h2&gt;2&lt;/h2&gt;
-&lt;p&gt;cpp的explicit标识符，如果写了，就表示这个类是explicit的，否则就叫一个 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;1&lt;/h2&gt;
+&lt;p&gt;TBD&lt;/p&gt;</content><category term="但求日新"></category></entry><entry><title>Qt6学习笔记</title><link href="https://joshuaghost.github.io/2022/qt6xue-xi-bi-ji.html" rel="alternate"></link><published>2022-12-23T00:00:00+01:00</published><updated>2022-12-23T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2022-12-23:/2022/qt6xue-xi-bi-ji.html</id><summary type="html">&lt;p&gt;QT6作为一款看上去还挺漂亮的前端框架，实在是出门旅行居家必备之良品。&lt;/p&gt;
+&lt;p&gt;本Ghost也不能免俗，于是来和大家一起 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;QT6作为一款看上去还挺漂亮的前端框架，实在是出门旅行居家必备之良品。&lt;/p&gt;
+&lt;p&gt;本Ghost也不能免俗，于是来和大家一起学习一下这玩意到底有何奥秘。&lt;/p&gt;
+&lt;h2&gt;1&lt;/h2&gt;
 &lt;p&gt;main window的三种基类：
 QMainWindow有toolbar
 QWidget和QDialog是没有toolbar的&lt;/p&gt;

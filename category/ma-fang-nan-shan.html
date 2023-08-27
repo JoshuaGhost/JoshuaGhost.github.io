@@ -56,11 +56,11 @@
                         <li><label>Categories</label></li>
                             <li ><a href="https://joshuaghost.github.io/category/an-du-lao-xing.html">案牍劳形</a></li>
                             <li ><a href="https://joshuaghost.github.io/category/ao-you-kai-yuan.html">遨游开源</a></li>
-                            <li class="active"><a href="https://joshuaghost.github.io/category/dan-qiu-ri-xin.html">但求日新</a></li>
+                            <li ><a href="https://joshuaghost.github.io/category/dan-qiu-ri-xin.html">但求日新</a></li>
                             <li ><a href="https://joshuaghost.github.io/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
                             <li ><a href="https://joshuaghost.github.io/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
                             <li ><a href="https://joshuaghost.github.io/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
-                            <li ><a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a></li>
+                            <li class="active"><a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a></li>
                             <li ><a href="https://joshuaghost.github.io/category/nue-mao-kuang-mo.html">虐猫狂魔</a></li>
                             <li ><a href="https://joshuaghost.github.io/category/pi-jian-zhi-rui.html">披坚执锐</a></li>
                             <li ><a href="https://joshuaghost.github.io/category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
@@ -98,11 +98,11 @@
                         <ul class="left">
                                 <li ><a href="https://joshuaghost.github.io/category/an-du-lao-xing.html">案牍劳形</a></li>
                                 <li ><a href="https://joshuaghost.github.io/category/ao-you-kai-yuan.html">遨游开源</a></li>
-                                <li class="active"><a href="https://joshuaghost.github.io/category/dan-qiu-ri-xin.html">但求日新</a></li>
+                                <li ><a href="https://joshuaghost.github.io/category/dan-qiu-ri-xin.html">但求日新</a></li>
                                 <li ><a href="https://joshuaghost.github.io/category/feng-chui-piao-xu.html">风吹飘絮</a></li>
                                 <li ><a href="https://joshuaghost.github.io/category/jia-hai-fu-chen.html">贾海浮沉</a></li>
                                 <li ><a href="https://joshuaghost.github.io/category/jie-sheng-ke-shi.html">结绳刻石</a></li>
-                                <li ><a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a></li>
+                                <li class="active"><a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a></li>
                                 <li ><a href="https://joshuaghost.github.io/category/nue-mao-kuang-mo.html">虐猫狂魔</a></li>
                                 <li ><a href="https://joshuaghost.github.io/category/pi-jian-zhi-rui.html">披坚执锐</a></li>
                                 <li ><a href="https://joshuaghost.github.io/category/qian-tan-shi-bei.html">浅滩拾贝</a></li>
@@ -125,292 +125,228 @@
                     <div class="row">
                         <!-- Main Content -->
                         <div class="medium-9 small-12 columns" role="content">
-<article>
-	<h2>python并发编程</h2>
-	<p>最近在面试中接触到了许多python并发编程的知识，发现自己在这方向一直是个短板。</p>
-<p>于是痛定思痛痛改前非痛得飞起一定要学习到底怎么搞python并发，于是有了这篇学习笔记性质的东西。</p>
-<p>虽然python有着类似GIL等限制，它的threading等模块不一定能够达到很好的并发效果。</p>
-<p>但是以点带面，通过这个简单又流行的语言接触一下不同的并发模型，也是极好的，还是要学习一个。</p>
-<h2>asyncio，threading和multiprocessing之间的区别与联系</h2>
-<p>参考资料: <a href="https://medium.com/analytics-vidhya/asyncio-threading-and-multiprocessing-in-python-4f5ff6ca75e8">https://medium.com/analytics-vidhya/asyncio-threading-and-multiprocessing-in-python-4f5ff6ca75e8</a></p>
-<p>TBD</p>
-<h2>整理自领英文章<a href="https://www.linkedin.com/advice/0/how-can-you-succeed-parallel-programming-skills-computer-science?utm_source=share&amp;utm_medium=member_android&amp;utm_campaign=share_via">How can you succeed with parallel programming？</a></h2>
-<p>并行化的不同paradigm</p>
-<ul>
-<li>shared memory</li>
-<li>
-<ul>
-<li>容易实现</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>竞态条件</li>
-</ul>
-</li>
-<li>message passing</li>
-<li>
-<ul>
-<li>可以scalable</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>需要更多coordination（design and coordination overhead）</li>
-</ul>
-</li>
-<li>data parallel</li>
-<li>task parallel</li>
-<li>functional parallel</li>
-</ul>
-<p>不同的tools</p>
-<p>OpenMPI， MPI， CUDA， Spark</p>
-<h2>为啥要用Asyncio</h2>
-<p>threading和multiprocessing都有各自的限制：</p>
-<ul>
-<li>threading受GIL限制。GIL每次只让一个线程执行。但执行 I/O（例如文件、套接字和外围设备）时，会释放此锁(https://superfastpython.com/asyncio-vs-threading/)，所以所以搞IO密集型的程序的时候用threading比较好</li>
-<li>multiprocessing受操作系统最大进程数限制，所以搞CPU密集型的时候用multiprocessing</li>
-<li>asyncio是python3.4之后的新模块，支持异步处理，单线程但是允许多处移交控制权（比如在等待IO之类的时候）。因为是单线程所以对于CPU密集型的程序并不会提升效率，但对于IO密集型的程序不受GIL限制。而且asyncio的协程本质上是函数，所以它是一个轻量级的并发模型</li>
-</ul>
-<h2>最简单的例子：coroutine + Task</h2>
-<p>asyncio协程函数是用async描述的“函数”，这里我之所以用引号引起来“函数”，是因为这个“函数”其实已经被async变成了一个coroutine对象。</p>
-<p>这种coroutine对象在代码调用的时候前面加上await关键字来“等待式”调用，即当前位置需要等待await后的操作完成后才能往下走，而不是直接叫出控制权。async-await有传染性，即await调用了async函数的函数也是一个协程。</p>
-<p>协程函数可以被asyncio.run()激活，还可以用多个coroutine组合起来交给asyncio.gather函数并发执行</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">task_coro</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The task is running&quot;</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The task is done&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="s2">&quot;the answer is 42&quot;</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="kn">import</span> <span class="nn">time</span>
-    <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-    <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">task_coro</span><span class="p">())</span>
-    <span class="c1"># 注意task在这里就已经开始执行了，因为asyncio.create_task()本身就会安排</span>
-    <span class="c1"># 里面的协程尽快运行</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The main is running&quot;</span><span class="p">)</span>
-    <span class="c1"># 这里的await和上面的task是并发执行的</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;before await for task&quot;</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">task</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">tic</span><span class="p">)</span>
-    <span class="c1"># 这里输出的经过时间应该在两秒左右，而不是4秒，这是因为</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;after await for task&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;got: </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-
-<h2>Future</h2>
-<p>await可以作用在三种awaitable对象上：coroutine，Task和Future，其中coroutine就是上面定义的async def函数，Task就是asyncio.create_task()升沉的Task，Future是比较基础的类，并不需要用户手工定义，但其实下边的gather生成的是Future：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">asyncio</span>
-
-<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">task_coro_1</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Task </span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2"> done after </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">arg</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">coros</span> <span class="o">=</span> <span class="p">[</span><span class="n">task_coro_1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">coros</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-    <span class="c1"># gather函数返回一个Future对象，接受多个awaitables（可变长参数，</span>
-    <span class="c1"># 所以这里用iterable comprehension）</span>
-    <span class="c1"># await是一种阻塞式调用，所以这里的gather函数会等待所有的coroutine执行完毕</span>
-    <span class="c1"># 如果这里不加await，并且之后没有其它耗时操作，那么gather函数就会抛出</span>
-    <span class="c1"># cancelledError异常。因为时间不够，各个coroutine还没有执行完毕，</span>
-    <span class="c1"># 就被main函数结束了</span>
-    <span class="c1"># 如果这里不加await，但是之后还有其它耗时操作，那么gather函数创建的</span>
-    <span class="c1"># Future也是有可能完成的，也就是说如果main的流程足够长，以至于最长的</span>
-    <span class="c1"># coroutine都完成了，也是可以gather到全部结果的。</span>
-    <span class="c1"># 所以这里有两种写法：</span>
-    <span class="c1"># 1.</span>
-    <span class="c1"># ret = await asyncio.gather(*coros)</span>
-    <span class="c1"># 2.</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">coros</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">LONG_ENOUGH_TIME</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ret</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">()))</span>
-<span class="c1">## 结果是[0,1,2,3,4,5,6,7,8,9]，即gather的返回值是按照调用时候的参数顺序排列的</span>
-<span class="c1">## 但task_coro_1协程中的print则是按照对应协程await asnco.sleep的时长从短到长</span>
-<span class="c1">## 输出的</span>
-</code></pre></div>
-
-<h2>asyncio.wait premitive</h2>
-<p>wait premitive可以指定一系列tasks返回的条件，我们可以先定义一个iterable的Task（s），再用asyncio.wait指定这些tasks满足什么条件的时候（比如超时、有一个协程完成、有一个协程抛出异常，所有协程都完成了）暂停各协程的执行，并把完成的协程（done）和执行到一半的协程（pending）分别返回出来。</p>
-<p>done和pending都是set()</p>
-<p>wait在因为超时而返回的时候，<a href="https://docs.python.org/3/library/asyncio-task.html#waiting-primitives">并不会抛出TimeoutError错误</a>，而是把还没来得及完成的任务返到pending中</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">task_coro</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">arg</span> <span class="o">*</span> <span class="n">value</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">task_coro</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
-    <span class="c1"># return_when表示返回条件，</span>
-    <span class="c1"># 默认是all_completed（asyncio.ALL_COMPLETED），表示所有的coroutine</span>
-    <span class="c1"># 都完成之后才返回。这里指定为FIRST_COMPLETED，表示只要有一个coroutine</span>
-    <span class="c1"># 完成了，就返回</span>
-    <span class="n">done</span><span class="p">,</span> <span class="n">pending</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span>
-        <span class="n">tasks</span><span class="p">,</span>
-        <span class="n">return_when</span><span class="o">=</span><span class="n">asyncio</span><span class="o">.</span><span class="n">FIRST_COMPLETED</span>
-    <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">done</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">pending</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">done</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">pending</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-    <span class="n">task</span> <span class="o">=</span> <span class="n">done</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First finished task got: </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="c1"># 其它在pending的task还是可以通过await继续执行的</span>
-    <span class="n">task</span> <span class="o">=</span> <span class="n">pending</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">task</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;one of the unfinished coro got: </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-
-<h2>按照完成顺序返回</h2>
-<p>asyncio.as_completed可以让一串tasks按照完成顺序返回</p>
-<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">task_coro</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">10</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="c1"># 这会导致caller里面的await关键字抛出一个异常</span>
-    <span class="c1"># if value &gt; 5:</span>
-    <span class="c1">#     raise ValueError(f&quot;Boom from {arg}&quot;)</span>
-    <span class="k">return</span> <span class="n">arg</span> <span class="o">*</span> <span class="n">value</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">task_coro</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
-    <span class="c1"># 这里的for是让tasks按照完成的顺序返回，如果超时了就抛出TimeOutError</span>
-    <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">as_completed</span><span class="p">(</span><span class="n">tasks</span><span class="p">):</span>
-        <span class="c1"># 这里必须await</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&gt; got result: </span><span class="si">{</span><span class="n">result</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-
-<h2>生产者-消费者-队列模型：</h2>
-<p>asyncio提供了一个与<a href="https://docs.python.org/3/library/queue.html">synchronized queue</a>对应的异步queue，我们可以用它来实现异步生产者-消费者模型</p>
-<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">producer</span><span class="p">(</span><span class="n">queue</span><span class="p">):</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="c1"># 这里也需要写queue.task_done(),因为task_done()一般是用在consumer里面的</span>
-    <span class="c1"># 它的功能是,对应producer put进来的所有元素,consumer get一个,就调用一次</span>
-    <span class="c1"># task_done()。最后task_done(注意不是get的次数)和put的次数相等的时候，</span>
-    <span class="c1"># queue.join()才会停止阻塞</span>
-
-    <span class="c1"># 用task_done和join的时候,一般是快速生产,慢速消费的场景。这样在完成之前队列</span>
-    <span class="c1"># 里面一直有元素,即里面未完成的元素一直大于0，所以join()直到所有元素都被消耗</span>
-    <span class="c1"># 完之前一直会block当前函数。</span>
-
-    <span class="c1"># 而慢速生产快速消费的情况不能用join判断，因为生产的速度慢，所以在消费完之前，</span>
-    <span class="c1"># 队列里面的元素就会消耗殆尽，这时候join()就会停止block当前函数。但是实际上</span>
-    <span class="c1"># 这时生产可能还没有完成。</span>
-    <span class="c1"># 所以这种情况可以用特殊标记标识生产完成,比如await queue.put(None)（如下</span>
-    <span class="c1"># 一组producer-consumer样例代码所示）</span>
-    <span class="c1"># 参考文献:</span>
-    <span class="c1"># [1] https://docs.python.org/3/library/asyncio-queue.html#asyncio.Queue.task_done</span>
-    <span class="c1"># [2] https://www.vuln.cn/8610</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Producer: </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">value</span> <span class="o">*</span> <span class="mi">10</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">consumer</span><span class="p">():</span>
-    <span class="n">queue</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
-    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">producer</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
-    <span class="c1"># 这里其实不用await queue.join(),因为join()只是等待queue中的所有元素都被加入</span>
-    <span class="c1"># 了，但我们这里的as_completed并不care是否*所有*的元素都被加入了,按照完成顺序</span>
-    <span class="c1"># 返回，而coroutine每完成一个，就相当于队列里多了一个元素，就可以用下边的</span>
-    <span class="c1"># await queue.get()</span>
-    <span class="c1"># 来取元素了。</span>
-    <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">as_completed</span><span class="p">(</span><span class="n">tasks</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;queue element: </span><span class="si">{</span><span class="k">await</span><span class="w"> </span><span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Consumer: </span><span class="si">{</span><span class="n">ret</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">consumer</span><span class="p">())</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">producer</span><span class="p">(</span><span class="n">queue</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Producer: running&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="c1"># queue put(get)还有对应的non-waiting方法put_nowait(get_nowait)，</span>
-        <span class="c1"># 非阻塞，直接放入（取走）元素，而不用写await等待</span>
-        <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Producer: Done&quot;</span><span class="p">)</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">consumer</span><span class="p">():</span>
-    <span class="n">queue</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
-    <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">producer</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">break</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Consumer: </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">consumer</span><span class="p">())</span>
-</code></pre></div>
-
-<h2>实践操作，使用async.open_onnection来异步下载页面</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;www.google.com&quot;</span><span class="p">,</span> <span class="mi">443</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span>
-    <span class="n">reader</span><span class="p">,</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">open_connection</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1"># 上面只是阻塞性地建立了连接，下面才是真正的发送数据</span>
-    <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GET </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> HTTP/1.0</span><span class="se">\r\n</span><span class="s2">Host: </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span>
-    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-    <span class="k">await</span> <span class="n">writer</span><span class="o">.</span><span class="n">drain</span><span class="p">()</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-    <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
-    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-
-<h2>优先队列（数据结构那个堆）、LIFO队列（栈）</h2>
-<p>参考：<a href="https://www.cnblogs.com/traditional/p/17398542.html">https://www.cnblogs.com/traditional/p/17398542.html</a></p>
-<p>TBD</p>
-	<hr/>
-	<h6>Written by <a href="https://joshuaghost.github.io/author/zhang,-zijian.html">Zhang, Zijian</a> in <a href="https://joshuaghost.github.io/category/dan-qiu-ri-xin.html">但求日新</a> on 日 27 八月 2023.</h6>
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <h2>Category: 马放南山</h2>
+                                </div>
+                            </div>
+   <article>
+  <h3><a href="https://joshuaghost.github.io/2022/hong-hei-shu-fu-xi.html">红黑树复习</a></h3>
+  <h6>
+    Written by
+    <a
+      href="https://joshuaghost.github.io/author/zhang-zijian.html"
+      >Zhang, Zijian</a
+    >
+in
+    <a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a>
+on 六 17 十二月 2022.  </h6>
+  <p>亲爱的朋友，你在幼儿园小班学习《算法导论》的时候，是否有过 …</p>    <p class="continue">
+    <a href="https://joshuaghost.github.io/2022/hong-hei-shu-fu-xi.html">Continue reading &raquo;</a>
+  </p>
 </article>
-
-<hr/>
-<div class="row">
-	<div class="small-12 columns">
-		<h3>Comments</h3>
-		<div id="disqus_thread"></div>
-		<script type="text/javascript">
-			var disqus_shortname = 'joshuaghost';
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-	</div>
-</div>
-                        </div>
+<hr />
+<article>
+  <h3><a href="https://joshuaghost.github.io/2022/ting-ghostjiang-na-xiong-ya-li-suan-fa-de-shi-qing.html">听ghost讲那匈牙利算法的事情</a></h3>
+  <h6>
+    Written by
+    <a
+      href="https://joshuaghost.github.io/author/zhang-zijian.html"
+      >Zhang, Zijian</a
+    >
+in
+    <a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a>
+on 六 17 十二月 2022.  </h6>
+  <p>具体的不用解释了吧，就是匈牙利算法，做二分图匹配用的。粘 …</p>    <p class="continue">
+    <a href="https://joshuaghost.github.io/2022/ting-ghostjiang-na-xiong-ya-li-suan-fa-de-shi-qing.html">Continue reading &raquo;</a>
+  </p>
+</article>
+<hr />
+<article>
+  <h3><a href="https://joshuaghost.github.io/2011/ting-ghostjiang-na-oide-shi-qing.html">听ghost讲那oi的事情</a></h3>
+  <h6>
+    Written by
+    <a
+      href="https://joshuaghost.github.io/author/zhang-zijian.html"
+      >Zhang, Zijian</a
+    >
+in
+    <a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a>
+on 二 01 二月 2011.    Tags: <a href="https://joshuaghost.github.io/tag/noip.html"
+      >NOIP</a
+    >,   </h6>
+  <p>本人，Joshua Ghost，乃一早就退役的信息学竞赛老鸟是也，本来三次考 …</p>    <p class="continue">
+    <a href="https://joshuaghost.github.io/2011/ting-ghostjiang-na-oide-shi-qing.html">Continue reading &raquo;</a>
+  </p>
+</article>
+<hr />
+<article>
+  <h3><a href="https://joshuaghost.github.io/2011/ting-ghostjiang-na-zui-duan-lu-de-shi-qing-zhi-dijkstrasuan-fa.html">听ghost讲那最短路的事情之dijkstra算法</a></h3>
+  <h6>
+    Written by
+    <a
+      href="https://joshuaghost.github.io/author/zhang-zijian.html"
+      >Zhang, Zijian</a
+    >
+in
+    <a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a>
+on 二 01 二月 2011.    Tags: <a href="https://joshuaghost.github.io/tag/noip.html"
+      >NOIP</a
+    >, <a href="https://joshuaghost.github.io/tag/zui-duan-lu.html"
+      >最短路</a
+    >, <a href="https://joshuaghost.github.io/tag/suan-fa.html"
+      >算法</a
+    >, <a href="https://joshuaghost.github.io/tag/dijkstra.html"
+      >Dijkstra</a
+    >,   </h6>
+  <p>图论中的最短路算法，应该是每个进入图论的oier的入门课吧，虽然可能讲 …</p>    <p class="continue">
+    <a href="https://joshuaghost.github.io/2011/ting-ghostjiang-na-zui-duan-lu-de-shi-qing-zhi-dijkstrasuan-fa.html">Continue reading &raquo;</a>
+  </p>
+</article>
+<hr />
+<article>
+  <h3><a href="https://joshuaghost.github.io/2009/kuo-zhan-kmp.html">扩展kmp</a></h3>
+  <h6>
+    Written by
+    <a
+      href="https://joshuaghost.github.io/author/zhang-zijian.html"
+      >Zhang, Zijian</a
+    >
+in
+    <a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a>
+on 三 28 十月 2009.    Tags: <a href="https://joshuaghost.github.io/tag/noip.html"
+      >NOIP</a
+    >, <a href="https://joshuaghost.github.io/tag/suan-fa.html"
+      >算法</a
+    >, <a href="https://joshuaghost.github.io/tag/kmp.html"
+      >KMP</a
+    >, <a href="https://joshuaghost.github.io/tag/extended-kmp.html"
+      >Extended KMP</a
+    >,   </h6>
+  <p>教程的话……我理解了以后会发上来的……</p>
+<div class="highlight"><pre><span></span><code><span class="k">program</span><span class="w"> </span><span class="n">extended_kmp</span><span class="p">(</span><span class="n">input</span><span class="o">,</span><span class="n">output</span><span class="p">)</span><span class="o">;</span><span class="w"> </span>
+<span class="k">var</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">max</span><span class="o">,</span><span class="nb">now</span><span class="o">,</span><span class="n">x</span><span class="o">,</span><span class="n">i</span><span class="o">,</span><span class="n">j …</span></code></pre></div>    <p class="continue">
+    <a href="https://joshuaghost.github.io/2009/kuo-zhan-kmp.html">Continue reading &raquo;</a>
+  </p>
+</article>
+<hr />
+<article>
+  <h3><a href="https://joshuaghost.github.io/2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html">听ghost讲那字典树（trie）与AC自动机的事情</a></h3>
+  <h6>
+    Written by
+    <a
+      href="https://joshuaghost.github.io/author/zhang-zijian.html"
+      >Zhang, Zijian</a
+    >
+in
+    <a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a>
+on 五 09 十月 2009.    Tags: <a href="https://joshuaghost.github.io/tag/noip.html"
+      >NOIP</a
+    >, <a href="https://joshuaghost.github.io/tag/shu-ju-jie-gou.html"
+      >数据结构</a
+    >, <a href="https://joshuaghost.github.io/tag/zi-dong-ji.html"
+      >自动机</a
+    >,   </h6>
+  <p>吐个槽先：名字好长！为什么那么长！保持用一格式就那么重要 …</p>    <p class="continue">
+    <a href="https://joshuaghost.github.io/2009/ting-ghostjiang-na-zi-dian-shu-trieyu-aczi-dong-ji-de-shi-qing.html">Continue reading &raquo;</a>
+  </p>
+</article>
+<hr />
+<article>
+  <h3><a href="https://joshuaghost.github.io/2009/zoj1013.html">zoj1013</a></h3>
+  <h6>
+    Written by
+    <a
+      href="https://joshuaghost.github.io/author/zhang-zijian.html"
+      >Zhang, Zijian</a
+    >
+in
+    <a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a>
+on 日 06 九月 2009.    Tags: <a href="https://joshuaghost.github.io/tag/noip.html"
+      >NOIP</a
+    >, <a href="https://joshuaghost.github.io/tag/zoj.html"
+      >ZOJ</a
+    >, <a href="https://joshuaghost.github.io/tag/fan-yi.html"
+      >翻译</a
+    >,   </h6>
+  <p>哈哈，第二道题的翻译……寂寞……新鲜出炉了！</p>
+<p>改了一些题目背景，但 …</p>    <p class="continue">
+    <a href="https://joshuaghost.github.io/2009/zoj1013.html">Continue reading &raquo;</a>
+  </p>
+</article>
+<hr />
+<article>
+  <h3><a href="https://joshuaghost.github.io/2009/zoj1011.html">zoj1011</a></h3>
+  <h6>
+    Written by
+    <a
+      href="https://joshuaghost.github.io/author/zhang-zijian.html"
+      >Zhang, Zijian</a
+    >
+in
+    <a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a>
+on 六 05 九月 2009.    Tags: <a href="https://joshuaghost.github.io/tag/noip.html"
+      >NOIP</a
+    >, <a href="https://joshuaghost.github.io/tag/zoj.html"
+      >ZOJ</a
+    >, <a href="https://joshuaghost.github.io/tag/fan-yi.html"
+      >翻译</a
+    >,   </h6>
+  <p>老师让做zoj1011上的题，苦于那里都是英文题目，有的大牛用在线翻译站 …</p>    <p class="continue">
+    <a href="https://joshuaghost.github.io/2009/zoj1011.html">Continue reading &raquo;</a>
+  </p>
+</article>
+<hr />
+<article>
+  <h3><a href="https://joshuaghost.github.io/2009/ting-ghostjiang-na-kmpsuan-fa-de-shi-qing.html">听ghost讲那kmp算法的事情</a></h3>
+  <h6>
+    Written by
+    <a
+      href="https://joshuaghost.github.io/author/zhang-zijian.html"
+      >Zhang, Zijian</a
+    >
+in
+    <a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a>
+on 四 03 九月 2009.    Tags: <a href="https://joshuaghost.github.io/tag/noip.html"
+      >NOIP</a
+    >, <a href="https://joshuaghost.github.io/tag/suan-fa.html"
+      >算法</a
+    >, <a href="https://joshuaghost.github.io/tag/kmp.html"
+      >KMP</a
+    >,   </h6>
+  <p>传说中的kmp算法，快速模式匹配，程序源代码如下：</p>
+<div class="highlight"><pre><span></span><code><span class="k">program</span><span class="w"> </span><span class="n">match</span><span class="p">(</span><span class="n">input</span><span class="o">,</span><span class="n">output</span><span class="p">)</span><span class="o">;</span>
+<span class="k">var</span>
+<span class="w">    </span><span class="n">i</span><span class="o">,</span><span class="n">j …</span></code></pre></div>    <p class="continue">
+    <a href="https://joshuaghost.github.io/2009/ting-ghostjiang-na-kmpsuan-fa-de-shi-qing.html">Continue reading &raquo;</a>
+  </p>
+</article>
+<hr />
+<article>
+  <h3><a href="https://joshuaghost.github.io/2009/ting-ghostjiang-guan-yu-shu-xing-dong-tai-gui-hua-de-yi-dian-xiao-jing-yan.html">听ghost讲关于树型动态规划的一点小经验</a></h3>
+  <h6>
+    Written by
+    <a
+      href="https://joshuaghost.github.io/author/zhang-zijian.html"
+      >Zhang, Zijian</a
+    >
+in
+    <a href="https://joshuaghost.github.io/category/ma-fang-nan-shan.html">马放南山</a>
+on 日 14 六月 2009.    Tags: <a href="https://joshuaghost.github.io/tag/noip.html"
+      >NOIP</a
+    >, <a href="https://joshuaghost.github.io/tag/dong-tai-gui-hua.html"
+      >动态规划</a
+    >, <a href="https://joshuaghost.github.io/tag/shu-xing-dong-gui.html"
+      >树型动归</a
+    >,   </h6>
+  <h2>1.</h2>
+<p>To 自底向顶 or 自顶向底.This is a question.两种不同的动规方法，应 …</p>    <p class="continue">
+    <a href="https://joshuaghost.github.io/2009/ting-ghostjiang-guan-yu-shu-xing-dong-tai-gui-hua-de-yi-dian-xiao-jing-yan.html">Continue reading &raquo;</a>
+  </p>
+</article>
+<hr />
+                            </div>
                         <!-- End Main Content -->
                         <!-- Sidebar -->
                         <aside class="medium-3 hide-for-small-only columns">

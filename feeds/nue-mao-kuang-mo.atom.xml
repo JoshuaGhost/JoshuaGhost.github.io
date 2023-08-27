@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Zijian's Hunting Cabin - 虐猫狂魔</title><link href="https://joshuaghost.github.io/" rel="alternate"></link><link href="https://joshuaghost.github.io/feeds/nue-mao-kuang-mo.atom.xml" rel="self"></link><id>https://joshuaghost.github.io/</id><updated>2022-12-25T00:00:00+01:00</updated><entry><title>分析力学笔记</title><link href="https://joshuaghost.github.io/2022/fen-xi-li-xue-bi-ji.html" rel="alternate"></link><published>2022-12-25T00:00:00+01:00</published><updated>2022-12-25T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2022-12-25:/2022/fen-xi-li-xue-bi-ji.html</id><summary type="html">&lt;h2&gt;广义坐标&lt;/h2&gt;
-&lt;p&gt;任意选择的（最好是相互独立的），符合约束条件的能 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;广义坐标&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ghost@Hunter's Dream - 虐猫狂魔</title><link href="https://joshuaghost.github.io/" rel="alternate"></link><link href="https://joshuaghost.github.io/feeds/nue-mao-kuang-mo.atom.xml" rel="self"></link><id>https://joshuaghost.github.io/</id><updated>2022-12-25T00:00:00+01:00</updated><entry><title>分析力学笔记</title><link href="https://joshuaghost.github.io/2022/fen-xi-li-xue-bi-ji.html" rel="alternate"></link><published>2022-12-25T00:00:00+01:00</published><updated>2022-12-25T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2022-12-25:/2022/fen-xi-li-xue-bi-ji.html</id><summary type="html">&lt;p&gt;我们在幼儿园中班的时候，曾经学过以牛顿三大定律为代表 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;我们在幼儿园中班的时候，曾经学过以牛顿三大定律为代表的古典力学/运动学。&lt;/p&gt;
+&lt;p&gt;那么我们迎来幼儿园毕业的时候，理应掌握一些近代分析力学知识，以应付小学一年级的日常生活。&lt;/p&gt;
+&lt;h2&gt;广义坐标&lt;/h2&gt;
 &lt;p&gt;任意选择的（最好是相互独立的），符合约束条件的能够描述物理系统运动的几个参数&lt;span class="math"&gt;\(q_i\)&lt;/span&gt;，广义坐标与时间&lt;span class="math"&gt;\(t\)&lt;/span&gt;共同表达物体运动的位矢&lt;span class="math"&gt;\(\mathbf{r}=\mathbf{r}(q_1,q_2,\dots,q_m,t)\)&lt;/span&gt;（此时系统自由度为m）&lt;/p&gt;
 &lt;p&gt;经典例子为双摆的两个摆臂与铅垂线夹角&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/分析力学笔记/Untitled.png"&gt;&lt;/p&gt;
@@ -99,20 +100,7 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="虐猫狂魔"></category><category term="物理"></category><category term="自学"></category><category term="分析力学"></category></entry><entry><title>现代战机为什么要用双垂尾</title><link href="https://joshuaghost.github.io/2022/xian-dai-zhan-ji-wei-shi-yao-yao-yong-shuang-chui-wei.html" rel="alternate"></link><published>2022-12-25T00:00:00+01:00</published><updated>2022-12-25T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2022-12-25:/2022/xian-dai-zhan-ji-wei-shi-yao-yao-yong-shuang-chui-wei.html</id><summary type="html">&lt;h2&gt;现代战机为什么要用双垂尾&lt;/h2&gt;
-&lt;p&gt;二战飞机多为单垂尾，高垂尾以 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;现代战机为什么要用双垂尾&lt;/h2&gt;
-&lt;p&gt;二战飞机多为单垂尾，高垂尾以提供足够的偏航力矩。二战后喷气式飞机迅猛发展，飞机速度越来越快，飞机的垂尾越来越低矮宽，比如F4鬼怪（Mach2.2）和同时期的米格21&lt;/p&gt;
-&lt;p&gt;但是方向舵舵面偏转时候，在偏转舵面铰链的地方会形成斜激波&lt;/p&gt;
-&lt;p&gt;&lt;img alt="激波与舵面方向示意图，舵面偏转角是舵面（红色尖角）和垂尾方向（黄色梭形）之间的夹角，而激波后掠角是激波（红色曲线）和飞机冠切面（水平尾翼方向）之间的夹角" src="https://joshuaghost.github.io/2022/现代战机为什么要用双垂尾/Untitled.png"&gt;&lt;/p&gt;
-&lt;p&gt;激波与舵面方向示意图，舵面偏转角是舵面（红色尖角）和垂尾方向（黄色梭形）之间的夹角，而激波后掠角是激波（红色曲线）和飞机冠切面（水平尾翼方向）之间的夹角&lt;/p&gt;
-&lt;p&gt;斜激波和舵面的运动方向是一致的，即斜激波后掠角随着舵面偏转角的增大而减小，舵面偏转一定时，来流速度（空速）越大，激波后掠角越大，而来流通过斜激波的时候，气流会偏转方向，顺着舵面流动，舵面的气流动压下降，航向偏转力矩不足&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/现代战机为什么要用双垂尾/Untitled 1.png"&gt;&lt;/p&gt;
-&lt;p&gt;而当机身侧滑时，即机身测对来流方向时，垂尾迎角增大，激波后掠角减小，来流穿过激波后彻底和舵面分离，形成激波失速，垂尾失效，体现在“超音速飞行转不过来弯”&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/现代战机为什么要用双垂尾/Untitled 2.png"&gt;&lt;/p&gt;
-&lt;p&gt;另一方面在飞机大迎角飞行时，低矮垂尾处于机身形成的来流中，转向性能下降&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/现代战机为什么要用双垂尾/Untitled 3.png"&gt;&lt;/p&gt;
-&lt;p&gt;所以米格25使用了双垂尾布局，一方面两片垂尾补足单垂尾的偏航力矩，另一方面垂尾有外偏转角，这避免了垂尾被机身干扰来流，而现代战机垂尾外倾，隐身性能更好，同时避开了机身边条涡流冲击&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Untitled" src="https://joshuaghost.github.io/2022/现代战机为什么要用双垂尾/Untitled 4.png"&gt;&lt;/p&gt;</content><category term="虐猫狂魔"></category><category term="飞机"></category><category term="萌萌战队"></category><category term="自学"></category></entry><entry><title>Test of render-math plugin</title><link href="https://joshuaghost.github.io/2016/test-of-render-math-plugin.html" rel="alternate"></link><published>2016-12-30T00:00:00+01:00</published><updated>2016-12-30T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2016-12-30:/2016/test-of-render-math-plugin.html</id><summary type="html">&lt;h2&gt;This is a test of render-math plugin of pelican&lt;/h2&gt;
+&lt;/script&gt;</content><category term="虐猫狂魔"></category><category term="物理"></category><category term="自学"></category><category term="分析力学"></category></entry><entry><title>Test of render-math plugin</title><link href="https://joshuaghost.github.io/2016/test-of-render-math-plugin.html" rel="alternate"></link><published>2016-12-30T00:00:00+01:00</published><updated>2016-12-30T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2016-12-30:/2016/test-of-render-math-plugin.html</id><summary type="html">&lt;h2&gt;This is a test of render-math plugin of pelican&lt;/h2&gt;
 &lt;p&gt;\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\bb}{\pi R}
 \newcommand{\bc}{\pi r …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;This is a test of render-math plugin of pelican&lt;/h2&gt;

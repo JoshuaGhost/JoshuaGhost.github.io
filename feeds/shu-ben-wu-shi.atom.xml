@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Zijian's Hunting Cabin - 数学天地</title><link href="https://joshuaghost.github.io/" rel="alternate"></link><link href="https://joshuaghost.github.io/feeds/shu-xue-tian-di.atom.xml" rel="self"></link><id>https://joshuaghost.github.io/</id><updated>2023-08-21T00:00:00+02:00</updated><entry><title>线性回归的假设检验</title><link href="https://joshuaghost.github.io/2023/xian-xing-hui-gui-de-jia-she-jian-yan.html" rel="alternate"></link><published>2023-08-21T00:00:00+02:00</published><updated>2023-08-21T00:00:00+02:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2023-08-21:/2023/xian-xing-hui-gui-de-jia-she-jian-yan.html</id><summary type="html">&lt;p&gt;三种假设检验：lagrange multiplyer test, likelihood-ratio test 与 wald test&lt;/p&gt;
-&lt;h2&gt;线性回归的检验&lt;/h2&gt;
-&lt;h3&gt;模型&lt;/h3&gt;
-&lt;p&gt;假设 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;三种假设检验：lagrange multiplyer test, likelihood-ratio test 与 wald test&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ghost@Hunter's Dream - 数本物始</title><link href="https://joshuaghost.github.io/" rel="alternate"></link><link href="https://joshuaghost.github.io/feeds/shu-ben-wu-shi.atom.xml" rel="self"></link><id>https://joshuaghost.github.io/</id><updated>2023-08-21T00:00:00+02:00</updated><entry><title>线性回归的假设检验</title><link href="https://joshuaghost.github.io/2023/xian-xing-hui-gui-de-jia-she-jian-yan.html" rel="alternate"></link><published>2023-08-21T00:00:00+02:00</published><updated>2023-08-21T00:00:00+02:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2023-08-21:/2023/xian-xing-hui-gui-de-jia-she-jian-yan.html</id><summary type="html">&lt;p&gt;亲爱的朋友们，我们在日常生活中，经常会遇到需要检验假设 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;亲爱的朋友们，我们在日常生活中，经常会遇到需要检验假设成立的情况（才不是啊喂！）。&lt;/p&gt;
+&lt;p&gt;这里我简要记录下我学习三种假设检验方式，即lagrange multiplyer test, likelihood-ratio test 与 wald test的一些记录，希望能够帮到又需要的人&lt;/p&gt;
 &lt;h2&gt;线性回归的检验&lt;/h2&gt;
 &lt;h3&gt;模型&lt;/h3&gt;
 &lt;p&gt;假设回归的模型为&lt;span class="math"&gt;\(Y=\alpha + \beta x + \epsilon\)&lt;/span&gt;&lt;/p&gt;
@@ -96,7 +94,7 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="数学天地"></category><category term="数学"></category></entry><entry><title>也谈softmax（施工中）</title><link href="https://joshuaghost.github.io/2017/ye-tan-softmaxshi-gong-zhong.html" rel="alternate"></link><published>2017-02-22T00:00:00+01:00</published><updated>2017-02-22T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2017-02-22:/2017/ye-tan-softmaxshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;引言&lt;/h2&gt;
+&lt;/script&gt;</content><category term="数本物始"></category><category term="数学"></category></entry><entry><title>也谈softmax（施工中）</title><link href="https://joshuaghost.github.io/2017/ye-tan-softmaxshi-gong-zhong.html" rel="alternate"></link><published>2017-02-22T00:00:00+01:00</published><updated>2017-02-22T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2017-02-22:/2017/ye-tan-softmaxshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;引言&lt;/h2&gt;
 &lt;p&gt;随着机器学习的异常火爆，学习它的人也如雨后春笋一 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;引言&lt;/h2&gt;
 &lt;p&gt;随着机器学习的异常火爆，学习它的人也如雨后春笋一般冒了出来，作为时刻保持在时代前沿的Ghost自然也没能免俗跟着一起跳进了大坑，今天不说别的，就着青梅煮酒，我胡扯一点关于机器学习中极为重要的一个函数：softmax&lt;/p&gt;
 &lt;h2&gt;softmax是什么？&lt;/h2&gt;
@@ -192,7 +190,7 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="数学天地"></category><category term="数学"></category></entry><entry><title>caculus of variations（施工中）</title><link href="https://joshuaghost.github.io/2017/caculus-of-variationsshi-gong-zhong.html" rel="alternate"></link><published>2017-01-12T00:00:00+01:00</published><updated>2017-01-12T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2017-01-12:/2017/caculus-of-variationsshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;泛函是个啥？&lt;/h2&gt;
+&lt;/script&gt;</content><category term="数本物始"></category><category term="数学"></category></entry><entry><title>caculus of variations（施工中）</title><link href="https://joshuaghost.github.io/2017/caculus-of-variationsshi-gong-zhong.html" rel="alternate"></link><published>2017-01-12T00:00:00+01:00</published><updated>2017-01-12T00:00:00+01:00</updated><author><name>Zhang, Zijian</name></author><id>tag:joshuaghost.github.io,2017-01-12:/2017/caculus-of-variationsshi-gong-zhong.html</id><summary type="html">&lt;h2&gt;泛函是个啥？&lt;/h2&gt;
 &lt;p&gt;泛函就是函数的函数，还记得我们当初学函数的 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;泛函是个啥？&lt;/h2&gt;
 &lt;p&gt;泛函就是函数的函数，还记得我们当初学函数的时候，把函数比作一部机器，它的入料是一个变量，输出是一个函数值;而泛函这部“机器”，输入本身就是一部“机器”也就是函数，输出是泛函求值。用数学的语言讲，函数是一个映射：
 &lt;/p&gt;
@@ -319,4 +317,4 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="数学天地"></category><category term="数学"></category></entry></feed>
+&lt;/script&gt;</content><category term="数本物始"></category><category term="数学"></category></entry></feed>
