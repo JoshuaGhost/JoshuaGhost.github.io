@@ -56,18 +56,18 @@ async def task_coro():
     return "the answer is 42"
 
 async def main():
-		import time
-		tic = time.perf_counter()
+    import time
+    tic = time.perf_counter()
     task = asyncio.create_task(task_coro())
-		# 注意task在这里就已经开始执行了，因为asyncio.create_task()本身就会安排
-		# 里面的协程尽快运行
+    # 注意task在这里就已经开始执行了，因为asyncio.create_task()本身就会安排
+    # 里面的协程尽快运行
     print("The main is running")
-		# 这里的await和上面的task是并发执行的
+    # 这里的await和上面的task是并发执行的
     await asyncio.sleep(2)
-    print(f"before await for task"）
+    print(f"before await for task")
     await task
-		print(time.perf_counter() - tic)
-		# 这里输出的经过时间应该在两秒左右，而不是4秒，这是因为
+    print(time.perf_counter() - tic)
+    # 这里输出的经过时间应该在两秒左右，而不是4秒，这是因为
     print(task.__class__)
     print(f"after await for task")
     print(f"got: {task.result()}")
@@ -89,25 +89,27 @@ async def task_coro_1(arg):
     value = random.random()
     await asyncio.sleep(value)
     print(f"Task {arg} done after {value:.2f} seconds")
-		return arg
+    return arg
 
 async def main():
     coros = [task_coro_1(i) for i in range(10)]
     print(coros[0].__class__)
-    # gather函数返回一个Future对象，接受多个awaitables（可变长参数，所以这里用iterable
-    # comprehension）
+    # gather函数返回一个Future对象，接受多个awaitables（可变长参数，
+	# 所以这里用iterable comprehension）
     # await是一种阻塞式调用，所以这里的gather函数会等待所有的coroutine执行完毕
-    # 如果这里不加await，并且之后没有其它耗时操作，那么gather函数就会抛出cancelledError异常
-    # 因为时间不够，各个coroutine还没有执行完毕，就被main函数结束了
-    # 如果这里不加await，但是之后还有其它耗时操作，那么gather函数创建的Future也是有可能完成的，
-    # 也就是说如果main的流程足够长，以至于最长的coroutine都完成了，也是可以gather到全部结果的。
+    # 如果这里不加await，并且之后没有其它耗时操作，那么gather函数就会抛出
+	# cancelledError异常。因为时间不够，各个coroutine还没有执行完毕，
+	# 就被main函数结束了
+    # 如果这里不加await，但是之后还有其它耗时操作，那么gather函数创建的
+	# Future也是有可能完成的，也就是说如果main的流程足够长，以至于最长的
+	# coroutine都完成了，也是可以gather到全部结果的。
     # 所以这里有两种写法：
     # 1.
     # ret = await asyncio.gather(*coros)
     # 2.
     ret = asyncio.gather(*coros)
     await asyncio.sleep(LONG_ENOUGH_TIME)
-		return ret
+    return ret
 
 print(asyncio.run(main()))
 ## 结果是[0,1,2,3,4,5,6,7,8,9]，即gather的返回值是按照调用时候的参数顺序排列的
@@ -137,18 +139,22 @@ async def task_coro(arg):
 async def main():
     tasks = [asyncio.create_task(task_coro(i)) for i in range(10)]
     # return_when表示返回条件，
-    # 默认是all_completed（asyncio.ALL_COMPLETED），表示所有的coroutine都完成之后才返回
-    # 这里指定为FIRST_COMPLETED，表示只要有一个coroutine完成了，就返回
-    done, pending = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
+    # 默认是all_completed（asyncio.ALL_COMPLETED），表示所有的coroutine
+	# 都完成之后才返回。这里指定为FIRST_COMPLETED，表示只要有一个coroutine
+	# 完成了，就返回
+    done, pending = await asyncio.wait(
+		tasks,
+		return_when=asyncio.FIRST_COMPLETED
+	)
     print(len(done), len(pending))
     print(done.__class__, pending.__class__)
     task = done.pop()
     print(f"First finished task got: {task.result():.2f}")
 
-		# 其它在pending的task还是可以通过await继续执行的
-		task = pending.pop()
-		await task
-		print(f'one of the unfinished coro got: {task.result():.2f}')
+    # 其它在pending的task还是可以通过await继续执行的
+    task = pending.pop()
+    await task
+    print(f'one of the unfinished coro got: {task.result():.2f}')
 
 asyncio.run(main())
 ```
@@ -158,6 +164,7 @@ asyncio.run(main())
 asyncio.as_completed可以让一串tasks按照完成顺序返回
 
 ```python
+
 async def task_coro(arg):
     value = random.random() * 10
     await asyncio.sleep(value)
@@ -187,16 +194,19 @@ async def producer(queue):
     await asyncio.sleep(value)
     await queue.put(value)
     # 这里也需要写queue.task_done(),因为task_done()一般是用在consumer里面的
-    # 它的功能是,对应producer put进来的所有元素,consumer get一个,就调用一次task_done()
-    # 最后task_done(注意不是get的次数)和put的次数想等的时候,queue.join()才会返回
+    # 它的功能是,对应producer put进来的所有元素,consumer get一个,就调用一次
+	# task_done()。最后task_done(注意不是get的次数)和put的次数相等的时候，
+	# queue.join()才会停止阻塞
 
-    # 用task_done和join的时候,一般是快速生产,慢速消费的场景。这样在完成之前队列里面一直有元素,
-		# 即里面未完成的元素一直大于0，所以join()直到所有元素都被消耗完之前一直会block当前函数。
+    # 用task_done和join的时候,一般是快速生产,慢速消费的场景。这样在完成之前队列
+	# 里面一直有元素,即里面未完成的元素一直大于0，所以join()直到所有元素都被消耗
+	# 完之前一直会block当前函数。
 
-    # 而慢速生产快速消费的情况不能用join判断,因为生产的速度慢,所以在消费完之前,队列里面的元素
-    # 就会消耗殆尽,这时候join()就会停止block当前函数。但是实际上这时生产可能还没有完成。
-    # 所以这种情况可以用特殊标记标识生产完成,比如await queue.put(None)（如下一组producer-
-    # consumer模型所示）
+    # 而慢速生产快速消费的情况不能用join判断，因为生产的速度慢，所以在消费完之前，
+	# 队列里面的元素就会消耗殆尽，这时候join()就会停止block当前函数。但是实际上
+	# 这时生产可能还没有完成。
+    # 所以这种情况可以用特殊标记标识生产完成,比如await queue.put(None)（如下
+	# 一组producer-consumer样例代码所示）
     # 参考文献:
     # [1] https://docs.python.org/3/library/asyncio-queue.html#asyncio.Queue.task_done
     # [2] https://www.vuln.cn/8610
@@ -206,9 +216,10 @@ async def producer(queue):
 async def consumer():
     queue = asyncio.Queue()
     tasks = [asyncio.create_task(producer(queue)) for _ in range(10)]
-    # 这里其实不用await queue.join(),因为join()只是等待queue中的所有元素都被加入了,
-    # 但我们这里的as_completed并不care是否*所有*的元素都被加入了,按照完成顺序返回，
-		# 而coroutine每完成一个，就相当于队列里多了一个元素，就可以用下边的await queue.get()
+    # 这里其实不用await queue.join(),因为join()只是等待queue中的所有元素都被加入
+	# 了，但我们这里的as_completed并不care是否*所有*的元素都被加入了,按照完成顺序
+	# 返回，而coroutine每完成一个，就相当于队列里多了一个元素，就可以用下边的
+	# await queue.get()
     # 来取元素了。
     for task in asyncio.as_completed(tasks):
         ret = await task
@@ -222,8 +233,8 @@ async def producer(queue):
     for i in range(10):
         value = random.random()
         await asyncio.sleep(value)
-        # queue put(get)还有对应的non-waiting方法put_nowait(get_nowait),非阻塞，直接
-				# 放入（取走）元素，而不用写await等待
+        # queue put(get)还有对应的non-waiting方法put_nowait(get_nowait)，
+		# 非阻塞，直接放入（取走）元素，而不用写await等待
         await queue.put(value)
     await queue.put(None)
     print("Producer: Done")
