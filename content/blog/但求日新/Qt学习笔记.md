@@ -2,13 +2,20 @@ Title: Qt6学习笔记
 Date: 2022-12-23
 Tag: 自学, Qt, C++
 
+QT6作为一款看上去还挺漂亮的前端框架，实在是出门旅行居家必备之良品。
+
+本Ghost也不能免俗，于是来和大家一起学习一下这玩意到底有何奥秘。
+
 ## 1
+
 main window的三种基类：
 QMainWindow有toolbar
 QWidget和QDialog是没有toolbar的
 
 ## 2
+
 cpp的explicit标识符，如果写了，就表示这个类是explicit的，否则就叫一个implicit类，对于一个implicit类，如果他的构造函数只有一个参数，那么可以把这个类的类名用类似强制类型转换的方式使用，比如：
+
 ```cpp
 class Foo {
 	private:
@@ -22,25 +29,30 @@ class Foo {
 ```
 
 ## 3
+
 QT的stylesheet可以用类似css的方法自定义widget的样式，比如定义所有的QPushButton的背景颜色为黄色：
+
 ```CSS
 QPushButton{
 	background yellow;
 }
 ```
+
 注意如果选择更改了主窗口的样式，那主窗口下所有的按钮都会改变，因为这些窗口都是主窗口的后代widget，如果想仅改变其中一个widget的样式，可以用QPushButton#button_no_1这样的id选择器来选择特定widget，或者直接对widget本身的样式进行修订
 
 ## 4
+
 如果在qt的design界面更改了控件的名字，则需要先构建一次才能在编辑窗口使用代码补全
 
 ## 5
+
 cpp的标准模板库的vector，使用方法是：
 
 ```cpp
 std::vector<type> variable_name = {value1, value2};
 ```
 
-比如我要用一个vector装载radiobox_{1..3}的指针，就可以
+比如我要用一个vector装载radiobox\_{1..3}的指针，就可以
 
 ```cpp
 std::vector<QRadioBox *> radio_boxes = {radiobox_1, radiobox_2, radiobox_3};
@@ -69,6 +81,7 @@ foreach (QString item, items) {
 ```
 
 ## 6
+
 QT中有不同的message boxes可供提示使用，它们在QMessageBox命名空间下边，分别是
 
 ```cpp
@@ -98,10 +111,13 @@ if (reply == QMessageBox::Yes) {
 ```
 
 ## 7
+
 创建项目的时候记得要用qmake来构建整个项目，而不要用cmake，否则会无法添加resource文件
 
 ## 8
+
 设置textEdit的字体
+
 ```cpp
 bool ok
 Qfont font = QFontDialog::getFont(&ok, QFont("Times New Roman", 12), this);
@@ -109,9 +125,11 @@ if (ok) {
 	ui->textEdit->setFont(font);
 }
 ```
+
 这会更改整个textedit的文字字体，无论有没有选中文本
 
 下面一段代码可以更改选中部分的文字字体：
+
 ```cpp
 	bool ok;
     QFont font = QFontDialog::getFont(&ok, QFont("Helvetica[Cronyx]", 12), this);
@@ -124,14 +142,17 @@ if (ok) {
 ```
 
 设置textColor
+
 ```cpp
 bool ok
 QColor color = QColorDialog::getColor(QT::yellow, this);
 ui->textEdit->setTextColor(color);
 ```
+
 这个只会更改选中部分的文字颜色
 
 设置打印对话框
+
 ```cpp
 QPrinter printer;
 QPrintDialog dialog(&printer, this);

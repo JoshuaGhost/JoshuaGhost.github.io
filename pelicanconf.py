@@ -5,7 +5,7 @@ JINJA_FILTERS = {
 }
 
 AUTHOR = "Zhang, Zijian"
-SITENAME = "Zijian's Hunting Cabin"
+SITENAME = "Ghost@Hunter's Dream"
 SITEURL = "joshuaghost.github.io"
 
 PATH = "content"
@@ -64,3 +64,6 @@ MATH_JAX = {
     "tex_extensions": ["color.js", "mhchem.js"],
 }
 FOUNDATION_PYGMENT_THEME = "emacs"
+DISPLAY_PAGES_ON_MENU = True
+STATIC_PATHS = ["images", "pdfs", "blog", "pages", "extra"]
+PAGES = [{"title": "About me...", "url": "about"}]

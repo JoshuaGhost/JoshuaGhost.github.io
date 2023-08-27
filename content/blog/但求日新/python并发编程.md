@@ -2,9 +2,13 @@ Title: python并发编程
 Date: 2023-08-27
 Tag: 自学, python, 并发
 
-## multithreading, threads, asyncio
+最近在面试中接触到了许多python并发编程的知识，发现自己在这方向一直是个短板。
 
-Status: python
+于是痛定思痛痛改前非痛得飞起一定要学习到底怎么搞python并发，于是有了这篇学习笔记性质的东西。
+
+虽然python有着类似GIL等限制，它的threading等模块不一定能够达到很好的并发效果。
+
+但是以点带面，通过这个简单又流行的语言接触一下不同的并发模型，也是极好的，还是要学习一个。
 
 ## asyncio，threading和multiprocessing之间的区别与联系
 

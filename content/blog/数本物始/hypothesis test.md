@@ -2,7 +2,9 @@ Title: 线性回归的假设检验
 Date: 2023-08-21
 Tags: 数学
 
-三种假设检验：lagrange multiplyer test, likelihood-ratio test 与 wald test
+亲爱的朋友们，我们在日常生活中，经常会遇到需要检验假设成立的情况（才不是啊喂！）。
+
+这里我简要记录下我学习三种假设检验方式，即lagrange multiplyer test, likelihood-ratio test 与 wald test的一些记录，希望能够帮到又需要的人
 
 ## 线性回归的检验
 
