@@ -9,7 +9,7 @@
 		<meta name="author" content="Zhang, Zijian">
 
 		<link rel="stylesheet" href="https://joshuaghost.github.io/theme/css/foundation.css" />
-		<link rel="stylesheet" href="https://joshuaghost.github.io/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="https://joshuaghost.github.io/theme/css/pygment/emacs.css" />
 		<link rel="stylesheet" href="https://joshuaghost.github.io/theme/css/custom.css" />
 
 
@@ -180,18 +180,18 @@
     <span class="k">return</span> <span class="s2">&quot;the answer is 42&quot;</span>
 
 <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-        <span class="kn">import</span> <span class="nn">time</span>
-        <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="kn">import</span> <span class="nn">time</span>
+    <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
     <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">task_coro</span><span class="p">())</span>
-        <span class="c1"># 注意task在这里就已经开始执行了，因为asyncio.create_task()本身就会安排</span>
-        <span class="c1"># 里面的协程尽快运行</span>
+    <span class="c1"># 注意task在这里就已经开始执行了，因为asyncio.create_task()本身就会安排</span>
+    <span class="c1"># 里面的协程尽快运行</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The main is running&quot;</span><span class="p">)</span>
-        <span class="c1"># 这里的await和上面的task是并发执行的</span>
+    <span class="c1"># 这里的await和上面的task是并发执行的</span>
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;before await for task&quot;</span><span class="err">）</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;before await for task&quot;</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">task</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">tic</span><span class="p">)</span>
-        <span class="c1"># 这里输出的经过时间应该在两秒左右，而不是4秒，这是因为</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">tic</span><span class="p">)</span>
+    <span class="c1"># 这里输出的经过时间应该在两秒左右，而不是4秒，这是因为</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;after await for task&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;got: </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -210,25 +210,27 @@
     <span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Task </span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2"> done after </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">arg</span>
+    <span class="k">return</span> <span class="n">arg</span>
 
 <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">coros</span> <span class="o">=</span> <span class="p">[</span><span class="n">task_coro_1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">coros</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-    <span class="c1"># gather函数返回一个Future对象，接受多个awaitables（可变长参数，所以这里用iterable</span>
-    <span class="c1"># comprehension）</span>
+    <span class="c1"># gather函数返回一个Future对象，接受多个awaitables（可变长参数，</span>
+    <span class="c1"># 所以这里用iterable comprehension）</span>
     <span class="c1"># await是一种阻塞式调用，所以这里的gather函数会等待所有的coroutine执行完毕</span>
-    <span class="c1"># 如果这里不加await，并且之后没有其它耗时操作，那么gather函数就会抛出cancelledError异常</span>
-    <span class="c1"># 因为时间不够，各个coroutine还没有执行完毕，就被main函数结束了</span>
-    <span class="c1"># 如果这里不加await，但是之后还有其它耗时操作，那么gather函数创建的Future也是有可能完成的，</span>
-    <span class="c1"># 也就是说如果main的流程足够长，以至于最长的coroutine都完成了，也是可以gather到全部结果的。</span>
+    <span class="c1"># 如果这里不加await，并且之后没有其它耗时操作，那么gather函数就会抛出</span>
+    <span class="c1"># cancelledError异常。因为时间不够，各个coroutine还没有执行完毕，</span>
+    <span class="c1"># 就被main函数结束了</span>
+    <span class="c1"># 如果这里不加await，但是之后还有其它耗时操作，那么gather函数创建的</span>
+    <span class="c1"># Future也是有可能完成的，也就是说如果main的流程足够长，以至于最长的</span>
+    <span class="c1"># coroutine都完成了，也是可以gather到全部结果的。</span>
     <span class="c1"># 所以这里有两种写法：</span>
     <span class="c1"># 1.</span>
     <span class="c1"># ret = await asyncio.gather(*coros)</span>
     <span class="c1"># 2.</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">coros</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">LONG_ENOUGH_TIME</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ret</span>
+    <span class="k">return</span> <span class="n">ret</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">()))</span>
 <span class="c1">## 结果是[0,1,2,3,4,5,6,7,8,9]，即gather的返回值是按照调用时候的参数顺序排列的</span>
@@ -253,18 +255,22 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">task_coro</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
     <span class="c1"># return_when表示返回条件，</span>
-    <span class="c1"># 默认是all_completed（asyncio.ALL_COMPLETED），表示所有的coroutine都完成之后才返回</span>
-    <span class="c1"># 这里指定为FIRST_COMPLETED，表示只要有一个coroutine完成了，就返回</span>
-    <span class="n">done</span><span class="p">,</span> <span class="n">pending</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span> <span class="n">return_when</span><span class="o">=</span><span class="n">asyncio</span><span class="o">.</span><span class="n">FIRST_COMPLETED</span><span class="p">)</span>
+    <span class="c1"># 默认是all_completed（asyncio.ALL_COMPLETED），表示所有的coroutine</span>
+    <span class="c1"># 都完成之后才返回。这里指定为FIRST_COMPLETED，表示只要有一个coroutine</span>
+    <span class="c1"># 完成了，就返回</span>
+    <span class="n">done</span><span class="p">,</span> <span class="n">pending</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span>
+        <span class="n">tasks</span><span class="p">,</span>
+        <span class="n">return_when</span><span class="o">=</span><span class="n">asyncio</span><span class="o">.</span><span class="n">FIRST_COMPLETED</span>
+    <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">done</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">pending</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">done</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">pending</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
     <span class="n">task</span> <span class="o">=</span> <span class="n">done</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First finished task got: </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="c1"># 其它在pending的task还是可以通过await继续执行的</span>
-        <span class="n">task</span> <span class="o">=</span> <span class="n">pending</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="k">await</span> <span class="n">task</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;one of the unfinished coro got: </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="c1"># 其它在pending的task还是可以通过await继续执行的</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="n">pending</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">task</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;one of the unfinished coro got: </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
@@ -297,16 +303,19 @@
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="c1"># 这里也需要写queue.task_done(),因为task_done()一般是用在consumer里面的</span>
-    <span class="c1"># 它的功能是,对应producer put进来的所有元素,consumer get一个,就调用一次task_done()</span>
-    <span class="c1"># 最后task_done(注意不是get的次数)和put的次数想等的时候,queue.join()才会返回</span>
+    <span class="c1"># 它的功能是,对应producer put进来的所有元素,consumer get一个,就调用一次</span>
+    <span class="c1"># task_done()。最后task_done(注意不是get的次数)和put的次数相等的时候，</span>
+    <span class="c1"># queue.join()才会停止阻塞</span>
 
-    <span class="c1"># 用task_done和join的时候,一般是快速生产,慢速消费的场景。这样在完成之前队列里面一直有元素,</span>
-        <span class="c1"># 即里面未完成的元素一直大于0，所以join()直到所有元素都被消耗完之前一直会block当前函数。</span>
+    <span class="c1"># 用task_done和join的时候,一般是快速生产,慢速消费的场景。这样在完成之前队列</span>
+    <span class="c1"># 里面一直有元素,即里面未完成的元素一直大于0，所以join()直到所有元素都被消耗</span>
+    <span class="c1"># 完之前一直会block当前函数。</span>
 
-    <span class="c1"># 而慢速生产快速消费的情况不能用join判断,因为生产的速度慢,所以在消费完之前,队列里面的元素</span>
-    <span class="c1"># 就会消耗殆尽,这时候join()就会停止block当前函数。但是实际上这时生产可能还没有完成。</span>
-    <span class="c1"># 所以这种情况可以用特殊标记标识生产完成,比如await queue.put(None)（如下一组producer-</span>
-    <span class="c1"># consumer模型所示）</span>
+    <span class="c1"># 而慢速生产快速消费的情况不能用join判断，因为生产的速度慢，所以在消费完之前，</span>
+    <span class="c1"># 队列里面的元素就会消耗殆尽，这时候join()就会停止block当前函数。但是实际上</span>
+    <span class="c1"># 这时生产可能还没有完成。</span>
+    <span class="c1"># 所以这种情况可以用特殊标记标识生产完成,比如await queue.put(None)（如下</span>
+    <span class="c1"># 一组producer-consumer样例代码所示）</span>
     <span class="c1"># 参考文献:</span>
     <span class="c1"># [1] https://docs.python.org/3/library/asyncio-queue.html#asyncio.Queue.task_done</span>
     <span class="c1"># [2] https://www.vuln.cn/8610</span>
@@ -316,9 +325,10 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">consumer</span><span class="p">():</span>
     <span class="n">queue</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
     <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">producer</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
-    <span class="c1"># 这里其实不用await queue.join(),因为join()只是等待queue中的所有元素都被加入了,</span>
-    <span class="c1"># 但我们这里的as_completed并不care是否*所有*的元素都被加入了,按照完成顺序返回，</span>
-        <span class="c1"># 而coroutine每完成一个，就相当于队列里多了一个元素，就可以用下边的await queue.get()</span>
+    <span class="c1"># 这里其实不用await queue.join(),因为join()只是等待queue中的所有元素都被加入</span>
+    <span class="c1"># 了，但我们这里的as_completed并不care是否*所有*的元素都被加入了,按照完成顺序</span>
+    <span class="c1"># 返回，而coroutine每完成一个，就相当于队列里多了一个元素，就可以用下边的</span>
+    <span class="c1"># await queue.get()</span>
     <span class="c1"># 来取元素了。</span>
     <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">as_completed</span><span class="p">(</span><span class="n">tasks</span><span class="p">):</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task</span>
@@ -332,8 +342,8 @@
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
         <span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
         <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="c1"># queue put(get)还有对应的non-waiting方法put_nowait(get_nowait),非阻塞，直接</span>
-                <span class="c1"># 放入（取走）元素，而不用写await等待</span>
+        <span class="c1"># queue put(get)还有对应的non-waiting方法put_nowait(get_nowait)，</span>
+        <span class="c1"># 非阻塞，直接放入（取走）元素，而不用写await等待</span>
         <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Producer: Done&quot;</span><span class="p">)</span>
@@ -414,409 +424,409 @@
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
 									<li style="font-size: 139.6%;">
-										<a href="https://joshuaghost.github.io/tag/shu-xue.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca606d0>, <pelican.contents.Article object at 0x7f3bcca1ac10>, <pelican.contents.Article object at 0x7f3bcca036d0>]">数学</a>
+										<a href="https://joshuaghost.github.io/tag/shu-xue.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b9b0a0>, <pelican.contents.Article object at 0x7f34c8c52490>, <pelican.contents.Article object at 0x7f34cad1cf40>]">数学</a>
 									</li>
 									<!-- <li style="font-size: 139.6%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/wu-li.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9d0190>]">物理</a>
+										<a href="https://joshuaghost.github.io/tag/wu-li.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b86040>]">物理</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="https://joshuaghost.github.io/tag/zi-xue.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9d0190>, <pelican.contents.Article object at 0x7f3bcc9dea60>]">自学</a>
+										<a href="https://joshuaghost.github.io/tag/zi-xue.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b86040>, <pelican.contents.Article object at 0x7f34c8bae9d0>]">自学</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/fen-xi-li-xue.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9d0190>]">分析力学</a>
+										<a href="https://joshuaghost.github.io/tag/fen-xi-li-xue.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b86040>]">分析力学</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/fei-ji.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9dea60>]">飞机</a>
+										<a href="https://joshuaghost.github.io/tag/fei-ji.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bae9d0>]">飞机</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/meng-meng-zhan-dui.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9dea60>]">萌萌战队</a>
+										<a href="https://joshuaghost.github.io/tag/meng-meng-zhan-dui.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bae9d0>]">萌萌战队</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/xue-xi-bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc94df70>]">学习笔记</a>
+										<a href="https://joshuaghost.github.io/tag/xue-xi-bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bb4700>]">学习笔记</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/lun-wen-yue-du.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc94df70>]">论文阅读</a>
+										<a href="https://joshuaghost.github.io/tag/lun-wen-yue-du.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bb4700>]">论文阅读</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/reinforcement-learning.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc94df70>]">Reinforcement Learning</a>
+										<a href="https://joshuaghost.github.io/tag/reinforcement-learning.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bb4700>]">Reinforcement Learning</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/xin-wen.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca03df0>]">新闻</a>
+										<a href="https://joshuaghost.github.io/tag/xin-wen.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a65b20>]">新闻</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/nong-ye.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca03df0>]">农业</a>
+										<a href="https://joshuaghost.github.io/tag/nong-ye.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a65b20>]">农业</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/chang-shi.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca03df0>]">常识</a>
+										<a href="https://joshuaghost.github.io/tag/chang-shi.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a65b20>]">常识</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/philosophy.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9f1b80>]">Philosophy</a>
+										<a href="https://joshuaghost.github.io/tag/philosophy.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a7c9d0>]">Philosophy</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/study-notes.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9f1b80>]">Study notes</a>
+										<a href="https://joshuaghost.github.io/tag/study-notes.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a7c9d0>]">Study notes</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/relationa-algebra.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc8ffe80>]">Relationa Algebra</a>
+										<a href="https://joshuaghost.github.io/tag/relationa-algebra.html" class="tag-[<pelican.contents.Article object at 0x7f34c99cea60>]">Relationa Algebra</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="https://joshuaghost.github.io/tag/review.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc8ffe80>, <pelican.contents.Article object at 0x7f3bcc915e80>]">review</a>
+										<a href="https://joshuaghost.github.io/tag/review.html" class="tag-[<pelican.contents.Article object at 0x7f34c99cea60>, <pelican.contents.Article object at 0x7f34c8b81df0>]">review</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/attention.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc915e80>]">attention</a>
+										<a href="https://joshuaghost.github.io/tag/attention.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b81df0>]">attention</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/paper-reading.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc915e80>]">paper reading</a>
+										<a href="https://joshuaghost.github.io/tag/paper-reading.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b81df0>]">paper reading</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/za-wen-jiao-cai-xi-gua-pi.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca03a60>]">杂文，脚踩西瓜皮</a>
+										<a href="https://joshuaghost.github.io/tag/za-wen-jiao-cai-xi-gua-pi.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b9b910>]">杂文，脚踩西瓜皮</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 164.6%;">
-										<a href="https://joshuaghost.github.io/tag/ri-ji.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc94d6a0>, <pelican.contents.Article object at 0x7f3bcc98dc70>, <pelican.contents.Article object at 0x7f3bceb51550>, <pelican.contents.Article object at 0x7f3bcc9d4f70>, <pelican.contents.Article object at 0x7f3bcc97c520>, <pelican.contents.Article object at 0x7f3bcc94d580>]">日记</a>
+										<a href="https://joshuaghost.github.io/tag/ri-ji.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a49bb0>, <pelican.contents.Article object at 0x7f34ca48c9a0>, <pelican.contents.Article object at 0x7f34c8b16cd0>, <pelican.contents.Article object at 0x7f34c8b81f70>, <pelican.contents.Article object at 0x7f34c8bae520>, <pelican.contents.Article object at 0x7f34c8b813d0>]">日记</a>
 									</li>
 									<!-- <li style="font-size: 164.6%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/leadership.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca226d0>]">Leadership</a>
+										<a href="https://joshuaghost.github.io/tag/leadership.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a431c0>]">Leadership</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/systematic-thinking.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca226d0>]">Systematic thinking</a>
+										<a href="https://joshuaghost.github.io/tag/systematic-thinking.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a431c0>]">Systematic thinking</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/studying.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca226d0>]">Studying</a>
+										<a href="https://joshuaghost.github.io/tag/studying.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a431c0>]">Studying</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/bian-fu-xia.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9fddc0>]">蝙蝠侠</a>
+										<a href="https://joshuaghost.github.io/tag/bian-fu-xia.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b8c0d0>]">蝙蝠侠</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/xiao-chou.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9fddc0>]">小丑</a>
+										<a href="https://joshuaghost.github.io/tag/xiao-chou.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b8c0d0>]">小丑</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/si-duo-ge-si-de.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9fddc0>]">斯多葛四德</a>
+										<a href="https://joshuaghost.github.io/tag/si-duo-ge-si-de.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b8c0d0>]">斯多葛四德</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/test.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc97aee0>]">Test</a>
+										<a href="https://joshuaghost.github.io/tag/test.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b81fd0>]">Test</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/zhe-xue.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc8ffbb0>]">哲学</a>
+										<a href="https://joshuaghost.github.io/tag/zhe-xue.html" class="tag-[<pelican.contents.Article object at 0x7f34c8aab310>]">哲学</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/ke-xue-fang-fa-lun.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc8ffbb0>]">科学方法论</a>
+										<a href="https://joshuaghost.github.io/tag/ke-xue-fang-fa-lun.html" class="tag-[<pelican.contents.Article object at 0x7f34c8aab310>]">科学方法论</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/du-shu-bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc8ffbb0>]">读书笔记</a>
+										<a href="https://joshuaghost.github.io/tag/du-shu-bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7f34c8aab310>]">读书笔记</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/za-gan.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc8ffbb0>]">杂感</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 139.6%;">
-										<a href="https://joshuaghost.github.io/tag/za-wen.html" class="tag-[<pelican.contents.Article object at 0x7f3bccab5e80>, <pelican.contents.Article object at 0x7f3bcc8ff9a0>, <pelican.contents.Article object at 0x7f3bceb6d130>]">杂文</a>
-									</li>
-									<!-- <li style="font-size: 139.6%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/jekyll.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc98d970>]">jekyll</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/ipv4.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca601f0>]">IPv4</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/ipv6.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca601f0>]">IPv6</a>
+										<a href="https://joshuaghost.github.io/tag/za-gan.html" class="tag-[<pelican.contents.Article object at 0x7f34c8aab310>]">杂感</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 139.6%;">
-										<a href="https://joshuaghost.github.io/tag/troubleshooting.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca601f0>, <pelican.contents.Article object at 0x7f3bcc97aeb0>, <pelican.contents.Article object at 0x7f3bcc9fd280>]">troubleshooting</a>
+										<a href="https://joshuaghost.github.io/tag/za-wen.html" class="tag-[<pelican.contents.Article object at 0x7f34c8ba69a0>, <pelican.contents.Article object at 0x7f34c8bb3a00>, <pelican.contents.Article object at 0x7f34c8a34250>]">杂文</a>
 									</li>
 									<!-- <li style="font-size: 139.6%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/xiao-hua.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9fd490>]">笑话</a>
+										<a href="https://joshuaghost.github.io/tag/jekyll.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a37f40>]">jekyll</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tag/ipv4.html" class="tag-[<pelican.contents.Article object at 0x7f34c8c526d0>]">IPv4</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tag/ipv6.html" class="tag-[<pelican.contents.Article object at 0x7f34c8c526d0>]">IPv6</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 139.6%;">
+										<a href="https://joshuaghost.github.io/tag/troubleshooting.html" class="tag-[<pelican.contents.Article object at 0x7f34c8c526d0>, <pelican.contents.Article object at 0x7f34c8bc0e80>, <pelican.contents.Article object at 0x7f34c8aaf970>]">troubleshooting</a>
+									</li>
+									<!-- <li style="font-size: 139.6%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tag/xiao-hua.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b53e20>]">笑话</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 150.0%;">
-										<a href="https://joshuaghost.github.io/tag/zhai-chao.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9fd490>, <pelican.contents.Article object at 0x7f3bcc909fd0>, <pelican.contents.Article object at 0x7f3bcca63d90>, <pelican.contents.Article object at 0x7f3bcc909a30>]">摘抄</a>
+										<a href="https://joshuaghost.github.io/tag/zhai-chao.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b53e20>, <pelican.contents.Article object at 0x7f34c8c07d60>, <pelican.contents.Article object at 0x7f34c8baaaf0>, <pelican.contents.Article object at 0x7f34c8af78b0>]">摘抄</a>
 									</li>
 									<!-- <li style="font-size: 150.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/you-xi.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc909fd0>]">游戏</a>
+										<a href="https://joshuaghost.github.io/tag/you-xi.html" class="tag-[<pelican.contents.Article object at 0x7f34c8c07d60>]">游戏</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/xin-xi-an-quan-jing-sai.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc97aeb0>]">信息安全竞赛</a>
+										<a href="https://joshuaghost.github.io/tag/xin-xi-an-quan-jing-sai.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bc0e80>]">信息安全竞赛</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/netlink.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc97aeb0>]">netlink</a>
+										<a href="https://joshuaghost.github.io/tag/netlink.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bc0e80>]">netlink</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/linux.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc97aeb0>]">linux</a>
+										<a href="https://joshuaghost.github.io/tag/linux.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bc0e80>]">linux</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc97aeb0>]">笔记</a>
+										<a href="https://joshuaghost.github.io/tag/bi-ji.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bc0e80>]">笔记</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/fa-lao-sao.html" class="tag-[<pelican.contents.Article object at 0x7f3bceb6d130>]">发牢骚</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 125.0%;">
-										<a href="https://joshuaghost.github.io/tag/zhong-er-hei-li-shi.html" class="tag-[<pelican.contents.Article object at 0x7f3bceb6d130>, <pelican.contents.Article object at 0x7f3bcca47a00>]">中二黑历史</a>
-									</li>
-									<!-- <li style="font-size: 125.0%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/fo-xue.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca63d90>]">佛学</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/zheng-quan-tou-zi.html" class="tag-[<pelican.contents.Article object at 0x7f3bce2a1a60>]">证券投资</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/zuo-ye-zhan-shi.html" class="tag-[<pelican.contents.Article object at 0x7f3bce2a1a60>]">作业展示</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/er-ci-yuan.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca47a00>]">二次元</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/tui-hou-gan.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca47a00>]">推后感</a>
-									</li>
-									<!-- <li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tags/.html"></a>
-										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
-									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/xiao-huang-you.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca47a00>]">小黄油</a>
+										<a href="https://joshuaghost.github.io/tag/fa-lao-sao.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a34250>]">发牢骚</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="https://joshuaghost.github.io/tag/xin-xi-an-quan.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9de2b0>, <pelican.contents.Article object at 0x7f3bccab5df0>]">信息安全</a>
+										<a href="https://joshuaghost.github.io/tag/zhong-er-hei-li-shi.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a34250>, <pelican.contents.Article object at 0x7f34c8c4cf40>]">中二黑历史</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/ia-32.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9de2b0>]">IA-32</a>
+										<a href="https://joshuaghost.github.io/tag/fo-xue.html" class="tag-[<pelican.contents.Article object at 0x7f34c8baaaf0>]">佛学</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/windowsjia-gou.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9de2b0>]">Windows架构</a>
+										<a href="https://joshuaghost.github.io/tag/zheng-quan-tou-zi.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b16f10>]">证券投资</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/metasploit.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9fd280>]">metasploit</a>
+										<a href="https://joshuaghost.github.io/tag/zuo-ye-zhan-shi.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b16f10>]">作业展示</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tag/er-ci-yuan.html" class="tag-[<pelican.contents.Article object at 0x7f34c8c4cf40>]">二次元</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tag/tui-hou-gan.html" class="tag-[<pelican.contents.Article object at 0x7f34c8c4cf40>]">推后感</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tag/xiao-huang-you.html" class="tag-[<pelican.contents.Article object at 0x7f34c8c4cf40>]">小黄油</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 125.0%;">
+										<a href="https://joshuaghost.github.io/tag/xin-xi-an-quan.html" class="tag-[<pelican.contents.Article object at 0x7f34c99c9a00>, <pelican.contents.Article object at 0x7f34c8a65c70>]">信息安全</a>
+									</li>
+									<!-- <li style="font-size: 125.0%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tag/ia-32.html" class="tag-[<pelican.contents.Article object at 0x7f34c99c9a00>]">IA-32</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tag/windowsjia-gou.html" class="tag-[<pelican.contents.Article object at 0x7f34c99c9a00>]">Windows架构</a>
+									</li>
+									<!-- <li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tags/.html"></a>
+										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
+									<li style="font-size: 100.0%;">
+										<a href="https://joshuaghost.github.io/tag/metasploit.html" class="tag-[<pelican.contents.Article object at 0x7f34c8aaf970>]">metasploit</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 175.0%;">
-										<a href="https://joshuaghost.github.io/tag/noip.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc921f40>, <pelican.contents.Article object at 0x7f3bcca03fd0>, <pelican.contents.Article object at 0x7f3bcc9d09d0>, <pelican.contents.Article object at 0x7f3bcc9f1f70>, <pelican.contents.Article object at 0x7f3bcca220d0>, <pelican.contents.Article object at 0x7f3bcc961310>, <pelican.contents.Article object at 0x7f3bcca1a490>, <pelican.contents.Article object at 0x7f3bcca327f0>]">NOIP</a>
+										<a href="https://joshuaghost.github.io/tag/noip.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bb4520>, <pelican.contents.Article object at 0x7f34c8baabe0>, <pelican.contents.Article object at 0x7f34c8afc7f0>, <pelican.contents.Article object at 0x7f34c8a4ea00>, <pelican.contents.Article object at 0x7f34c8bb4a90>, <pelican.contents.Article object at 0x7f34c8a37340>, <pelican.contents.Article object at 0x7f34ca48c490>, <pelican.contents.Article object at 0x7f34c8b53df0>]">NOIP</a>
 									</li>
 									<!-- <li style="font-size: 175.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/zui-duan-lu.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca03fd0>]">最短路</a>
+										<a href="https://joshuaghost.github.io/tag/zui-duan-lu.html" class="tag-[<pelican.contents.Article object at 0x7f34c8baabe0>]">最短路</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 139.6%;">
-										<a href="https://joshuaghost.github.io/tag/suan-fa.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca03fd0>, <pelican.contents.Article object at 0x7f3bcc9d09d0>, <pelican.contents.Article object at 0x7f3bcca1a490>]">算法</a>
+										<a href="https://joshuaghost.github.io/tag/suan-fa.html" class="tag-[<pelican.contents.Article object at 0x7f34c8baabe0>, <pelican.contents.Article object at 0x7f34c8afc7f0>, <pelican.contents.Article object at 0x7f34ca48c490>]">算法</a>
 									</li>
 									<!-- <li style="font-size: 139.6%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/dijkstra.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca03fd0>]">Dijkstra</a>
+										<a href="https://joshuaghost.github.io/tag/dijkstra.html" class="tag-[<pelican.contents.Article object at 0x7f34c8baabe0>]">Dijkstra</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="https://joshuaghost.github.io/tag/kmp.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9d09d0>, <pelican.contents.Article object at 0x7f3bcca1a490>]">KMP</a>
+										<a href="https://joshuaghost.github.io/tag/kmp.html" class="tag-[<pelican.contents.Article object at 0x7f34c8afc7f0>, <pelican.contents.Article object at 0x7f34ca48c490>]">KMP</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/extended-kmp.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9d09d0>]">Extended KMP</a>
+										<a href="https://joshuaghost.github.io/tag/extended-kmp.html" class="tag-[<pelican.contents.Article object at 0x7f34c8afc7f0>]">Extended KMP</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/shu-ju-jie-gou.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9f1f70>]">数据结构</a>
+										<a href="https://joshuaghost.github.io/tag/shu-ju-jie-gou.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a4ea00>]">数据结构</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/zi-dong-ji.html" class="tag-[<pelican.contents.Article object at 0x7f3bcc9f1f70>]">自动机</a>
+										<a href="https://joshuaghost.github.io/tag/zi-dong-ji.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a4ea00>]">自动机</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/mi-ma-xue.html" class="tag-[<pelican.contents.Article object at 0x7f3bccab5df0>]">密码学</a>
+										<a href="https://joshuaghost.github.io/tag/mi-ma-xue.html" class="tag-[<pelican.contents.Article object at 0x7f34c8a65c70>]">密码学</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="https://joshuaghost.github.io/tag/zoj.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca220d0>, <pelican.contents.Article object at 0x7f3bcc961310>]">ZOJ</a>
+										<a href="https://joshuaghost.github.io/tag/zoj.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bb4a90>, <pelican.contents.Article object at 0x7f34c8a37340>]">ZOJ</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 125.0%;">
-										<a href="https://joshuaghost.github.io/tag/fan-yi.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca220d0>, <pelican.contents.Article object at 0x7f3bcc961310>]">翻译</a>
+										<a href="https://joshuaghost.github.io/tag/fan-yi.html" class="tag-[<pelican.contents.Article object at 0x7f34c8bb4a90>, <pelican.contents.Article object at 0x7f34c8a37340>]">翻译</a>
 									</li>
 									<!-- <li style="font-size: 125.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/dong-tai-gui-hua.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca327f0>]">动态规划</a>
+										<a href="https://joshuaghost.github.io/tag/dong-tai-gui-hua.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b53df0>]">动态规划</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>
 										<a href="https://joshuaghost.github.io/tags/.html"></a>-->
 									<li style="font-size: 100.0%;">
-										<a href="https://joshuaghost.github.io/tag/shu-xing-dong-gui.html" class="tag-[<pelican.contents.Article object at 0x7f3bcca327f0>]">树型动归</a>
+										<a href="https://joshuaghost.github.io/tag/shu-xing-dong-gui.html" class="tag-[<pelican.contents.Article object at 0x7f34c8b53df0>]">树型动归</a>
 									</li>
 									<!-- <li style="font-size: 100.0%;">
 										<a href="https://joshuaghost.github.io/tags/.html"></a>

@@ -84,16 +84,18 @@
 }
 
 code {
-	color: #222222;
-	background: #f8f8f8;
-	border: 1px solid #dddddd;
-	margin: 0 2px;
-	padding: 0 5px;
+	color: #333333;
+	/* background: #f8f8f8;
+	border: 1px solid #dddddd; */
+	/* margin: 0 2px;
+	padding: 0 5px; */
+	line-height: 150%;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	font-weight: normal;
-	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	/* font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; */
+	font-family: 'Droid Sans Mono', 'monospace', monospace;
 }
 
 p {
@@ -128,6 +130,8 @@ table.highlighttable {
 }
        
 .highlight{
+	margin: 2px 2px;
+	padding: 5px 5px;
 	width: 100%;
 	height: auto;
 	overflow: auto;
