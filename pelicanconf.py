@@ -63,3 +63,4 @@ MATH_JAX = {
     "align": "left",
     "tex_extensions": ["color.js", "mhchem.js"],
 }
+FOUNDATION_PYGMENT_THEME = "emacs"
