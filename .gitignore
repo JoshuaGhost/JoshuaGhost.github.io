@@ -9,3 +9,4 @@ env/*
 output/*
 pelican.pid
 srv.pid
+.vscode/settings.json
